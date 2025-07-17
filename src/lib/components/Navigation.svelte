@@ -1,5 +1,42 @@
 <script>
+    import { page } from '$app/stores';
+    import { goto } from '$app/navigation';
+    import { afterNavigate } from '$app/navigation';
+    import { onMount } from 'svelte';
     import Avatar from '$lib/components/Avatar.svelte';
+    
+    $: isHomePage = $page.route.id === '/';
+    
+    async function handleNavClick(event, anchor) {
+        event.preventDefault();
+        
+        if (isHomePage) {
+            const element = document.getElementById(anchor);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            await goto('/');
+            setTimeout(() => {
+                const element = document.getElementById(anchor);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
+    }
+    
+    afterNavigate(() => {
+        if ($page.url.hash) {
+            setTimeout(() => {
+                const anchor = $page.url.hash.substring(1);
+                const element = document.getElementById(anchor);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
+    });
 </script>
 
 <nav class="nav">
@@ -10,9 +47,30 @@
                 <span>Ronan PLUTA FONTAINE</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#projects">Projets</a></li>
-                <li><a href="#competences">Compétences</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <a 
+                        href="/#projects" 
+                        on:click={(e) => handleNavClick(e, 'projects')}
+                    >
+                        Projets
+                    </a>
+                </li>
+                <li>
+                    <a 
+                        href="/#competences" 
+                        on:click={(e) => handleNavClick(e, 'competences')}
+                    >
+                        Compétences
+                    </a>
+                </li>
+                <li>
+                    <a 
+                        href="/#contact" 
+                        on:click={(e) => handleNavClick(e, 'contact')}
+                    >
+                        Contact
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
@@ -53,6 +111,7 @@
         color: var(--color-text-light);
         text-decoration: none;
         font-size: 0.9rem;
+        cursor: pointer;
     }
     
     .nav-links a:hover {
@@ -65,7 +124,6 @@
         }
     }
     
-    /* Support du mode sombre */
     @media (prefers-color-scheme: dark) {
         .nav {
             background: #111;
