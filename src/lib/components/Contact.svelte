@@ -1,8 +1,8 @@
 <script>
     const contactLinks = [
-        { label: "Email", href: "mailto:ronan.pluta.fontaine@example.com" },
+        { label: "Email", href: "mailto:rplutafontaine@protonmail.com" },
         { label: "LinkedIn", href: "https://linkedin.com/in/ronan-pluta-fontaine" },
-        { label: "GitHub", href: "https://github.com/ronan-pluta-fontaine" }
+        { label: "GitHub", href: "https://github.com/Neopelta" }
     ];
 </script>
 
