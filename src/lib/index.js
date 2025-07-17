@@ -1,0 +1,9 @@
+// Export des composants pour faciliter les imports
+export { default as Avatar } from './components/Avatar.svelte';
+export { default as Navigation } from './components/Navigation.svelte';
+export { default as Hero } from './components/Hero.svelte';
+export { default as About } from './components/About.svelte';
+export { default as ProjectCard } from './components/ProjectCard.svelte';
+export { default as Projects } from './components/Projects.svelte';
+export { default as Skills } from './components/Skills.svelte';
+export { default as Contact } from './components/Contact.svelte';
