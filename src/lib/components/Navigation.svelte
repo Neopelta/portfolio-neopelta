@@ -10,7 +10,7 @@
                 <span>Ronan PLUTA FONTAINE</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#projets">Projets</a></li>
+                <li><a href="#projects">Projets</a></li>
                 <li><a href="#competences">Compétences</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
