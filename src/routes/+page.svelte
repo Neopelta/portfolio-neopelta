@@ -5,8 +5,7 @@
     import Projects from '$lib/components/Projects.svelte';
     import Skills from '$lib/components/Skills.svelte';
     import Contact from '$lib/components/Contact.svelte';
-    
-    // Import des styles globaux
+    import Footer from '$lib/components/Footer.svelte';
     import '../app.css';
 </script>
 
@@ -28,6 +27,7 @@
     <Contact />
 </main>
 
+<Footer />
+
 <style>
-    /* Styles spécifiques à la page si nécessaire */
 </style>

@@ -6,6 +6,7 @@
     import ProjectsGrid from '$lib/components/ProjectsGrid.svelte';
     import ProjectsFilters from '$lib/components/ProjectsFilters.svelte';
     import ProjectsPagination from '$lib/components/ProjectsPagination.svelte';
+    import Footer from '$lib/components/Footer.svelte';
     import { 
         filteredProjects, 
         paginatedProjects, 
@@ -70,6 +71,8 @@
         <a href="/" class="back-link">← Retour à l'accueil</a>
     </div>
 </main>
+
+<Footer />
 
 <style>
     .page-header {
