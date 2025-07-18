@@ -36,13 +36,14 @@ export const projects = [
     {
         id: 'portfolio',
         title: "Portfolio Personnel",
-        description: "Mon portfolio personnel développé en SvelteKit, mettant en avant mes projets, compétences et expériences. Le site est entièrement responsive.",
+        description: "Mon portfolio personnel développé en SvelteKit, mettant en avant mes projets, compétences et expériences.",
         date: "2025",
         category: "Web",
         featured: true,
         technologies: [
             { name: "SvelteKit", highlighted: true },
-            { name: "HTML/CSS", highlighted: false },
+            { name: "HTML", highlighted: false },
+            { name: "CSS", highlighted: false },
             { name: "JavaScript", highlighted: false }
         ],
         link: "#",
@@ -125,7 +126,8 @@ export const projects = [
         featured: false,
         technologies: [
             { "name": "TypeScript", "highlighted": true },
-            { "name": "HTML/CSS", "highlighted": false }
+            { "name": "HTML", "highlighted": false },
+            { "name": "CSS", "highlighted": false }
         ],
         link: "#",
         image: "/images/validateur-syllo-project.webp",
@@ -140,7 +142,7 @@ export const projects = [
         category: "Jeu/3D",
         featured: false,
         technologies: [
-            { name: "JAVA", highlighted: true }
+            { name: "Java", highlighted: true }
         ],
         link: "#",
         image: "/images/the-cave-intro.webp",
@@ -186,9 +188,9 @@ export const projects = [
         category: "Web",
         featured: false,
         technologies: [
-            { name: "xhtml", highlighted: true },
-            { name: "css", highlighted: true },
-            { name: "javascript", highlighted: true }
+            { name: "XHTML", highlighted: true },
+            { name: "CSS", highlighted: true },
+            { name: "JavaScript", highlighted: true }
         ],
         link: "#",
         image: "/images/La-Dinomonie-La-ceremonie-des-jeux-video.webp",
