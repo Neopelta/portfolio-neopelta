@@ -34,9 +34,6 @@
                 </span>
             {/each}
         </div>
-        <a href={link} class="project-link" target="_blank" rel="noopener noreferrer">
-            Voir le projet →
-        </a>
     </div>
 </article>
 
@@ -56,7 +53,7 @@
         height: 200px;
         background: #f8f8f8;
         display: flex;
-        align-items: flex-start; /* Modification ici */
+        align-items: flex-start;
         justify-content: center;
         border-bottom: 1px solid var(--color-border);
         overflow: hidden;
@@ -124,18 +121,6 @@
         font-weight: 500;
     }
     
-    .project-link {
-        color: var(--color-green);
-        text-decoration: none;
-        font-size: 0.9rem;
-        font-weight: 500;
-    }
-    
-    .project-link:hover {
-        text-decoration: underline;
-    }
-    
-    /* Support du mode sombre */
     @media (prefers-color-scheme: dark) {
         .project-image {
             background: #1a1a1a;
