@@ -11,8 +11,8 @@ export const projects = [
             { name: "Java", highlighted: true },
             { name: "Room (SQLite)", highlighted: false }
         ],
-        link: "#",
-        image: "/images/gamfed-project.webp",
+        link: "/projects/gamfed-quiz",
+        image: "/images/projects/gamfed/gamfed-project.webp",
         alt: "Interface de quiz Gamfed avec questions à choix multiples",
         tags: ["Android", "Mobile", "Quiz", "Sport"]
     },
@@ -29,7 +29,7 @@ export const projects = [
             { name: "Room (SQLite)", highlighted: false }
         ],
         link: "#",
-        image: "/images/survival-quiz-project.webp",
+        image: "/images/projects/survival-quiz/survival-quiz-project.webp",
         alt: "Page d'accueil de quiz Survival Quiz",
         tags: ["Android", "Mobile", "Quiz", "PDF"]
     },
@@ -47,7 +47,7 @@ export const projects = [
             { name: "JavaScript", highlighted: false }
         ],
         link: "#",
-        image: "/ronan_default.svg",
+        image: "images/logo/ronan-px/ronan_default.svg",
         alt: "Capture d'écran du portfolio personnel avec sections Projets, Compétences et Contact",
         tags: ["Web", "Portfolio", "Responsive"]
     },
@@ -65,7 +65,7 @@ export const projects = [
             { name: "Google Sheets API", highlighted: false }
         ],
         link: "#",
-        image: "/images/skilltracker-project.webp",
+        image: "/images/projects/skilltracker/skilltracker-project.webp",
         alt: "Tableau de bord SkillTracker avec graphiques de progression",
         tags: ["Web", "React", "API", "Dashboard"]
     },
@@ -82,7 +82,7 @@ export const projects = [
             { name: "Blender", highlighted: false }
         ],
         link: "#",
-        image: "/images/3D_car_configurator-project.webp",
+        image: "/images/projects/3D-car-config/3D_car_configurator-project.webp",
         alt: "Interface du configurateur de voiture 3D avec widgets ColorMixer, Carousel et Joystick",
         tags: ["Unity", "3D", "IHM", "Widgets"]
     },
@@ -98,7 +98,7 @@ export const projects = [
             { name: "CMake", highlighted: false }
         ],
         link: "#",
-        image: "/images/kapture-game.webp",
+        image: "/images/projects/kapture/kapture-game.webp",
         alt: "Capture d'écran du jeu Kapture dans un terminal Linux",
         tags: ["C++", "Stratégie", "Terminal", "Tactique"]
     },
@@ -113,7 +113,7 @@ export const projects = [
             { name: "C", highlighted: true }
         ],
         link: "#",
-        image: "/images/sudoku-image.webp",
+        image: "/images/projects/sudoku/sudoku-image.webp",
         alt: "Capture d'écran d'un terminal linux d'un sudoku résolu",
         tags: ["C", "Algorithme", "Logique", "Backtracking"]
     },
@@ -130,7 +130,7 @@ export const projects = [
             { "name": "CSS", "highlighted": false }
         ],
         link: "#",
-        image: "/images/validateur-syllo-project.webp",
+        image: "/images//projects/polysyllogismvalidateur-syllo-project.webp",
         alt: "Interface du validateur de polysyllogismes avec formulaire de saisie",
         tags: ["TypeScript", "Pédagogie", "Logique", "Équipe"]
     },
@@ -145,7 +145,7 @@ export const projects = [
             { name: "Java", highlighted: true }
         ],
         link: "#",
-        image: "/images/the-cave-intro.webp",
+        image: "/images/projects/the-cave/the-cave-intro.webp",
         alt: "The Cave - Introduction avec un personnage dans une grotte",
         tags: ["Java", "Aventure", "Textuel", "RPG"]
     },
@@ -161,7 +161,7 @@ export const projects = [
             { name: "SDL2", highlighted: false }
         ],
         link: "#",
-        image: "/images/towerdefends-project.webp",
+        image: "/images//projects/towerdefend/towerdefends-project.webp",
         alt: "Simulation TowerDefend avec tours défensives et unités ennemies sur un plateau de jeu",
         tags: ["C", "SDL2", "Stratégie", "Simulation"]
     },
@@ -176,7 +176,7 @@ export const projects = [
             { name: "OCaml", highlighted: true }
         ],
         link: "#",
-        image: "/images/tetris-gameplay.webp",
+        image: "/images/projects/tetris/tetris-gameplay.webp",
         alt: "Partie de Tetris en cours avec différentes formes colorées",
         tags: ["OCaml", "Classique", "Puzzle", "Graphics"]
     },
@@ -193,7 +193,7 @@ export const projects = [
             { name: "JavaScript", highlighted: true }
         ],
         link: "#",
-        image: "/images/La-Dinomonie-La-ceremonie-des-jeux-video.webp",
+        image: "/images/projects/dinomonie/La-Dinomonie-La-ceremonie-des-jeux-video.webp",
         alt: "Page d'accueil de Dinomonie - La cérémonie des jeux vidéo",
         tags: ["Web", "Accessibilité", "Responsive", "Cérémonie"]
     }
