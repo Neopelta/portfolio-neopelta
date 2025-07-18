@@ -12,6 +12,7 @@ export const projects = [
             { name: "Room (SQLite)", highlighted: false }
         ],
         link: "/projects/gamfed-quiz",
+        git: "https://github.com/Neopelta/GamFed-quiz.git",
         image: "/images/projects/gamfed/gamfed-project.webp",
         alt: "Interface de quiz Gamfed avec questions à choix multiples",
         tags: ["Android", "Mobile", "Quiz", "Sport"]
