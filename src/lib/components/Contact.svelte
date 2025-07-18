@@ -30,11 +30,11 @@
                 Email
             </a>
             <a href="https://linkedin.com/in/ronan-pluta-fontaine" class="contact-link linkedin" target="_blank" rel="noopener noreferrer">
-                <img src="/images/linkedin/LinkedIn-logo.svg" alt="LinkedIn" width="20" height="20" />
+                <img src="/images/logo/linkedin/LinkedIn-logo.svg" alt="LinkedIn" width="20" height="20" />
                 LinkedIn
             </a>
             <a href="https://github.com/Neopelta" class="contact-link github" target="_blank" rel="noopener noreferrer">
-                <img src="/images/github/github-logo.svg" alt="GitHub" width="20" height="20" />
+                <img src="/images/logo/github/github-logo.svg" alt="GitHub" width="20" height="20" />
                 GitHub
             </a>
         </div>

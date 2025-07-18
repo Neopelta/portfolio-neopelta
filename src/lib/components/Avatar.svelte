@@ -1,6 +1,6 @@
 <script>
     export let size = 'medium'; // 'small', 'medium', 'large'
-    export let speaking = false; // Pour afficher ronan_speak.svg
+    export let speaking = false; // To display ronan_speak.svg
     
     const sizes = {
         small: 24,
@@ -8,7 +8,7 @@
         large: 128
     };
     
-    $: avatarSrc = speaking ? '/ronan_speak.svg' : '/ronan_default.svg';
+    $: avatarSrc = speaking ? '/images/logo/ronan-px/ronan_speak.svg' : '/images/logo/ronan-px/ronan_default.svg';
     $: avatarSize = sizes[size];
 </script>
 
@@ -24,7 +24,6 @@
     .avatar {
         display: block;
         flex-shrink: 0;
-        /* Préserver le style pixel art */
         image-rendering: pixelated;
         image-rendering: -moz-crisp-edges;
         image-rendering: crisp-edges;
