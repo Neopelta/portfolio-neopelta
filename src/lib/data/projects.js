@@ -28,7 +28,7 @@ export const projects = [
             { name: "Java", highlighted: true },
             { name: "Room (SQLite)", highlighted: false }
         ],
-        link: "#",
+        link: "/projects/survival-quiz",
         image: "/images/projects/survival-quiz/survival-quiz-project.webp",
         alt: "Page d'accueil de quiz Survival Quiz",
         tags: ["Android", "Mobile", "Quiz", "PDF"]
@@ -46,7 +46,7 @@ export const projects = [
             { name: "CSS", highlighted: false },
             { name: "JavaScript", highlighted: false }
         ],
-        link: "#",
+        link: "/projects/portfolio",
         image: "images/logo/ronan-px/ronan_default.svg",
         alt: "Capture d'écran du portfolio personnel avec sections Projets, Compétences et Contact",
         tags: ["Web", "Portfolio", "Responsive"]
@@ -64,7 +64,7 @@ export const projects = [
             { name: "Discord API", highlighted: false },
             { name: "Google Sheets API", highlighted: false }
         ],
-        link: "#",
+        link: "/projects/skilltracker",
         image: "/images/projects/skilltracker/skilltracker-project.webp",
         alt: "Tableau de bord SkillTracker avec graphiques de progression",
         tags: ["Web", "React", "API", "Dashboard"]
@@ -81,7 +81,7 @@ export const projects = [
             { name: "C#", highlighted: true },
             { name: "Blender", highlighted: false }
         ],
-        link: "#",
+        link: "/projects/3d-car-configurator",
         image: "/images/projects/3D-car-config/3D_car_configurator-project.webp",
         alt: "Interface du configurateur de voiture 3D avec widgets ColorMixer, Carousel et Joystick",
         tags: ["Unity", "3D", "IHM", "Widgets"]
@@ -97,7 +97,7 @@ export const projects = [
             { name: "C++", highlighted: true},
             { name: "CMake", highlighted: false }
         ],
-        link: "#",
+        link: "/projects/kapture-game",
         image: "/images/projects/kapture/kapture-game.webp",
         alt: "Capture d'écran du jeu Kapture dans un terminal Linux",
         tags: ["C++", "Stratégie", "Terminal", "Tactique"]
@@ -112,7 +112,7 @@ export const projects = [
         technologies: [
             { name: "C", highlighted: true }
         ],
-        link: "#",
+        link: "/projects/sudoku-solver",
         image: "/images/projects/sudoku/sudoku-image.webp",
         alt: "Capture d'écran d'un terminal linux d'un sudoku résolu",
         tags: ["C", "Algorithme", "Logique", "Backtracking"]
@@ -129,7 +129,7 @@ export const projects = [
             { "name": "HTML", "highlighted": false },
             { "name": "CSS", "highlighted": false }
         ],
-        link: "#",
+        link: "/projects/polysyllogism-validator",
         image: "/images//projects/polysyllogismvalidateur-syllo-project.webp",
         alt: "Interface du validateur de polysyllogismes avec formulaire de saisie",
         tags: ["TypeScript", "Pédagogie", "Logique", "Équipe"]
@@ -144,7 +144,7 @@ export const projects = [
         technologies: [
             { name: "Java", highlighted: true }
         ],
-        link: "#",
+        link: "/projects/the-cave",
         image: "/images/projects/the-cave/the-cave-intro.webp",
         alt: "The Cave - Introduction avec un personnage dans une grotte",
         tags: ["Java", "Aventure", "Textuel", "RPG"]
@@ -160,7 +160,7 @@ export const projects = [
             { name: "C", highlighted: true },
             { name: "SDL2", highlighted: false }
         ],
-        link: "#",
+        link: "/projects/towerdefend",
         image: "/images//projects/towerdefend/towerdefends-project.webp",
         alt: "Simulation TowerDefend avec tours défensives et unités ennemies sur un plateau de jeu",
         tags: ["C", "SDL2", "Stratégie", "Simulation"]
@@ -175,7 +175,7 @@ export const projects = [
         technologies: [
             { name: "OCaml", highlighted: true }
         ],
-        link: "#",
+        link: "/projects/tetris",
         image: "/images/projects/tetris/tetris-gameplay.webp",
         alt: "Partie de Tetris en cours avec différentes formes colorées",
         tags: ["OCaml", "Classique", "Puzzle", "Graphics"]
@@ -192,7 +192,7 @@ export const projects = [
             { name: "CSS", highlighted: true },
             { name: "JavaScript", highlighted: true }
         ],
-        link: "#",
+        link: "/projects/dinomonie",
         image: "/images/projects/dinomonie/La-Dinomonie-La-ceremonie-des-jeux-video.webp",
         alt: "Page d'accueil de Dinomonie - La cérémonie des jeux vidéo",
         tags: ["Web", "Accessibilité", "Responsive", "Cérémonie"]
