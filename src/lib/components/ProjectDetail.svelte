@@ -4,6 +4,7 @@
     export let contentBlocks = [];
     export let images = [];
     export let codeSnippets = [];
+    export let sources = [];
     export let downloads = [];
 
     function openImageModal(imageSrc, imageAlt) {
@@ -68,13 +69,17 @@
             {#each contentBlocks as block, index}
                 {#if block.type === 'text'}
                     <div class="content-text">
+                        {#if block.title}
+                            <h4 class="block-title" class:underlined={block.underlined}>{block.title}</h4>
+                        {/if}
                         {@html block.content}
                     </div>
                 {:else if block.type === 'images'}
                     <div class="content-images">
                         {#if block.title}
-                            <h4 class="content-subtitle">{block.title}</h4>
+                            <h4 class="block-title" class:underlined={block.underlined}>{block.title}</h4>
                         {/if}
+                        <p class="click-hint">💡 Cliquez sur une image pour l'agrandir</p>
                         <div class="images-carousel-container">
                             {#if block.images.length > 1}
                                 <button 
@@ -115,11 +120,14 @@
                     </div>
                 {:else if block.type === 'code'}
                     <div class="content-code">
+                        {#if block.title}
+                            <h4 class="block-title" class:underlined={block.underlined}>{block.title}</h4>
+                        {/if}
                         <div class="code-snippet">
                             <div class="snippet-header">
                                 <span class="snippet-language">{block.language}</span>
-                                {#if block.title}
-                                    <span class="snippet-title">{block.title}</span>
+                                {#if block.snippetTitle}
+                                    <span class="snippet-title">{block.snippetTitle}</span>
                                 {/if}
                             </div>
                             <pre class="snippet-code"><code>{block.code}</code></pre>
@@ -133,6 +141,7 @@
     {#if images.length > 0}
         <div class="detail-images">
             <h4>Captures d'écran</h4>
+            <p class="click-hint">💡 Cliquez sur une image pour l'agrandir</p>
             <div class="images-grid">
                 {#each images as image}
                     <div 
@@ -170,9 +179,25 @@
         </div>
     {/if}
 
+    {#if sources.length > 0}
+        <div class="detail-section">
+            <h2 class="section-title">Sources</h2>
+            <div class="sources-list">
+                {#each sources as source}
+                    <p class="source-item">
+                        <strong>{source.name}</strong> - {source.description}
+                        <a href={source.url} target="_blank" rel="noopener noreferrer" class="source-url">
+                            {source.url}
+                        </a>
+                    </p>
+                {/each}
+            </div>
+        </div>
+    {/if}
+
     {#if downloads.length > 0}
         <div class="detail-section">
-            <h4>Documents à télécharger</h4>
+            <h2 class="section-title">Documents à télécharger</h2>
             <div class="downloads-grid" class:single-download={downloads.length === 1}>
                 {#each downloads as download}
                     <div class="download-item">
@@ -220,6 +245,10 @@
 </div>
 
 <style>
+    .section-title {
+        color: var(--color-green);
+    }
+    
     .project-detail {
         max-width: 100%;
     }
@@ -248,6 +277,15 @@
         margin-bottom: var(--spacing-sm);
     }
 
+    .detail-content :global(ul) {
+        margin: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-md);
+        color: var(--color-text-light);
+    }
+
+    .detail-content :global(li) {
+        margin-bottom: var(--spacing-xs);
+    }
+
     .modular-content {
         margin-bottom: var(--spacing-lg);
     }
@@ -269,18 +307,37 @@
         margin-bottom: var(--spacing-sm);
     }
 
+    .content-text :global(ul) {
+        margin: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-md);
+        color: var(--color-text-light);
+    }
+
+    .content-text :global(li) {
+        margin-bottom: var(--spacing-xs);
+    }
+
     .content-images {
         margin-bottom: var(--spacing-lg);
     }
 
-    .content-subtitle {
+    .block-title {
         font-size: 1.1rem;
         font-weight: 600;
         color: var(--color-text);
         margin-bottom: var(--spacing-md);
+        display: inline-block;
+    }
+
+    .block-title.underlined {
         padding-bottom: var(--spacing-xs);
         border-bottom: 2px solid var(--color-green);
-        display: inline-block;
+    }
+
+    .click-hint {
+        font-size: 0.75rem;
+        color: var(--color-text-light);
+        margin-bottom: var(--spacing-xs);
+        opacity: 0.7;
     }
 
     .images-carousel-container {
@@ -327,6 +384,7 @@
         overflow: hidden;
         transition: transform 0.2s ease;
         cursor: pointer;
+        background: var(--project-image-bg);
     }
 
     .carousel-image-item:hover,
@@ -339,8 +397,10 @@
     .carousel-image-item img {
         width: 100%;
         height: 200px;
-        object-fit: cover;
+        object-fit: contain;
+        object-position: center;
         display: block;
+        background: var(--nav-bg);
     }
 
     .carousel-btn {
@@ -410,6 +470,7 @@
         overflow: hidden;
         transition: transform 0.2s ease;
         cursor: pointer;
+        background: var(--project-image-bg);
     }
 
     .image-item:hover,
@@ -422,8 +483,10 @@
     .image-item img {
         width: 100%;
         height: 250px;
-        object-fit: cover;
+        object-fit: contain;
+        object-position: center;
         display: block;
+        background: var(--nav-bg);
     }
 
     .image-caption {
@@ -478,6 +541,42 @@
         color: var(--color-text);
     }
 
+    /* Styles pour les sources */
+    .sources-list {
+        background: var(--info-note-bg);
+        border-radius: 8px;
+        padding: var(--spacing-md);
+        border-left: 3px solid var(--color-green);
+    }
+
+    .source-item {
+        margin-bottom: var(--spacing-sm);
+        line-height: 1.6;
+        color: var(--color-text-light);
+    }
+
+    .source-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .source-item strong {
+        color: var(--color-text);
+    }
+
+    .source-url {
+        display: block;
+        color: var(--color-green);
+        text-decoration: none;
+        font-size: 0.9rem;
+        margin-top: var(--spacing-xs);
+        word-break: break-all;
+    }
+
+    .source-url:hover {
+        text-decoration: underline;
+    }
+
+    /* Styles existants pour les téléchargements */
     .downloads-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -586,7 +685,7 @@
         position: absolute;
         top: 20px;
         right: 35px;
-        color: white;
+        color: var(--color-green);
         font-size: 40px;
         font-weight: bold;
         cursor: pointer;
@@ -599,7 +698,6 @@
     .modal-close:hover,
     .modal-close:focus {
         opacity: 0.7;
-        outline: 2px solid white;
         outline-offset: 2px;
     }
 

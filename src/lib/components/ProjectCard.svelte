@@ -176,7 +176,6 @@
         fill: currentColor;
     }
     
-    /* Support du mode sombre */
     @media (prefers-color-scheme: dark) {
         .project-image {
             background: #1a1a1a;

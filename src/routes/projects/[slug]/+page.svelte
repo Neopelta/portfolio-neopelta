@@ -370,7 +370,11 @@
     }
 
     .nav-link.center:hover {
-        background: #1ea54e;
+        background: var(--color-green);
+    }
+
+    .section-title {
+        color: var(--color-green);
     }
 
     .nav-direction {
