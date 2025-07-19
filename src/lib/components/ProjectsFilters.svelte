@@ -349,10 +349,12 @@
     @media (max-width: 600px) {
         .filters-row {
             flex-direction: column;
+            align-items: stretch;
         }
 
         .filter-group {
             min-width: auto;
+            width: 100%;
         }
 
         .reset-button {
