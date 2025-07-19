@@ -724,12 +724,33 @@
         }
 
         .images-carousel-container {
-            flex-direction: column;
+            position: relative;
+            padding-bottom: 60px;
+        }
+
+        .images-carousel {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .carousel-btn-left {
+            position: absolute;
+            bottom: 0;
+            left: calc(50% - 75px);
+            top: auto;
+            transform: none;
+        }
+
+        .carousel-btn-right {
+            position: absolute;
+            bottom: 0;
+            right: calc(50% - 75px);
+            top: auto;
+            transform: none;
         }
 
         .carousel-btn {
             font-size: 2rem;
-            min-width: 35px;
+            min-width: 50px;
             height: 50px;
         }
     }
