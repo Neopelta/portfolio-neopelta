@@ -274,6 +274,19 @@
 
     .project-actions {
         margin-top: var(--spacing-md);
+        text-align: left;
+    }
+
+    .project-meta {
+        justify-content: left;
+    }
+
+    .project-technologies {
+        justify-content: left;
+    }
+
+    .project-tags {
+        justify-content: left;
     }
 
     .btn-github {
@@ -419,6 +432,26 @@
         .project-header {
             grid-template-columns: 1fr;
             gap: var(--spacing-lg);
+        }
+        
+        .project-title {
+            text-align: center;
+        }
+
+        .project-actions {
+            text-align: center;
+        }
+
+        .project-meta {
+            justify-content: center;
+        }
+
+        .project-technologies {
+            justify-content: center;
+        }
+
+        .project-tags {
+            justify-content: center;
         }
 
         .project-title {
