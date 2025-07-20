@@ -143,7 +143,7 @@ export const projects = [
 		],
 		link: '/projects/polysyllogism-validator',
 		git: 'https://github.com/Neopelta/polysyllogisme.git',
-		image: '/images/projects/polysyllogism/validateur-syllo-project.webp',
+		image: '/images/projects/polysyllogism/syllogisme-project(guide).webp',
 		alt: 'Interface du validateur de polysyllogismes avec formulaire de saisie',
 		tags: ['TypeScript', 'Pédagogie', 'Logique', 'Équipe']
 	},
