@@ -9,6 +9,13 @@
     export let image = null;
     export let alt = '';
     export let date = '';
+    
+    function truncateDescription(text, maxLength = 120) {
+        if (text.length <= maxLength) return text;
+        return text.substring(0, maxLength).trim() + '[...]';
+    }
+    
+    $: truncatedDescription = truncateDescription(description);
 </script>
 
 <article class="project">
@@ -27,7 +34,7 @@
             {/if}
         </div>
 
-        <p class="project-description">{description}</p>
+        <p class="project-description">{truncatedDescription}</p>
         <div class="project-tech">
             {#each technologies as tech}
                 <span class="tech-tag" class:highlighted={tech.highlighted}>
@@ -59,6 +66,9 @@
         border-radius: 8px;
         overflow: hidden;
         transition: border-color 0.2s ease;
+        display: flex;
+        flex-direction: column;
+        height: 480px;
     }
     
     .project:hover {
@@ -83,6 +93,13 @@
         object-position: top;
     }
 
+    .project-content {
+        padding: var(--spacing-md);
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+    
     .project-header {
         display: flex;
         flex-direction: column;
@@ -95,10 +112,6 @@
         color: var(--color-text-light);
         font-style: normal;
         font-weight: 400;
-    }
-
-    .project-content {
-        padding: var(--spacing-md);
     }
     
     .project h3 {
@@ -113,6 +126,7 @@
         font-size: 0.9rem;
         margin-bottom: var(--spacing-sm);
         line-height: 1.5;
+        flex: 1;
     }
     
     .project-tech {
