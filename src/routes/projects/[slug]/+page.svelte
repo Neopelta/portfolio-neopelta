@@ -345,6 +345,7 @@
         padding: var(--spacing-lg) 0;
         border-top: 1px solid var(--color-border);
         border-bottom: 1px solid var(--color-border);
+        align-items: center;
     }
 
     .nav-item {
