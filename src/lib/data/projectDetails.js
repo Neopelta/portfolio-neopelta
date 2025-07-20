@@ -238,7 +238,7 @@ export const projectDetails = {
 			}
 		]
 	},
-	'skilltracker': {
+	skilltracker: {
 		title: 'Plateforme Web de Suivi de Compétences avec Écosystème Discord',
 		contentBlocks: [
 			{
@@ -740,7 +740,7 @@ export const projectDetails = {
 			},
 			{
 				type: 'text',
-				title: 'Méthodologie et organisation d\'équipe',
+				title: "Méthodologie et organisation d'équipe",
 				underlined: true,
 				content: `
 					<p>Le projet a été mené selon une méthodologie agile adaptée au contexte académique :</p>
