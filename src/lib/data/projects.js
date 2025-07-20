@@ -24,7 +24,7 @@ export const projects = [
 			"Quiz de survie temporelle sur Android avec génération de certificat PDF. Interface adaptative jour/nuit, support multilingue et historique des résultats via Room Database. Développé en binôme dans le cadre du cours d'IHM mobile.",
 		date: '2025',
 		category: 'Mobile',
-		featured: true,
+		featured: false,
 		technologies: [
 			{ name: 'Android', highlighted: true },
 			{ name: 'Java', highlighted: true },
@@ -43,7 +43,7 @@ export const projects = [
 			'Mon portfolio personnel développé en SvelteKit, mettant en avant mes projets, compétences et expériences.',
 		date: '2025',
 		category: 'Web',
-		featured: true,
+		featured: false,
 		technologies: [
 			{ name: 'SvelteKit', highlighted: true },
 			{ name: 'HTML', highlighted: false },
@@ -120,7 +120,7 @@ export const projects = [
 			"Solveur de Sudoku en C combinant logique avancée et backtracking. Le programme applique d'abord des techniques de réduction de notes (X-Wing, kuplets) et des analyses de blocs, puis utilise le backtracking comme solution de secours.",
 		date: '2024',
 		category: 'Desktop',
-		featured: false,
+		featured: true,
 		technologies: [{ name: 'C', highlighted: true }],
 		link: '/projects/sudoku-solver',
 		git: 'https://github.com/Neopelta/sudoku-solver.git',
@@ -135,7 +135,7 @@ export const projects = [
 			'Outil pédagogique en TypeScript pour valider des raisonnements logiques. Développé en équipe de 5 sur 3 mois, ce projet permet à des étudiants de vérifier la validité de leurs syllogismes.',
 		date: '2024',
 		category: 'Web',
-		featured: false,
+		featured: true,
 		technologies: [
 			{ name: 'TypeScript', highlighted: true },
 			{ name: 'HTML', highlighted: false },

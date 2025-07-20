@@ -10,7 +10,7 @@
 <section id="projects" class="section">
 	<div class="projects">
 		<div class="projects-header">
-			<h2 class="section-title">Projets récents</h2>
+			<h2 class="section-title">Projets en vedette</h2>
 			<a href="/projects" class="view-all-link">
 				Voir tous les projets ({totalProjectsCount}) →
 			</a>
