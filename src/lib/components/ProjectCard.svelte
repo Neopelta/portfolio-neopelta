@@ -43,7 +43,7 @@
 			{/each}
 		</div>
 		<div class="project-links">
-			<a href={link} class="project-link" target="_blank" rel="noopener noreferrer">
+			<a href={link} class="project-link">
 				Voir le projet →
 			</a>
 			<!--
@@ -168,6 +168,7 @@
 		text-decoration: underline;
 	}
 
+	/*
 	.git-link {
 		display: flex;
 		align-items: center;
@@ -188,6 +189,7 @@
 		height: 16px;
 		fill: currentColor;
 	}
+    */
 
 	@media (prefers-color-scheme: dark) {
 		.project-image {

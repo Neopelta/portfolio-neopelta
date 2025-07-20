@@ -2,6 +2,13 @@ import { projects } from '$lib/data/projects.js';
 import { getProjectDetails } from '$lib/data/projectDetails.js';
 import { error } from '@sveltejs/kit';
 
+// Liste toutes les routes possibles pour le prérendu
+export function entries() {
+	return projects.map((project) => ({
+		slug: project.id
+	}));
+}
+
 export function load({ params }) {
 	const project = projects.find((p) => p.id === params.slug);
 

@@ -137,7 +137,7 @@ export const projects = [
 			{ name: 'CSS', highlighted: false }
 		],
 		link: '/projects/polysyllogism-validator',
-		image: '/images//projects/polysyllogismvalidateur-syllo-project.webp',
+		image: '/images/projects/polysyllogismvalidateur-syllo-project.webp',
 		alt: 'Interface du validateur de polysyllogismes avec formulaire de saisie',
 		tags: ['TypeScript', 'Pédagogie', 'Logique', 'Équipe']
 	},
@@ -168,7 +168,7 @@ export const projects = [
 			{ name: 'SDL2', highlighted: false }
 		],
 		link: '/projects/towerdefend',
-		image: '/images//projects/towerdefend/towerdefends-project.webp',
+		image: '/images/projects/towerdefend/towerdefends-project.webp',
 		alt: 'Simulation TowerDefend avec tours défensives et unités ennemies sur un plateau de jeu',
 		tags: ['C', 'SDL2', 'Stratégie', 'Simulation']
 	},
