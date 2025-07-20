@@ -7,9 +7,24 @@
     export let sources = [];
     export let downloads = [];
 
-    function openImageModal(imageSrc, imageAlt) {
+    let currentImageIndex = 0;
+    let currentImages = [];
+    let isImageLoading = false;
+
+
+    function openImageModal(imageSrc, imageAlt, imagesArray = [], imageIndex = 0) {
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImg');
+        
+        currentImages = [];
+        currentImageIndex = -1;
+        isImageLoading = false;
+        
+        setTimeout(() => {
+            currentImages = [...imagesArray];
+            currentImageIndex = imageIndex;
+        }, 0);
+        
         modal.style.display = 'block';
         modalImg.src = imageSrc;
         modalImg.alt = imageAlt;
@@ -19,18 +34,53 @@
     function closeImageModal() {
         const modal = document.getElementById('imageModal');
         modal.style.display = 'none';
+        isImageLoading = false;
     }
 
-    function handleImageKeydown(event, imageSrc, imageAlt) {
+    function navigateToImage(direction) {
+        if (currentImages.length === 0 || isImageLoading) return;
+        
+        if (direction === 'prev') {
+            currentImageIndex = currentImageIndex > 0 ? currentImageIndex - 1 : currentImages.length - 1;
+        } else {
+            currentImageIndex = currentImageIndex < currentImages.length - 1 ? currentImageIndex + 1 : 0;
+        }
+        
+        const modalImg = document.getElementById('modalImg');
+        const currentImage = currentImages[currentImageIndex];
+        
+        isImageLoading = true;
+        modalImg.style.opacity = '0.5';
+        
+        const newImg = new Image();
+        newImg.onload = () => {
+            modalImg.src = currentImage.src;
+            modalImg.alt = currentImage.alt;
+            modalImg.style.opacity = '1';
+            isImageLoading = false;
+        };
+        newImg.onerror = () => {
+            console.error('Erreur de chargement de l\'image:', currentImage.src);
+            modalImg.style.opacity = '1';
+            isImageLoading = false;
+        };
+        newImg.src = currentImage.src;
+    }
+
+    function handleImageKeydown(event, imageSrc, imageAlt, imagesArray = [], imageIndex = 0) {
         if (event.key === 'Enter' || event.key === ' ') {
             event.preventDefault();
-            openImageModal(imageSrc, imageAlt);
+            openImageModal(imageSrc, imageAlt, imagesArray, imageIndex);
         }
     }
 
     function handleModalKeydown(event) {
         if (event.key === 'Escape') {
             closeImageModal();
+        } else if (event.key === 'ArrowLeft') {
+            navigateToImage('prev');
+        } else if (event.key === 'ArrowRight') {
+            navigateToImage('next');
         }
     }
 
@@ -91,13 +141,16 @@
                                 </button>
                             {/if}
                             <div class="images-carousel" id="carousel-{index}" class:single-image={block.images.length === 1}>
-                                {#each block.images as image}
+                                {#each block.images as image, index}
                                     <div 
                                         class="carousel-image-item" 
                                         role="button"
                                         tabindex="0"
-                                        on:click={() => openImageModal(image.src, image.alt)}
-                                        on:keydown={(e) => handleImageKeydown(e, image.src, image.alt)}
+                                        on:click={() => {
+                                            console.log('Clicked on image:', image.src, 'at index:', index, 'in array of length:', block.images.length);
+                                            openImageModal(image.src, image.alt, block.images, index);
+                                        }}
+                                        on:keydown={(e) => handleImageKeydown(e, image.src, image.alt, block.images, index)}
                                         aria-label="Agrandir l'image : {image.alt}"
                                     >
                                         <img src={image.src} alt={image.alt} loading="lazy" />
@@ -148,8 +201,8 @@
                         class="image-item" 
                         role="button"
                         tabindex="0"
-                        on:click={() => openImageModal(image.src, image.alt)}
-                        on:keydown={(e) => handleImageKeydown(e, image.src, image.alt)}
+                        on:click={() => openImageModal(image.src, image.alt, images, index)}
+                        on:keydown={(e) => handleImageKeydown(e, image.src, image.alt, images, index)}
                         aria-label="Agrandir l'image : {image.alt}"
                     >
                         <img src={image.src} alt={image.alt} loading="lazy" />
@@ -222,7 +275,6 @@
     {/if}
 </div>
 
-<!-- Modal pour agrandir les images -->
 <div 
     id="imageModal" 
     class="modal" 
@@ -241,6 +293,29 @@
         on:click={closeImageModal}
         on:keydown={handleCloseKeydown}
     >&times;</span>
+    
+    {#if currentImages.length > 1}
+        <button 
+            class="modal-nav modal-nav-prev"
+            on:click={(e) => { e.stopPropagation(); navigateToImage('prev'); }}
+            aria-label="Image précédente"
+        >
+            ‹
+        </button>
+        
+        <button 
+            class="modal-nav modal-nav-next"
+            on:click={(e) => { e.stopPropagation(); navigateToImage('next'); }}
+            aria-label="Image suivante"
+        >
+            ›
+        </button>
+        
+        <div class="modal-counter">
+            {currentImageIndex + 1} / {currentImages.length}
+        </div>
+    {/if}
+    
     <img class="modal-content" id="modalImg" alt="">
 </div>
 
@@ -421,7 +496,7 @@
     }
 
     .carousel-btn:hover {
-        color: #1ea54e;
+        color: var(--color-green-hover);
         transform: scale(1.1);
     }
 
@@ -541,7 +616,6 @@
         color: var(--color-text);
     }
 
-    /* Styles pour les sources */
     .sources-list {
         background: var(--info-note-bg);
         border-radius: 8px;
@@ -576,7 +650,6 @@
         text-decoration: underline;
     }
 
-    /* Styles existants pour les téléchargements */
     .downloads-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -650,7 +723,7 @@
     }
 
     .download-link:hover {
-        background: #1ea54e;
+        background: var(--color-green-hover);
     }
 
     .modal {
@@ -699,6 +772,52 @@
     .modal-close:focus {
         opacity: 0.7;
         outline-offset: 2px;
+    }
+
+    .modal-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.7);
+        color: var(--color-green);
+        border: none;
+        font-size: 3rem;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 20px 15px;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+        z-index: 1002;
+        user-select: none;
+    }
+
+    .modal-nav:hover,
+    .modal-nav:focus {
+        background: rgba(0, 0, 0, 0.9);
+        opacity: 0.8;
+        outline: 2px solid var(--color-green);
+        outline-offset: 2px;
+    }
+
+    .modal-nav-prev {
+        left: 20px;
+    }
+
+    .modal-nav-next {
+        right: 20px;
+    }
+
+    .modal-counter {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 16px;
+        font-size: 0.9rem;
+        z-index: 1002;
     }
 
     @media (max-width: 600px) {
@@ -752,6 +871,25 @@
             font-size: 2rem;
             min-width: 50px;
             height: 50px;
+        }
+
+        .modal-nav {
+            font-size: 2.5rem;
+            padding: 15px 12px;
+        }
+
+        .modal-nav-prev {
+            left: 10px;
+        }
+
+        .modal-nav-next {
+            right: 10px;
+        }
+
+        .modal-counter {
+            bottom: 15px;
+            font-size: 0.8rem;
+            padding: 6px 12px;
         }
     }
 </style>
