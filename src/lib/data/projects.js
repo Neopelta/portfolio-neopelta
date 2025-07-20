@@ -176,7 +176,7 @@ export const projects = [
 		],
 		link: '/projects/towerdefend',
 		git: 'https://github.com/Neopelta/Towerdefends.git',
-		image: '/images/projects/towerdefend/towerdefends-project.webp',
+		image: '/images/projects/towerdefends/towerdefends-project.webp',
 		alt: 'Simulation TowerDefend avec tours défensives et unités ennemies sur un plateau de jeu',
 		tags: ['C', 'SDL2', 'Stratégie', 'Simulation']
 	},
