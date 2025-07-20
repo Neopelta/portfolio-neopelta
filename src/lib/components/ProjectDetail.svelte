@@ -431,6 +431,8 @@
         flex: 1;
         scrollbar-width: thin;
         scrollbar-color: var(--color-green) var(--color-border);
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
     }
 
     .images-carousel.single-image {
