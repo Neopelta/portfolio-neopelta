@@ -443,6 +443,183 @@ export const projectDetails = {
 				description: 'Application web en ligne accessible publiquement'
 			}
 		]
+	},
+
+	'polysyllogism-validator': {
+		title: 'Outil Pédagogique de Validation de Raisonnements Logiques',
+		contentBlocks: [
+			{
+				type: 'text',
+				content: `
+					<p>Application Web éducative développée en équipe de 5 étudiants en Master 1 Informatique à l'Université de Poitiers. Ce projet vise à moderniser l'apprentissage de la logique formelle en proposant un outil interactif pour valider des syllogismes et polysyllogismes, destiné principalement aux étudiants de première année universitaire.</p>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Architecture et fonctionnalités principales',
+				underlined: true,
+				content: `
+					<p>L'application propose une approche pédagogique complète pour l'apprentissage des syllogismes :</p>
+					<ul>
+						<li><strong>Mode Guidé</strong> : Interface step-by-step pour construire des syllogismes classiques à deux prémisses</li>
+						<li><strong>Mode Libre</strong> : Création de polysyllogismes complexes avec ajout dynamique de prémisses</li>
+						<li><strong>Système de validation</strong> : Vérification automatique basée sur 8 règles logiques fondamentales</li>
+						<li><strong>Éditeur de quantificateurs</strong> : Personnalisation des quantificateurs logiques avec persistance</li>
+						<li><strong>Générateur exhaustif</strong> : Calcul et affichage des 256 combinaisons possibles de syllogismes</li>
+						<li><strong>Support multilingue</strong> : Interface disponible en français et anglais</li>
+					</ul>
+				`
+			},
+			{
+				type: 'images',
+				title: 'Interfaces des modes de validation',
+				underlined: true,
+				images: [
+					{
+						src: '/images/projects/polysyllogism/syllogisme-project(guide).webp',
+						alt: 'Mode guidé avec construction étape par étape de syllogismes',
+						caption: 'Mode guidé : construction progressive avec aide contextuelle'
+					},
+					{
+						src: '/images/projects/polysyllogism/syllogisme-project(libre).webp',
+						alt: 'Mode libre pour polysyllogismes complexes',
+						caption: 'Mode libre : création de polysyllogismes avec prémisses multiples'
+					},
+					{
+						src: '/images/projects/polysyllogism/syllogisme-project(edit).webp',
+						alt: 'Éditeur de quantificateurs personnalisés',
+						caption: 'Éditeur : gestion des quantificateurs par catégorie logique'
+					},
+					{
+						src: '/images/projects/polysyllogism/syllogisme-project(gen).webp',
+						alt: 'Générateur des 256 combinaisons de syllogismes',
+						caption: 'Générateur : tableau exhaustif avec validation règle par règle'
+					}
+				]
+			},
+			{
+				type: 'text',
+				title: 'Fondements théoriques et règles logiques',
+				underlined: true,
+				content: `
+					<p>L'application implémente un système de validation rigoureux basé sur les 8 règles fondamentales de la logique syllogistique :</p>
+					
+					<h5>Règles structurelles</h5>
+					<ul>
+						<li><strong>Rmt (Middle Term Rule)</strong> : Le moyen terme doit être distribué au moins une fois</li>
+						<li><strong>Rp (Premise Rule)</strong> : Validation de la cohérence des prémisses</li>
+						<li><strong>Rlh (Hypothesis Linking Rule)</strong> : La conclusion ne peut excéder les prémisses</li>
+					</ul>
+					
+					<h5>Règles de qualité</h5>
+					<ul>
+						<li><strong>Rnn (Non-Negativity Rule)</strong> : Interdiction de deux prémisses négatives</li>
+						<li><strong>Rn (Negativity Rule)</strong> : Propagation de la négativité vers la conclusion</li>
+						<li><strong>Rpp (Positive Premise Rule)</strong> : Cohérence des conclusions positives</li>
+					</ul>
+					
+					<h5>Règles de quantité</h5>
+					<ul>
+						<li><strong>Raa (Affirmation-Affirmation Rule)</strong> : Limitation des prémisses particulières</li>
+						<li><strong>Ruu (Hypothesis of Existence)</strong> : Vérification de l'existence des termes</li>
+					</ul>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Architecture technique et implémentation',
+				underlined: true,
+				content: `
+					<p>Le projet s'appuie sur une architecture modulaire en TypeScript privilégiant la séparation des préoccupations :</p>
+					
+					<h5>Couche logique métier</h5>
+					<p>Implémentation des classes <code>Type</code>, <code>Proposition</code> et <code>Polysyllogism</code> pour modéliser les structures logiques. Le système de types garantit la cohérence des propositions (A, E, I, O) selon la classification aristotélicienne.</p>
+					
+					<h5>Moteur de validation</h5>
+					<p>La classe <code>ValidityChecker</code> orchestre l'application des règles logiques de manière configurable. Chaque règle peut être activée/désactivée individuellement pour des scénarios pédagogiques spécifiques.</p>
+					
+					<h5>Interface utilisateur adaptive</h5>
+					<p>Système de formulaires dynamiques avec génération de prémisses à la volée, gestion des relations entre termes et validation en temps réel. Support du mode sombre et internationalisation complète.</p>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Mes contributions principales',
+				underlined: true,
+				content: `
+					<h5>1. Développement du front-end interactif</h5>
+					<p>Conception et implémentation complète des formulaires interactifs pour les deux modes d'utilisation. Développement du système de création dynamique de prémisses en Mode Libre, avec gestion des relations logiques entre termes et interface responsive.</p>
+					
+					<h5>2. Logique de parsing des polysyllogismes</h5>
+					<p>Implémentation de l'algorithme de validation structurelle des polysyllogismes dans la méthode <code>checkStructure()</code>. Cette fonction vérifie la cohérence des termes, détecte les relations logiques et réorganise automatiquement les propositions dans l'ordre canonique.</p>
+					
+					<h5>3. Système de gestion des quantificateurs</h5>
+					<p>Développement complet de l'éditeur de quantificateurs personnalisés avec persistance localStorage, catégorisation par type logique (universel/existentiel, positif/négatif) et intégration seamless dans les formulaires principaux.</p>
+					
+					<h5>4. Interface de visualisation des combinaisons</h5>
+					<p>En équipe, création du générateur exhaustif affichant les 256 combinaisons possibles de syllogismes avec validation règle par règle. Interface tabulaire avec codage couleur pour identifier rapidement les syllogismes valides/invalides selon les règles sélectionnées.</p>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Défis techniques et solutions',
+				underlined: true,
+				content: `
+					<h5>Gestion des états complexes</h5>
+					<p>L'interface du Mode Libre nécessitait une gestion sophistiquée des états avec des formulaires dynamiques interdépendants. Implementation d'un système de binding bi-directionnel entre les sélections utilisateur et les options disponibles.</p>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Méthodologie et collaboration',
+				underlined: true,
+				content: `
+					<p>Projet développé en équipe de 5 personnes sur 3 mois avec une approche agile :</p>
+					<ul>
+						<li><strong>Architecture modulaire</strong> : Séparation claire entre logique métier, validation et interface</li>
+						<li><strong>Tests automatisés</strong> : Suite de tests Jest couvrant 256 cas de test avec fichier Excel de référence</li>
+						<li><strong>Documentation technique</strong> : Génération automatique avec TypeDoc</li>
+					</ul>
+					
+					<p>Ma contribution principale s'est concentrée sur l'interface utilisateur et la logique de parsing, en étroite collaboration avec l'équipe pour assurer la cohérence de l'architecture globale.</p>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Impact pédagogique et résultats',
+				underlined: true,
+				content: `
+					<p>L'application répond à un besoin réel d'outils pédagogiques modernes pour l'enseignement de la logique formelle. Les fonctionnalités développées permettent :</p>
+					<ul>
+						<li><strong>Apprentissage progressif</strong> : Du mode guidé vers la construction libre de raisonnements complexes</li>
+						<li><strong>Exploration exhaustive</strong> : Visualisation complète de l'espace des possibles via le générateur</li>
+						<li><strong>Personnalisation</strong> : Adaptation aux spécificités linguistiques via l'éditeur de quantificateurs</li>
+					</ul>
+				`
+			}
+		],
+		sources: [
+			{
+				name: 'Université de Poitiers',
+				url: 'https://www.univ-poitiers.fr',
+				description: 'Contexte académique et encadrement du projet'
+			},
+			{
+				name: 'Repository GitHub',
+				url: 'https://github.com/Neopelta/polysyllogisme.git',
+				description: 'Code source complet avec documentation technique'
+			},
+			{
+				name: 'Wikipédia - Syllogisme',
+				url: 'https://fr.wikipedia.org/wiki/Syllogisme',
+				description: 'Définition et théorie des syllogismes'
+			},
+			{
+				name: 'Wikipédia - Polysyllogisme',
+				url: 'https://fr.wikipedia.org/wiki/Polysyllogisme',
+				description: 'Définition et théorie des polysyllogismes'
+			}
+		]
 	}
 };
 
