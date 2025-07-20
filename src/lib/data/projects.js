@@ -51,7 +51,8 @@ export const projects = [
 			{ name: 'JavaScript', highlighted: false }
 		],
 		link: '/projects/portfolio',
-		image: 'images/logo/ronan-px/ronan_default.svg',
+		git: '',
+		image: '/images/projects/portfolio/portfolio_home.webp',
 		alt: "Capture d'écran du portfolio personnel avec sections Projets, Compétences et Contact",
 		tags: ['Web', 'Portfolio', 'Responsive']
 	},
@@ -70,7 +71,8 @@ export const projects = [
 			{ name: 'Google Sheets API', highlighted: false }
 		],
 		link: '/projects/skilltracker',
-		image: '/images/projects/skilltracker/skilltracker-project.webp',
+		git: 'https://github.com/Neopelta/SkillTracker.git',
+		image: '/images/projects/skilltracker/skillTracker-project.webp',
 		alt: 'Tableau de bord SkillTracker avec graphiques de progression',
 		tags: ['Web', 'React', 'API', 'Dashboard']
 	},
@@ -137,7 +139,7 @@ export const projects = [
 			{ name: 'CSS', highlighted: false }
 		],
 		link: '/projects/polysyllogism-validator',
-		image: '/images/projects/polysyllogismvalidateur-syllo-project.webp',
+		image: '/images/projects/polysyllogism/validateur-syllo-project.webp',
 		alt: 'Interface du validateur de polysyllogismes avec formulaire de saisie',
 		tags: ['TypeScript', 'Pédagogie', 'Logique', 'Équipe']
 	},

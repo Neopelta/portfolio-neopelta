@@ -213,6 +213,11 @@ export const projectDetails = {
 		],
 		sources: [
 			{
+				name: 'Université de Poitiers',
+				url: 'https://www.univ-poitiers.fr',
+				description: 'Contexte académique et encadrement du projet'
+			},
+			{
 				name: 'La Renaissance Gymnastique',
 				url: 'http://www.larenaissancegymnastique.fr',
 				description: 'Images des agrès de gymnastique artistique masculine'
@@ -230,6 +235,212 @@ export const projectDetails = {
 				description:
 					"Fichier Figma contenant l'ensemble des maquettes, composants et design system de l'application.",
 				icon: '/images/logo/figma/figma-logo.svg'
+			}
+		]
+	},
+	'skilltracker': {
+		title: 'Plateforme Web de Suivi de Compétences avec Écosystème Discord',
+		contentBlocks: [
+			{
+				type: 'text',
+				content: `
+					<p>Plateforme complète de gestion et visualisation des compétences développée en équipe de 3 étudiants en Master 1 Informatique à l'Université de Poitiers. Ce projet propose un écosystème complet combinant application web, bot Discord et API Google pour permettre aux étudiants de suivre et améliorer leurs compétences.</p>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Architecture complète du système',
+				underlined: true,
+				content: `
+					<p>Le projet SkillTracker se compose de trois composants principaux interconnectés :</p>
+					<ul>
+						<li><strong>Application Web React</strong> : Interface moderne avec authentification Discord OAuth2</li>
+						<li><strong>Bot Discord</strong> : Interaction directe via commandes pour consulter et modifier les compétences</li>
+						<li><strong>API Express.js</strong> : Backend robuste avec gestion des sessions et interface Google Sheets</li>
+						<li><strong>Base de données</strong> : Google Sheets comme système de stockage avec API dédiée</li>
+					</ul>
+				`
+			},
+			{
+				type: 'images',
+				title: "Interfaces de l'application web",
+				underlined: true,
+				images: [
+					{
+						src: '/images/projects/skilltracker/skillTracker-project.webp',
+						alt: "Page d'accueil SkillTracker avec présentation des fonctionnalités",
+						caption: "Page d'accueil avec description des fonctionnalités web et Discord"
+					},
+					{
+						src: '/images/projects/skilltracker/skillTracker-project(skills).webp',
+						alt: 'Tableau des compétences avec tous les étudiants',
+						caption: 'Vue tableau complète avec navigation horizontale et recherche'
+					},
+					{
+						src: '/images/projects/skilltracker/skillTracker-project(connect).webp',
+						alt: 'Page de connexion Discord OAuth2',
+						caption: 'Interface de connexion sécurisée via Discord'
+					},
+					{
+						src: '/images/projects/skilltracker/skillTracker-project(fiche).webp',
+						alt: 'Profil individuel avec édition des compétences',
+						caption: 'Fiche personnelle avec système de modification en temps réel'
+					}
+				]
+			},
+			{
+				type: 'text',
+				title: 'Fonctionnalités principales',
+				underlined: true,
+				content: `
+					<h5>Application Web</h5>
+					<ul>
+						<li>Authentification sécurisée via Discord OAuth2</li>
+						<li>Tableau de bord interactif avec toutes les compétences étudiantes</li>
+						<li>Recherche et filtrage par nom d'étudiant</li>
+						<li>Profils individuels détaillés avec graphiques de progression</li>
+						<li>Système de permissions (administrateur/utilisateur)</li>
+						<li>Interface responsive adaptée mobile et desktop</li>
+					</ul>
+					
+					<h5>Bot Discord</h5>
+					<ul>
+						<li>Commandes prefix <code>mpf!</code> pour toutes les interactions</li>
+						<li>Consultation des compétences via <code>mpf!skills</code></li>
+						<li>Visualisation d'un profil spécifique avec <code>mpf!skill @user</code></li>
+						<li>Modification rapide avec <code>mpf!updateskill [SKILL] [Value]</code></li>
+						<li>Système de pagination pour les listes importantes</li>
+						<li>Gestion des erreurs et validations des données</li>
+					</ul>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Architecture technique avancée',
+				underlined: true,
+				content: `
+					<p>L'architecture du projet suit une approche modulaire avec séparation claire des responsabilités :</p>
+					
+					<h5>Frontend (React + Vite)</h5>
+					<p>Interface utilisateur développée avec React et build tool Vite pour des performances optimales. Utilisation de React Router pour la navigation, et Lucide React pour les icônes. L'application gère l'état d'authentification de manière globale et propose une expérience utilisateur fluide.</p>
+					
+					<h5>Backend (Express.js + Passport)</h5>
+					<p>Serveur API robuste utilisant Express.js avec middleware Passport pour l'authentification Discord. Gestion des sessions sécurisées, validation des tokens et interface avec Google Sheets API. Architecture RESTful avec endpoints séparés pour les différentes fonctionnalités.</p>
+					
+					<h5>Bot Discord (Discord.js)</h5>
+					<p>Bot autonome développé avec Discord.js v14, système de commandes modulaire et gestion d'événements. Partage la même base de données que l'application web pour assurer la cohérence des données.</p>
+				`
+			},
+			{
+				type: 'images',
+				title: 'Interface administrative',
+				underlined: true,
+				images: [
+					{
+						src: '/images/projects/skilltracker/skillTracker-project(admin).webp',
+						alt: 'Panel administrateur pour gestion des utilisateurs connectés',
+						caption: 'Interface admin avec gestion des sessions et déconnexion forcée'
+					}
+				]
+			},
+			{
+				type: 'text',
+				title: 'Mes contributions principales',
+				underlined: true,
+				content: `
+					<h5>1. Développement Frontend React</h5>
+					<p>Conception et développement complet de l'interface utilisateur avec React. Création des composants réutilisables (Header, Footer, Template) et en atomic design, mise en place du routing avec React Router, et développement des pages principales (Accueil, Tableau des compétences, Profils individuels). Implémentation du système de recherche et filtrage en temps réel.</p>
+					
+					<h5>2. Système de Permissions et Rôles</h5>
+					<p>Implémentation du système de permissions complexe permettant aux administrateurs de modifier toutes les fiches (sauf autres admins) et aux utilisateurs de modifier uniquement leur propre profil. Gestion des tokens de session et validation côté client et serveur.</p>
+					
+					<h5>3. Interface Responsive et UX</h5>
+					<p>Conception d'une interface entièrement responsive adaptée aux appareils mobiles et desktop. Optimisation de l'affichage du tableau avec défilement horizontal pour les écrans étroits, ajout d'instructions contextuelles et amélioration de l'accessibilité générale.</p>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Défis techniques et solutions',
+				underlined: true,
+				content: `
+					<h5>Gestion des Sessions Distribuées</h5>
+					<p>La complexité principale résidait dans la synchronisation des sessions entre l'application web et le bot Discord. Solution implémentée : base de données MySQL centralisée pour les sessions avec système d'expiration automatique et validation des tokens en temps réel.</p>
+					
+					<h5>Permissions Granulaires</h5>
+					<p>Mise en place d'un système de permissions complexe permettant différents niveaux d'accès. Les administrateurs peuvent gérer tous les utilisateurs mais ne peuvent pas modifier les comptes d'autres administrateurs, assurant ainsi une sécurité hiérarchique.</p>
+					
+					<h5>Interface Google Sheets</h5>
+					<p>Intégration avec Google Sheets API nécessitant la gestion des credentials de service, authentification OAuth2 et synchronisation des données en temps réel entre l'application et la feuille de calcul partagée.</p>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Technologies et outils utilisés',
+				underlined: true,
+				content: `
+					<h5>Frontend</h5>
+					<ul>
+						<li><strong>React 18</strong> : Framework principal avec hooks modernes</li>
+						<li><strong>Vite</strong> : Build tool pour développement rapide</li>
+						<li><strong>React Router</strong> : Navigation et routing</li>
+						<li><strong>Lucide React</strong> : Icônes SVG optimisées</li>
+						<li><strong>CSS natif</strong> : Styles personnalisés sans framework</li>
+					</ul>
+					
+					<h5>Backend</h5>
+					<ul>
+						<li><strong>Express.js</strong> : Framework web Node.js</li>
+						<li><strong>Passport.js</strong> : Middleware d'authentification</li>
+						<li><strong>MySQL2</strong> : Driver base de données</li>
+						<li><strong>Google APIs</strong> : Interface Google Sheets</li>
+						<li><strong>Discord.js v14</strong> : Wrapper API Discord</li>
+					</ul>
+					
+					<h5>Outils et Infrastructure</h5>
+					<ul>
+						<li><strong>Google Cloud Console</strong> : Gestion des APIs</li>
+						<li><strong>Discord Developer Portal</strong> : Configuration bot</li>
+						<li><strong>ESLint</strong> : Linting et qualité de code</li>
+						<li><strong>Dotenv</strong> : Gestion des variables d'environnement</li>
+					</ul>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Collaboration et méthodologie',
+				underlined: true,
+				content: `
+					<p>Projet développé en équipe de 3 personnes avec répartition claire des responsabilités :</p>
+					<ul>
+						<li><strong>Maxime M.</strong> : Backend API, infrastructure serveur et base de données</li>
+						<li><strong>Ronan PLUTA FONTAINE</strong> : Frontend React, intégration API et design UX/UI</li>
+						<li><strong>Victor F.</strong> : Bot Discord, commandes et intégration base de données</li>
+					</ul>
+					
+					<p>Méthodologie agile avec cycles de développement courts, tests continus et intégration progressive des fonctionnalités. Utilisation de Git pour le versioning avec branches feature et revues de code collectives.</p>
+				`
+			}
+		],
+		sources: [
+			{
+				name: 'Université de Poitiers',
+				url: 'https://www.univ-poitiers.fr',
+				description: 'Contexte académique et encadrement du projet'
+			},
+			{
+				name: 'Discord Developer Portal',
+				url: 'https://discord.com/developers/applications',
+				description: 'Configuration OAuth2 et bot Discord'
+			},
+			{
+				name: 'Google Cloud Console',
+				url: 'https://console.cloud.google.com',
+				description: 'Configuration Google Sheets API et service accounts'
+			},
+			{
+				name: 'Site web SkillTracker',
+				url: 'https://aaw.univportfolio.info',
+				description: 'Application web en ligne accessible publiquement'
 			}
 		]
 	}
