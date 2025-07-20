@@ -115,8 +115,6 @@ export const projectDetails = {
             },
             {
                 type: 'images',
-                title: 'Interface du système de statistiques',
-                underlined: false,
                 images: [
                     {
                         src: '/images/projects/gamfed/app-stats1.webp',
@@ -162,8 +160,6 @@ export const projectDetails = {
             },
             {
                 type: 'images',
-                title: 'Design system et templates Figma',
-                underlined: false,
                 images: [
                     {
                         src: '/images/projects/gamfed/figma-advanced-quiz.webp',
