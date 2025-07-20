@@ -620,6 +620,203 @@ export const projectDetails = {
 				description: 'Définition et théorie des polysyllogismes'
 			}
 		]
+	},
+	'sudoku-solver': {
+		title: 'Solveur de Sudoku Avancé avec Techniques de Résolution Humaines',
+		contentBlocks: [
+			{
+				type: 'text',
+				content: `
+					<p>Solveur de Sudoku développé en langage C dans le cadre d'un projet académique de Licence 3 Informatique à l'Université de Poitiers. Conçu en équipe de 4 étudiants, ce projet combine approche pédagogique et techniques avancées de résolution algorithmique.</p>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Objectif et contexte académique',
+				underlined: true,
+				content: `
+					<p>Le projet s'inscrit dans le module de préprofessionnalisation visant à développer les compétences en travail d'équipe, gestion de projet et programmation avancée. L'objectif principal était de créer un solveur capable de résoudre automatiquement des grilles de Sudoku de différentes tailles (9x9, 16x16, 25x25) en appliquant les techniques de résolution utilisées par les humains avant de recourir au backtracking.</p>
+					
+					<p><strong>Contraintes techniques :</strong></p>
+					<ul>
+						<li>Implémentation en langage C pour optimiser les performances</li>
+						<li>Architecture modulaire avec séparation claire des responsabilités</li>
+						<li>Support des grilles de tailles variables</li>
+						<li>Respect du minimum de 17 cases pré-remplies pour garantir une solution unique pour une grille 9x9</li>
+					</ul>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Architecture technique modulaire',
+				underlined: true,
+				content: `
+					<p>Le projet suit une architecture modulaire rigoureuse avec séparation claire des responsabilités :</p>
+					
+					<h5>Structure des fichiers</h5>
+					<ul>
+						<li><strong>main.c</strong> : Point d'entrée, orchestration des algorithmes de résolution</li>
+						<li><strong>sudoku.c/h</strong> : Cœur des algorithmes de résolution (singleton, k-uplets, X-Wing, backtracking)</li>
+						<li><strong>access.c/h</strong> : Gestion des cellules, notes de candidats et voisinages</li>
+						<li><strong>utils.c/h</strong> : Fonctions utilitaires d'affichage et validation</li>
+						<li><strong>types.c/h</strong> : Définitions des structures de données et constantes</li>
+					</ul>
+					
+					<h5>Structures de données optimisées</h5>
+					<p>Chaque cellule du Sudoku est représentée par une structure contenant sa valeur et un entier représentant les notes possibles via manipulation binaire. Cette approche permet une gestion efficace de la mémoire et des opérations sur les candidats.</p>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Techniques de résolution implémentées',
+				underlined: true,
+				content: `
+					<p>Le solveur implémente une hiérarchie de techniques de résolution, des plus simples aux plus complexes :</p>
+					
+					<h5>1. Méthode des Singletons</h5>
+					<p>Détection automatique des cellules ne possédant qu'un seul candidat possible. Cette technique de base permet de résoudre rapidement les parties évidentes du puzzle.</p>
+					
+					<h5>2. K-uplets généralisés (Naked et Hidden Subsets)</h5>
+					<p>Algorithme unifié couvrant les paires, triplets et k-uplets jusqu'à 9 éléments. Détecte automatiquement les groupes de cellules partageant le même ensemble de candidats pour éliminer les possibilités ailleurs.</p>
+					
+					<h5>3. Intersections lignes/colonnes/blocs (Pointing et Claiming)</h5>
+					<p>Analyse des intersections entre blocs et lignes/colonnes pour identifier les candidats contraints à certaines positions, permettant l'élimination de candidats dans les zones adjacentes.</p>
+					
+					<h5>4. Pattern X-Wing</h5>
+					<p>Détection du motif X-Wing sur deux lignes ou colonnes parallèles, créant un pattern en diagonale qui permet d'éliminer les candidats dans les colonnes ou lignes concernées.</p>
+					
+					<h5>5. Backtracking</h5>
+					<p>Algorithme de derniers recours utilisant l'exploration exhaustive avec retour en arrière pour les grilles que les techniques humaines ne peuvent résoudre complètement.</p>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Orchestration et algorithme principal',
+				underlined: true,
+				content: `
+					<p>Le solveur suit un flux d'exécution optimisé appliquant les techniques dans l'ordre de complexité croissante :</p>
+					
+					<ol>
+						<li><strong>Initialisation des notes</strong> : Calcul des candidats possibles pour chaque cellule vide</li>
+						<li><strong>Singleton Method</strong> : Résolution des cellules évidentes</li>
+						<li><strong>Boucle K-uplets</strong> : Application des k-uplets pour k=1 à 9</li>
+						<li><strong>Réductions d'intersections</strong> : Analyse des contraintes bloc/ligne/colonne</li>
+						<li><strong>X-Wing</strong> : Recherche de patterns avancés</li>
+						<li><strong>Backtracking</strong> : Solution de dernier recours si aucune technique humaine ne progresse</li>
+					</ol>
+					
+					<p>Cette approche garantit une résolution efficace : les techniques rapides résolvent la majorité des cas, et le backtracking n'intervient que pour les grilles les plus complexes.</p>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Mes contributions principales',
+				underlined: true,
+				content: `
+					<h5>1. Architecture modulaire et structure du projet</h5>
+					<p>Conception de l'architecture générale du projet avec séparation claire des responsabilités. Définition des interfaces entre modules et standardisation des conventions de codage pour faciliter le travail en équipe.</p>
+					
+					<h5>2. Système de gestion des notes optimisé</h5>
+					<p>Implémentation du système de manipulation binaire des candidats permettant des opérations rapides sur les notes. Développement des fonctions de base (setnote, getnote) et du système de comptage pré-calculé des bits pour optimiser les performances.</p>
+					
+					<h5>3. Algorithmes k-uplets généralisés</h5>
+					<p>Conception et implémentation de l'algorithme unifié pour détecter les k-uplets nus et cachés. Utilisation de la génération de combinaisons et du coefficient binomial pour explorer systématiquement tous les groupes possibles.</p>
+					
+					<h5>4. Fonctions utilitaires et débogage</h5>
+					<p>Développement des outils d'affichage et de débogage permettant de visualiser l'état des notes et de suivre la progression des algorithmes. Ces outils ont été essentiels pour valider le bon fonctionnement des techniques complexes.</p>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Défis techniques et optimisations',
+				underlined: true,
+				content: `
+					<h5>Manipulation binaire avancée</h5>
+					<p>L'utilisation d'entiers pour représenter les notes nécessitait une maîtrise des opérations bit-à-bit. Nous avons développé un système de pré-calcul des comptages de bits et des fonctions optimisées pour les opérations fréquentes.</p>
+					
+					<h5>Intégration des techniques de résolution</h5>
+					<p>La difficulté principale était de créer une architecture permettant l'ajout facile de nouvelles techniques tout en maintenant l'efficacité. Nous avons opté pour une approche modulaire où chaque technique retourne le nombre de modifications effectuées.</p>
+					`
+			},
+			{
+				type: 'text',
+				title: 'Méthodologie et organisation d\'équipe',
+				underlined: true,
+				content: `
+					<p>Le projet a été mené selon une méthodologie agile adaptée au contexte académique :</p>
+					
+					<h5>Organisation de l'équipe</h5>
+					<ul>
+						<li><strong>Maxime MARCHIVE</strong> : Coordinateur projet et liaison équipe académique</li>
+						<li><strong>Ronan PLUTA FONTAINE</strong> : Chef d'équipe, architecture technique et k-uplets</li>
+						<li><strong>Raphaël SIMON</strong> : Algorithmes de base et validation</li>
+						<li><strong>Diewertje VAN DAM</strong> : Techniques avancées et optimisations</li>
+					</ul>
+					
+					<h5>Outils et processus</h5>
+					<ul>
+						<li><strong>Contrôle de version</strong> : Git </li>
+						<li><strong>Documentation</strong> : Rédaction en LaTeX pour un rendu professionnel</li>
+						<li><strong>Cycles itératifs</strong> : Développement par sprints avec livrables fonctionnels</li>
+						<li><strong>Tests continus</strong> : Validation sur grilles de référence à chaque itération</li>
+					</ul>
+					
+					<h5>Jalons du projet</h5>
+					<p>Le projet s'est déroulé de septembre 2023 à avril 2024 avec des jalons clairs : cahier des charges (novembre), rapport d'avancement (janvier), et soutenance finale en anglais (mars-avril).</p>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Résultats et performances',
+				underlined: true,
+				content: `
+					<p>Le solveur final présente d'excellentes performances sur l'ensemble des tailles de grilles testées :</p>
+					
+					<h5>Efficacité des techniques</h5>
+					<ul>
+						<li><strong>Grilles faciles à moyennes (9x9)</strong> : Résolues uniquement par les techniques humaines en < 1ms</li>
+						<li><strong>Grilles difficiles</strong> : Combinaison techniques + backtracking limité</li>
+						<li><strong>Grilles 16x16 et 25x25</strong> : Gestion efficace grâce aux optimisations algorithmiques</li>
+					</ul>
+					
+					<h5>Robustesse et fiabilité</h5>
+					<p>Tests extensifs sur plus de 1000 grilles générées automatiquement, validation sur grilles de référence connues, et respect des contraintes de validité (minimum 17 cases pour grilles 9x9).</p>
+					
+					<h5>Extensibilité</h5>
+					<p>Architecture modulaire permettant l'ajout facile de nouvelles techniques (Swordfish, Y-Wing, etc.) sans modification du code existant. Base solide pour des extensions futures.</p>
+				`
+			}
+		],
+		sources: [
+			{
+				name: 'Université de Poitiers',
+				url: 'https://www.univ-poitiers.fr',
+				description: 'Contexte académique et encadrement du projet'
+			},
+			{
+				name: 'GitHub Repository',
+				url: 'https://github.com/Neopelta/sudoku-solver.git',
+				description: 'Code source complet du projet avec documentation'
+			},
+			{
+				name: 'Sudoku.com Rules',
+				url: 'https://sudoku.com/sudoku-rules',
+				description: 'Référence des règles et techniques de résolution du Sudoku'
+			},
+			{
+				name: 'Gordon Royle Research',
+				url: 'https://staffhome.ecm.uwa.edu.au/~00013890/sudoku.html',
+				description: 'Recherches sur le minimum de 17 cases pour grilles 9x9'
+			}
+		],
+		downloads: [
+			{
+				title: 'Méthode de résolution de Sudoku',
+				filename: 'FR_SUDOKU_methods.pdf',
+				description: 'Document PDF détaillant les méthodes de résolution de Sudoku possible.',
+				icon: '/images/logo/pdf/pdf-logo.svg'
+			}
+		]
 	}
 };
 
