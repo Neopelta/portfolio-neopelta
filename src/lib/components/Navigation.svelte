@@ -6,9 +6,11 @@
     import Avatar from '$lib/components/Avatar.svelte';
     
     $: isHomePage = $page.route.id === '/';
+    let mobileMenuOpen = false;
     
     async function handleNavClick(event, anchor) {
         event.preventDefault();
+        mobileMenuOpen = false;
         
         if (isHomePage) {
             const element = document.getElementById(anchor);
@@ -26,7 +28,16 @@
         }
     }
     
+    function toggleMobileMenu() {
+        mobileMenuOpen = !mobileMenuOpen;
+    }
+    
+    function closeMobileMenu() {
+        mobileMenuOpen = false;
+    }
+    
     afterNavigate(() => {
+        mobileMenuOpen = false;
         if ($page.url.hash) {
             setTimeout(() => {
                 const anchor = $page.url.hash.substring(1);
@@ -46,7 +57,52 @@
                 <Avatar size="small" />
                 <span>Ronan PLUTA FONTAINE</span>
             </a>
+            
+            <!-- Menu desktop -->
             <ul class="nav-links">
+                <li>
+                    <a 
+                        href="/#projects" 
+                        on:click={(e) => handleNavClick(e, 'projects')}
+                    >
+                        Projets
+                    </a>
+                </li>
+                <li>
+                    <a 
+                        href="/#competences" 
+                        on:click={(e) => handleNavClick(e, 'competences')}
+                    >
+                        Compétences
+                    </a>
+                </li>
+                <li>
+                    <a 
+                        href="/#contact" 
+                        on:click={(e) => handleNavClick(e, 'contact')}
+                    >
+                        Contact
+                    </a>
+                </li>
+            </ul>
+            
+            <!-- Button burger mobile -->
+            <button 
+                class="mobile-menu-button"
+                class:active={mobileMenuOpen}
+                on:click={toggleMobileMenu}
+                aria-label="Menu de navigation"
+                aria-expanded={mobileMenuOpen}
+            >
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
+        </div>
+        
+        <!-- Menu mobile -->
+        <div class="mobile-menu" class:open={mobileMenuOpen}>
+            <ul class="mobile-nav-links">
                 <li>
                     <a 
                         href="/#projects" 
@@ -74,6 +130,10 @@
             </ul>
         </div>
     </div>
+
+    {#if mobileMenuOpen}
+        <div class="mobile-menu-overlay" on:click={closeMobileMenu}></div>
+    {/if}
 </nav>
 
 <style>
@@ -118,9 +178,117 @@
         color: var(--color-green);
     }
     
+    .mobile-menu-button {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 44px;
+        height: 44px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        position: relative;
+        z-index: 1001;
+    }
+    
+    .burger-line {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--color-text);
+        transition: all 0.3s ease;
+        transform-origin: center;
+    }
+    
+    .burger-line:not(:last-child) {
+        margin-bottom: 4px;
+    }
+    
+    .mobile-menu-button.active .burger-line:nth-child(1) {
+        transform: rotate(45deg) translate(4px, 4px);
+    }
+    
+    .mobile-menu-button.active .burger-line:nth-child(2) {
+        opacity: 0;
+        transform: scale(0);
+    }
+    
+    .mobile-menu-button.active .burger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(4px, -4px);
+    }
+    
+    .mobile-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--nav-bg);
+        border-top: 1px solid var(--color-border);
+        border-bottom: 1px solid var(--color-border);
+        z-index: 1000;
+        transform: translateY(-20px);
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-menu.open {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    
+    .mobile-nav-links {
+        list-style: none;
+        padding: var(--spacing-md) 0;
+        margin: 0;
+    }
+    
+    .mobile-nav-links li {
+        border-bottom: 1px solid var(--color-border);
+    }
+    
+    .mobile-nav-links li:last-child {
+        border-bottom: none;
+    }
+    
+    .mobile-nav-links a {
+        display: block;
+        color: var(--color-text);
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 500;
+        padding: var(--spacing-md) var(--spacing-md);
+        transition: all 0.2s ease;
+    }
+    
+    .mobile-nav-links a:hover {
+        color: var(--color-green);
+        background: var(--info-note-bg);
+    }
+    
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+    
     @media (max-width: 600px) {
         .nav-links {
             display: none;
+        }
+        
+        .mobile-menu-button {
+            display: flex;
+        }
+        
+        .mobile-menu {
+            display: block;
         }
     }
     
@@ -128,6 +296,14 @@
         .nav {
             background: black;
             border-bottom-color: var(--color-border);
+        }
+        
+        .mobile-menu {
+            background: var(--nav-bg);
+        }
+        
+        .burger-line {
+            background: var(--color-text);
         }
     }
 </style>
