@@ -127,7 +127,7 @@
     }
 
     .empty-action:hover {
-        background: #1ea54e;
+        background: var(--color-green-hover);
     }
 
     @media (max-width: 600px) {

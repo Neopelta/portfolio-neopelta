@@ -67,7 +67,7 @@
     
     .project-image {
         height: 200px;
-        background: #f8f8f8;
+        background: white;
         display: flex;
         align-items: flex-start;
         justify-content: center;
@@ -167,7 +167,7 @@
     }
 
     .git-link:hover {
-        color: var(--color-green);
+        color: var(--color-green-hover);
     }
 
     .git-link svg {

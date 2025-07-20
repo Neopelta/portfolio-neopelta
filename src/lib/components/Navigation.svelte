@@ -82,7 +82,7 @@
         border-bottom: 1px solid var(--color-border);
         position: sticky;
         top: 0;
-        background: #fff;
+        background: white;
         z-index: 10;
     }
     
@@ -126,7 +126,7 @@
     
     @media (prefers-color-scheme: dark) {
         .nav {
-            background: #111;
+            background: black;
             border-bottom-color: var(--color-border);
         }
     }

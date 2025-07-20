@@ -270,7 +270,7 @@
     }
 
     .reset-button.has-filters:hover:not(:disabled) {
-        background: #1ea54e;
+        background: var(--color-green-hover);
     }
 
     .filters-count {
