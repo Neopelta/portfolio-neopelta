@@ -10,6 +10,7 @@ export function entries() {
 }
 
 export const prerender = true;
+export const trailingSlash = 'never';
 
 export function load({ params }) {
 	const project = projects.find((p) => p.id === params.slug);
