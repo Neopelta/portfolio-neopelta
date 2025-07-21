@@ -64,6 +64,7 @@
 	.location {
 		font-size: 0.8rem;
 		color: var(--color-text-light);
+		font-weight: 500;
 	}
 
 	.footer-right {
@@ -77,7 +78,7 @@
 		color: var(--color-green);
 		text-decoration: none;
 		font-size: 0.9rem;
-		font-weight: 500;
+		font-weight: 600;
 	}
 
 	.contact-link:hover {
@@ -92,9 +93,10 @@
 	}
 
 	.social-link {
-		color: var(--color-text-light);
+		color: var(--color-text);
 		text-decoration: none;
 		transition: color 0.2s ease;
+		font-weight: 500;
 	}
 
 	.social-link:hover {
@@ -102,7 +104,8 @@
 	}
 
 	.separator {
-		color: var(--color-text-light);
+		color: var(--color-text);
+		font-weight: 600;
 	}
 
 	@media (max-width: 600px) {

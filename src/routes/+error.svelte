@@ -92,7 +92,7 @@
 		padding: var(--spacing-sm) var(--spacing-md);
 		border-radius: 6px;
 		text-decoration: none;
-		font-weight: 500;
+		font-weight: 600;
 		transition: all 0.2s ease;
 	}
 
@@ -112,7 +112,8 @@
 	}
 
 	.btn-projects:hover {
-		background: var(--color-border);
+		background: #e0e0e0;
+		border-color: var(--color-green);
 	}
 
 	@media (max-width: 600px) {
@@ -132,6 +133,12 @@
 		.btn-home,
 		.btn-projects {
 			width: 200px;
+		}
+	}
+
+	@media (prefers-color-scheme: dark) {
+		.btn-projects:hover {
+			background: #404040;
 		}
 	}
 </style>

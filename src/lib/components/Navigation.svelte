@@ -149,10 +149,11 @@
 	}
 
 	.nav-links a {
-		color: var(--color-text-light);
+		color: var(--color-text);
 		text-decoration: none;
 		font-size: 0.9rem;
 		cursor: pointer;
+		font-weight: 500;
 	}
 
 	.nav-links a:hover {

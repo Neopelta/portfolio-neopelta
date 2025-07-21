@@ -108,7 +108,7 @@
 		font-size: 0.875rem;
 		color: var(--color-text-light);
 		font-style: normal;
-		font-weight: 400;
+		font-weight: 500;
 	}
 
 	.project h3 {
@@ -134,18 +134,19 @@
 	}
 
 	.tech-tag {
-		background: #f0f0f0;
+		background: #e5e5e5;
 		padding: 0.2rem 0.5rem;
 		border-radius: 4px;
 		font-size: 0.75rem;
-		color: var(--color-text-light);
+		color: var(--color-text);
 		transition: all 0.2s ease;
+		font-weight: 500;
 	}
 
 	.tech-tag.highlighted {
 		background: var(--color-green);
 		color: white;
-		font-weight: 500;
+		font-weight: 600;
 	}
 
 	.project-links {
@@ -159,7 +160,7 @@
 		color: var(--color-green);
 		text-decoration: none;
 		font-size: 0.9rem;
-		font-weight: 500;
+		font-weight: 600;
 	}
 
 	.project-link:hover {
@@ -196,11 +197,12 @@
 		}
 
 		.tech-tag:not(.highlighted) {
-			background: #2a2a2a;
+			background: #404040;
+			color: var(--color-text-light);
 		}
 
 		.project-date {
-			background: #2a2a2a;
+			color: var(--color-text-light);
 		}
 	}
 </style>

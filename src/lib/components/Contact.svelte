@@ -142,12 +142,12 @@
 	}
 
 	.contact-link.linkedin img {
-		filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg)
+		filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2476%) hue-rotate(86deg)
 			brightness(118%) contrast(119%);
 	}
 
 	.contact-link.github img {
-		filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg)
+		filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2476%) hue-rotate(86deg)
 			brightness(118%) contrast(119%);
 	}
 
