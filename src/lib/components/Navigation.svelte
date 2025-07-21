@@ -214,11 +214,15 @@
 		transform: translateY(-20px);
 		opacity: 0;
 		transition: all 0.3s ease;
+		pointer-events: none;
+		visibility: hidden;
 	}
 
 	.mobile-menu.open {
 		transform: translateY(0);
 		opacity: 1;
+		pointer-events: auto;
+		visibility: visible;
 	}
 
 	.mobile-nav-links {
