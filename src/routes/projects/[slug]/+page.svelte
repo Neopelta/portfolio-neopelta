@@ -97,14 +97,16 @@
 			<ProjectDetail projectId={project.id} {...getProjectDetails(project.id)} />
 		{:else}
 			<div class="content-placeholder">
-				<p>Cette section sera complétée avec le contenu détaillé de ce projet.</p>
-				<p>Vous pouvez y ajouter :</p>
+				<p>Cette section sera complétée avec le contenu détaillé de ce projet prochainement.</p>
+				<p>Vous pourrez bientôt voir :</p>
 				<ul>
-					<li>Captures d'écran supplémentaires</li>
+					<li>Captures d'écran</li>
 					<li>Explication des fonctionnalités</li>
 					<li>Défis techniques rencontrés</li>
 					<li>Apprentissages et retours d'expérience</li>
 					<li>Code snippets importants</li>
+					<li>Sources</li>
+					<li>Documents à télécharger</li>
 				</ul>
 			</div>
 		{/if}
