@@ -5,7 +5,7 @@
 <section class="section-hero">
 	<div class="hero">
 		<div class="hero-avatar">
-			<Avatar size="large" />
+			<Avatar size="extra-large" />
 		</div>
 		<h1>Bonjour, je suis Ronan PLUTA FONTAINE</h1>
 		<p>
@@ -25,6 +25,13 @@
 		margin: 0 auto var(--spacing-md) auto;
 		display: flex;
 		justify-content: center;
+	}
+
+	@media (max-width: 768px) {
+		.hero-avatar :global(.avatar-extra-large) {
+			width: 128px !important;
+			height:128px !important;
+		}
 	}
 
 	.hero h1 {

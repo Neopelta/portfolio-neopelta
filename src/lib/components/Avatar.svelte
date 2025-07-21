@@ -1,11 +1,12 @@
 <script>
-	export let size = 'medium'; // 'small', 'medium', 'large'
+	export let size = 'medium'; // 'small', 'medium', 'large', 'extra-large'
 	export let speaking = false; // To display ronan_speak.svg
 
 	const sizes = {
-		small: 24,
-		medium: 32,
-		large: 128
+		small: 32,
+		medium: 64,
+		large: 128,
+		'extra-large': 256
 	};
 
 	$: avatarSrc = speaking
@@ -42,6 +43,11 @@
 	}
 
 	.avatar-large {
+		width: 128px;
+		height: 128px;
+	}
+
+	.avatar-extra-large {
 		width: 256px;
 		height: 256px;
 	}

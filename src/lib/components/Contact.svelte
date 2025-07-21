@@ -13,7 +13,7 @@
 				</p>
 			</div>
 			<div class="hero-avatar">
-				<Avatar size="large" speaking={true} />
+				<Avatar size="extra-large" speaking={true} />
 			</div>
 		</div>
 
@@ -106,6 +106,13 @@
 
 	.hero-avatar {
 		flex-shrink: 0;
+	}
+
+	@media (max-width: 768px) {
+		.hero-avatar :global(.avatar-extra-large) {
+			width: 128px !important;
+			height: 128px !important;
+		}
 	}
 
 	.contact-methods {
