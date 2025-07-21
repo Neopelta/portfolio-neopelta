@@ -273,7 +273,7 @@
 									<span>{download.icon}</span>
 								{/if}
 							</div>
-							<h4 class="download-title">{download.title}</h4>
+							<h3 class="download-title">{download.title}</h3>
 						</div>
 						<p class="download-description">{download.description}</p>
 						<a href="/downloads/{download.filename}" class="download-link" download>

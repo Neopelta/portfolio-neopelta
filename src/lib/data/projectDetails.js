@@ -109,7 +109,7 @@ export const projectDetails = {
 				title: 'Mes contributions principales',
 				underlined: true,
 				content: `
-                    <h5>1. Système de statistiques multidimensionnel</h5>
+                    <h4>1. Système de statistiques multidimensionnel</h4>
                     <p>Développement complet du système de statistiques avec 4 vues d'analyse : historique des quiz, performance par agrès, par type de question et par niveau de qualification. Le système utilise un cache LRU optimisé pour les détails des quiz et propose des filtres temporels dynamiques.</p>
                 `
 			},
@@ -141,7 +141,7 @@ export const projectDetails = {
 			{
 				type: 'text',
 				content: `
-                    <h5>2. Pipeline d'extraction de données PDF</h5>
+                    <h4>2. Pipeline d'extraction de données PDF</h4>
                     <p>Conception d'un pipeline d'extraction automatisée pour traiter les documents PDF officiels de la FFGym. Le projet comportait deux approches :</p>
                     
                     <p><strong>Approche manuelle</strong> : Extraction manuelle des données depuis les PDF vers des fichiers Excel, puis traitement par l'outil Populator Java. Cette méthode a été utilisée pour la version finale en raison de sa fiabilité.</p>
@@ -154,7 +154,7 @@ export const projectDetails = {
 			{
 				type: 'text',
 				content: `
-                    <h5>3. Design et templates Figma</h5>
+                    <h4>3. Design et templates Figma</h4>
                     <p>Création de l'ensemble du design system de l'application avec Figma. Définition de la charte graphique, des composants réutilisables, et des parcours utilisateur complets. Les templates incluent tous les écrans avec leurs états (vide, chargement, erreur) et les animations de transition.</p>
                 `
 			},
@@ -206,7 +206,7 @@ export const projectDetails = {
 			{
 				type: 'text',
 				content: `
-                    <h5>4. Modélisation de la base de données</h5>
+                    <h4>4. Modélisation de la base de données</h4>
                     <p>Participation à la conception du schéma Room Database avec gestion des métadonnées, versioning et migrations. La base comprend deux parties distinctes : les données officielles FFGym (en lecture seule) et les statistiques utilisateur (préservées entre mises à jour).</p>
                 `
 			}
@@ -293,7 +293,7 @@ export const projectDetails = {
 				title: 'Fonctionnalités principales',
 				underlined: true,
 				content: `
-					<h5>Application Web</h5>
+					<h4>Application Web</h4>
 					<ul>
 						<li>Authentification sécurisée via Discord OAuth2</li>
 						<li>Tableau de bord interactif avec toutes les compétences étudiantes</li>
@@ -303,7 +303,7 @@ export const projectDetails = {
 						<li>Interface responsive adaptée mobile et desktop</li>
 					</ul>
 					
-					<h5>Bot Discord</h5>
+					<h4>Bot Discord</h4>
 					<ul>
 						<li>Commandes prefix <code>mpf!</code> pour toutes les interactions</li>
 						<li>Consultation des compétences via <code>mpf!skills</code></li>
@@ -321,13 +321,13 @@ export const projectDetails = {
 				content: `
 					<p>L'architecture du projet suit une approche modulaire avec séparation claire des responsabilités :</p>
 					
-					<h5>Frontend (React + Vite)</h5>
+					<h4>Frontend (React + Vite)</h4>
 					<p>Interface utilisateur développée avec React et build tool Vite pour des performances optimales. Utilisation de React Router pour la navigation, et Lucide React pour les icônes. L'application gère l'état d'authentification de manière globale et propose une expérience utilisateur fluide.</p>
 					
-					<h5>Backend (Express.js + Passport)</h5>
+					<h4>Backend (Express.js + Passport)</h4>
 					<p>Serveur API robuste utilisant Express.js avec middleware Passport pour l'authentification Discord. Gestion des sessions sécurisées, validation des tokens et interface avec Google Sheets API. Architecture RESTful avec endpoints séparés pour les différentes fonctionnalités.</p>
 					
-					<h5>Bot Discord (Discord.js)</h5>
+					<h4>Bot Discord (Discord.js)</h4>
 					<p>Bot autonome développé avec Discord.js v14, système de commandes modulaire et gestion d'événements. Partage la même base de données que l'application web pour assurer la cohérence des données.</p>
 				`
 			},
@@ -348,13 +348,13 @@ export const projectDetails = {
 				title: 'Mes contributions principales',
 				underlined: true,
 				content: `
-					<h5>1. Développement Frontend React</h5>
+					<h4>1. Développement Frontend React</h4>
 					<p>Conception et développement complet de l'interface utilisateur avec React. Création des composants réutilisables (Header, Footer, Template) et en atomic design, mise en place du routing avec React Router, et développement des pages principales (Accueil, Tableau des compétences, Profils individuels). Implémentation du système de recherche et filtrage en temps réel.</p>
 					
-					<h5>2. Système de Permissions et Rôles</h5>
+					<h4>2. Système de Permissions et Rôles</h4>
 					<p>Implémentation du système de permissions complexe permettant aux administrateurs de modifier toutes les fiches (sauf autres admins) et aux utilisateurs de modifier uniquement leur propre profil. Gestion des tokens de session et validation côté client et serveur.</p>
 					
-					<h5>3. Interface Responsive et UX</h5>
+					<h4>3. Interface Responsive et UX</h4>
 					<p>Conception d'une interface entièrement responsive adaptée aux appareils mobiles et desktop. Optimisation de l'affichage du tableau avec défilement horizontal pour les écrans étroits, ajout d'instructions contextuelles et amélioration de l'accessibilité générale.</p>
 				`
 			},
@@ -363,13 +363,13 @@ export const projectDetails = {
 				title: 'Défis techniques et solutions',
 				underlined: true,
 				content: `
-					<h5>Gestion des Sessions Distribuées</h5>
+					<h4>Gestion des Sessions Distribuées</h4>
 					<p>La complexité principale résidait dans la synchronisation des sessions entre l'application web et le bot Discord. Solution implémentée : base de données MySQL centralisée pour les sessions avec système d'expiration automatique et validation des tokens en temps réel.</p>
 					
-					<h5>Permissions Granulaires</h5>
+					<h4>Permissions Granulaires</h4>
 					<p>Mise en place d'un système de permissions complexe permettant différents niveaux d'accès. Les administrateurs peuvent gérer tous les utilisateurs mais ne peuvent pas modifier les comptes d'autres administrateurs, assurant ainsi une sécurité hiérarchique.</p>
 					
-					<h5>Interface Google Sheets</h5>
+					<h4>Interface Google Sheets</h4>
 					<p>Intégration avec Google Sheets API nécessitant la gestion des credentials de service, authentification OAuth2 et synchronisation des données en temps réel entre l'application et la feuille de calcul partagée.</p>
 				`
 			},
@@ -378,7 +378,7 @@ export const projectDetails = {
 				title: 'Technologies et outils utilisés',
 				underlined: true,
 				content: `
-					<h5>Frontend</h5>
+					<h4>Frontend</h4>
 					<ul>
 						<li><strong>React 18</strong> : Framework principal avec hooks modernes</li>
 						<li><strong>Vite</strong> : Build tool pour développement rapide</li>
@@ -387,7 +387,7 @@ export const projectDetails = {
 						<li><strong>CSS natif</strong> : Styles personnalisés sans framework</li>
 					</ul>
 					
-					<h5>Backend</h5>
+					<h4>Backend</h4>
 					<ul>
 						<li><strong>Express.js</strong> : Framework web Node.js</li>
 						<li><strong>Passport.js</strong> : Middleware d'authentification</li>
@@ -396,7 +396,7 @@ export const projectDetails = {
 						<li><strong>Discord.js v14</strong> : Wrapper API Discord</li>
 					</ul>
 					
-					<h5>Outils et Infrastructure</h5>
+					<h4>Outils et Infrastructure</h4>
 					<ul>
 						<li><strong>Google Cloud Console</strong> : Gestion des APIs</li>
 						<li><strong>Discord Developer Portal</strong> : Configuration bot</li>
@@ -504,21 +504,21 @@ export const projectDetails = {
 				content: `
 					<p>L'application implémente un système de validation rigoureux basé sur les 8 règles fondamentales de la logique syllogistique :</p>
 					
-					<h5>Règles structurelles</h5>
+					<h4>Règles structurelles</h4>
 					<ul>
 						<li><strong>Rmt (Middle Term Rule)</strong> : Le moyen terme doit être distribué au moins une fois</li>
 						<li><strong>Rp (Premise Rule)</strong> : Validation de la cohérence des prémisses</li>
 						<li><strong>Rlh (Hypothesis Linking Rule)</strong> : La conclusion ne peut excéder les prémisses</li>
 					</ul>
 					
-					<h5>Règles de qualité</h5>
+					<h4>Règles de qualité</h4>
 					<ul>
 						<li><strong>Rnn (Non-Negativity Rule)</strong> : Interdiction de deux prémisses négatives</li>
 						<li><strong>Rn (Negativity Rule)</strong> : Propagation de la négativité vers la conclusion</li>
 						<li><strong>Rpp (Positive Premise Rule)</strong> : Cohérence des conclusions positives</li>
 					</ul>
 					
-					<h5>Règles de quantité</h5>
+					<h4>Règles de quantité</h4>
 					<ul>
 						<li><strong>Raa (Affirmation-Affirmation Rule)</strong> : Limitation des prémisses particulières</li>
 						<li><strong>Ruu (Hypothesis of Existence)</strong> : Vérification de l'existence des termes</li>
@@ -532,13 +532,13 @@ export const projectDetails = {
 				content: `
 					<p>Le projet s'appuie sur une architecture modulaire en TypeScript privilégiant la séparation des préoccupations :</p>
 					
-					<h5>Couche logique métier</h5>
+					<h4>Couche logique métier</h4>
 					<p>Implémentation des classes <code>Type</code>, <code>Proposition</code> et <code>Polysyllogism</code> pour modéliser les structures logiques. Le système de types garantit la cohérence des propositions (A, E, I, O) selon la classification aristotélicienne.</p>
 					
-					<h5>Moteur de validation</h5>
+					<h4>Moteur de validation</h4>
 					<p>La classe <code>ValidityChecker</code> orchestre l'application des règles logiques de manière configurable. Chaque règle peut être activée/désactivée individuellement pour des scénarios pédagogiques spécifiques.</p>
 					
-					<h5>Interface utilisateur adaptive</h5>
+					<h4>Interface utilisateur adaptive</h4>
 					<p>Système de formulaires dynamiques avec génération de prémisses à la volée, gestion des relations entre termes et validation en temps réel. Support du mode sombre et internationalisation complète.</p>
 				`
 			},
@@ -547,16 +547,16 @@ export const projectDetails = {
 				title: 'Mes contributions principales',
 				underlined: true,
 				content: `
-					<h5>1. Développement du front-end interactif</h5>
+					<h4>1. Développement du front-end interactif</h4>
 					<p>Conception et implémentation complète des formulaires interactifs pour les deux modes d'utilisation. Développement du système de création dynamique de prémisses en Mode Libre, avec gestion des relations logiques entre termes et interface responsive.</p>
 					
-					<h5>2. Logique de parsing des polysyllogismes</h5>
+					<h4>2. Logique de parsing des polysyllogismes</h4>
 					<p>Implémentation de l'algorithme de validation structurelle des polysyllogismes dans la méthode <code>checkStructure()</code>. Cette fonction vérifie la cohérence des termes, détecte les relations logiques et réorganise automatiquement les propositions dans l'ordre canonique.</p>
 					
-					<h5>3. Système de gestion des quantificateurs</h5>
+					<h4>3. Système de gestion des quantificateurs</h4>
 					<p>Développement complet de l'éditeur de quantificateurs personnalisés avec persistance localStorage, catégorisation par type logique (universel/existentiel, positif/négatif) et intégration seamless dans les formulaires principaux.</p>
 					
-					<h5>4. Interface de visualisation des combinaisons</h5>
+					<h4>4. Interface de visualisation des combinaisons</h4>
 					<p>En équipe, création du générateur exhaustif affichant les 256 combinaisons possibles de syllogismes avec validation règle par règle. Interface tabulaire avec codage couleur pour identifier rapidement les syllogismes valides/invalides selon les règles sélectionnées.</p>
 				`
 			},
@@ -565,7 +565,7 @@ export const projectDetails = {
 				title: 'Défis techniques et solutions',
 				underlined: true,
 				content: `
-					<h5>Gestion des états complexes</h5>
+					<h4>Gestion des états complexes</h4>
 					<p>L'interface du Mode Libre nécessitait une gestion sophistiquée des états avec des formulaires dynamiques interdépendants. Implementation d'un système de binding bi-directionnel entre les sélections utilisateur et les options disponibles.</p>
 				`
 			},
@@ -653,7 +653,7 @@ export const projectDetails = {
 				content: `
 					<p>Le projet suit une architecture modulaire rigoureuse avec séparation claire des responsabilités :</p>
 					
-					<h5>Structure des fichiers</h5>
+					<h4>Structure des fichiers</h4>
 					<ul>
 						<li><strong>main.c</strong> : Point d'entrée, orchestration des algorithmes de résolution</li>
 						<li><strong>sudoku.c/h</strong> : Cœur des algorithmes de résolution (singleton, k-uplets, X-Wing, backtracking)</li>
@@ -662,7 +662,7 @@ export const projectDetails = {
 						<li><strong>types.c/h</strong> : Définitions des structures de données et constantes</li>
 					</ul>
 					
-					<h5>Structures de données optimisées</h5>
+					<h4>Structures de données optimisées</h4>
 					<p>Chaque cellule du Sudoku est représentée par une structure contenant sa valeur et un entier représentant les notes possibles via manipulation binaire. Cette approche permet une gestion efficace de la mémoire et des opérations sur les candidats.</p>
 				`
 			},
@@ -673,19 +673,19 @@ export const projectDetails = {
 				content: `
 					<p>Le solveur implémente une hiérarchie de techniques de résolution, des plus simples aux plus complexes :</p>
 					
-					<h5>1. Méthode des Singletons</h5>
+					<h4>1. Méthode des Singletons</h4>
 					<p>Détection automatique des cellules ne possédant qu'un seul candidat possible. Cette technique de base permet de résoudre rapidement les parties évidentes du puzzle.</p>
 					
-					<h5>2. K-uplets généralisés (Naked et Hidden Subsets)</h5>
+					<h4>2. K-uplets généralisés (Naked et Hidden Subsets)</h4>
 					<p>Algorithme unifié couvrant les paires, triplets et k-uplets jusqu'à 9 éléments. Détecte automatiquement les groupes de cellules partageant le même ensemble de candidats pour éliminer les possibilités ailleurs.</p>
 					
-					<h5>3. Intersections lignes/colonnes/blocs (Pointing et Claiming)</h5>
+					<h4>3. Intersections lignes/colonnes/blocs (Pointing et Claiming)</h4>
 					<p>Analyse des intersections entre blocs et lignes/colonnes pour identifier les candidats contraints à certaines positions, permettant l'élimination de candidats dans les zones adjacentes.</p>
 					
-					<h5>4. Pattern X-Wing</h5>
+					<h4>4. Pattern X-Wing</h4>
 					<p>Détection du motif X-Wing sur deux lignes ou colonnes parallèles, créant un pattern en diagonale qui permet d'éliminer les candidats dans les colonnes ou lignes concernées.</p>
 					
-					<h5>5. Backtracking</h5>
+					<h4>5. Backtracking</h4>
 					<p>Algorithme de derniers recours utilisant l'exploration exhaustive avec retour en arrière pour les grilles que les techniques humaines ne peuvent résoudre complètement.</p>
 				`
 			},
@@ -713,16 +713,16 @@ export const projectDetails = {
 				title: 'Mes contributions principales',
 				underlined: true,
 				content: `
-					<h5>1. Architecture modulaire et structure du projet</h5>
+					<h4>1. Architecture modulaire et structure du projet</h4>
 					<p>Conception de l'architecture générale du projet avec séparation claire des responsabilités. Définition des interfaces entre modules et standardisation des conventions de codage pour faciliter le travail en équipe.</p>
 					
-					<h5>2. Système de gestion des notes optimisé</h5>
+					<h4>2. Système de gestion des notes optimisé</h4>
 					<p>Implémentation du système de manipulation binaire des candidats permettant des opérations rapides sur les notes. Développement des fonctions de base (setnote, getnote) et du système de comptage pré-calculé des bits pour optimiser les performances.</p>
 					
-					<h5>3. Algorithmes k-uplets généralisés</h5>
+					<h4>3. Algorithmes k-uplets généralisés</h4>
 					<p>Conception et implémentation de l'algorithme unifié pour détecter les k-uplets nus et cachés. Utilisation de la génération de combinaisons et du coefficient binomial pour explorer systématiquement tous les groupes possibles.</p>
 					
-					<h5>4. Fonctions utilitaires et débogage</h5>
+					<h4>4. Fonctions utilitaires et débogage</h4>
 					<p>Développement des outils d'affichage et de débogage permettant de visualiser l'état des notes et de suivre la progression des algorithmes. Ces outils ont été essentiels pour valider le bon fonctionnement des techniques complexes.</p>
 				`
 			},
@@ -731,10 +731,10 @@ export const projectDetails = {
 				title: 'Défis techniques et optimisations',
 				underlined: true,
 				content: `
-					<h5>Manipulation binaire avancée</h5>
+					<h4>Manipulation binaire avancée</h4>
 					<p>L'utilisation d'entiers pour représenter les notes nécessitait une maîtrise des opérations bit-à-bit. Nous avons développé un système de pré-calcul des comptages de bits et des fonctions optimisées pour les opérations fréquentes.</p>
 					
-					<h5>Intégration des techniques de résolution</h5>
+					<h4>Intégration des techniques de résolution</h4>
 					<p>La difficulté principale était de créer une architecture permettant l'ajout facile de nouvelles techniques tout en maintenant l'efficacité. Nous avons opté pour une approche modulaire où chaque technique retourne le nombre de modifications effectuées.</p>
 					`
 			},
@@ -745,7 +745,7 @@ export const projectDetails = {
 				content: `
 					<p>Le projet a été mené selon une méthodologie agile adaptée au contexte académique :</p>
 					
-					<h5>Organisation de l'équipe</h5>
+					<h4>Organisation de l'équipe</h4>
 					<ul>
 						<li><strong>Maxime MARCHIVE</strong> : Coordinateur projet et liaison équipe académique</li>
 						<li><strong>Ronan PLUTA FONTAINE</strong> : Chef d'équipe, architecture technique et k-uplets</li>
@@ -753,7 +753,7 @@ export const projectDetails = {
 						<li><strong>Diewertje VAN DAM</strong> : Techniques avancées et optimisations</li>
 					</ul>
 					
-					<h5>Outils et processus</h5>
+					<h4>Outils et processus</h4>
 					<ul>
 						<li><strong>Contrôle de version</strong> : Git </li>
 						<li><strong>Documentation</strong> : Rédaction en LaTeX pour un rendu professionnel</li>
@@ -761,7 +761,7 @@ export const projectDetails = {
 						<li><strong>Tests continus</strong> : Validation sur grilles de référence à chaque itération</li>
 					</ul>
 					
-					<h5>Jalons du projet</h5>
+					<h4>Jalons du projet</h4>
 					<p>Le projet s'est déroulé de septembre 2023 à avril 2024 avec des jalons clairs : cahier des charges (novembre), rapport d'avancement (janvier), et soutenance finale en anglais (mars-avril).</p>
 				`
 			},
@@ -772,17 +772,17 @@ export const projectDetails = {
 				content: `
 					<p>Le solveur final présente d'excellentes performances sur l'ensemble des tailles de grilles testées :</p>
 					
-					<h5>Efficacité des techniques</h5>
+					<h4>Efficacité des techniques</h4>
 					<ul>
 						<li><strong>Grilles faciles à moyennes (9x9)</strong> : Résolues uniquement par les techniques humaines en < 1ms</li>
 						<li><strong>Grilles difficiles</strong> : Combinaison techniques + backtracking limité</li>
 						<li><strong>Grilles 16x16 et 25x25</strong> : Gestion efficace grâce aux optimisations algorithmiques</li>
 					</ul>
 					
-					<h5>Robustesse et fiabilité</h5>
+					<h4>Robustesse et fiabilité</h4>
 					<p>Tests extensifs sur plus de 1000 grilles générées automatiquement, validation sur grilles de référence connues, et respect des contraintes de validité (minimum 17 cases pour grilles 9x9).</p>
 					
-					<h5>Extensibilité</h5>
+					<h4>Extensibilité</h4>
 					<p>Architecture modulaire permettant l'ajout facile de nouvelles techniques (Swordfish, Y-Wing, etc.) sans modification du code existant. Base solide pour des extensions futures.</p>
 				`
 			}

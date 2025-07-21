@@ -52,7 +52,7 @@
 <main class="container">
 	<div class="page-header">
 		<h1>Tous mes projets</h1>
-		<p>Découvrez l'ensemble de mes réalisations en développement logiciel</p>
+		<h2>Découvrez l'ensemble de mes réalisations en développement logiciel</h2>
 	</div>
 
 	<ProjectsFilters />
@@ -122,6 +122,10 @@
 	.back-link:hover {
 		text-decoration: underline;
 	}
+
+	.page-header h2 {
+        font-weight: normal;
+    }
 
 	@media (max-width: 600px) {
 		.page-header h1 {
