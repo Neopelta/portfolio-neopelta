@@ -95,11 +95,6 @@
 		color: var(--color-text);
 	}
 
-	.page-header p {
-		color: var(--color-text-light);
-		font-size: 1.1rem;
-	}
-
 	.results-info {
 		margin-bottom: var(--spacing-md);
 		color: var(--color-text-light);

@@ -96,6 +96,27 @@ export const projects = [
 		tags: ['Unity', '3D', 'IHM', 'Widgets']
 	},
 	{
+		id: 'station-meteo',
+		title: 'Station Météo Connectée BLE',
+		description: "Station météorologique IoT basée sur STM32 avec capteurs environnementaux (température, humidité, pression). Communication dual filaire/Bluetooth Low Energy vers interface graphique Qt temps réel. Projet universitaire intégrant programmation embarquée, protocoles sans fil et développement d'IHM.",
+		date: '2025',
+		category: 'Embedded & Desktop',
+		featured: true,
+		technologies: [
+			{ name: 'STM32', highlighted: true },
+			{ name: 'Qt', highlighted: true },
+			{ name: 'C++', highlighted: false },
+			{ name: 'Bluetooth LE', highlighted: true },
+			{ name: 'I2C', highlighted: false },
+			{ name: 'CMake', highlighted: false }
+		],
+		link: '/projects/station-meteo',
+		git: 'https://github.com/Neopelta/station-meteo/tree/master',
+		image: '/images/projects/station-meteo/montage_station-meteo.webp',
+		alt: 'Station météo connectée STM32 avec capteurs et interface Qt affichant graphiques temps réel',
+		tags: ['STM32', 'Qt', 'C++', 'IoT', 'BLE', 'Capteurs', 'Temps réel', 'Embedded']
+	},
+	{
 		id: 'kapture-game',
 		title: 'Kapture game',
 		description:
