@@ -97,7 +97,7 @@
 			<ProjectDetail projectId={project.id} {...getProjectDetails(project.id)} />
 		{:else}
 			<div class="content-placeholder">
-				<p>Cette section sera complétée avec le contenu détaillé de ce projet prochainement.</p>
+				<p>Cette section sera complétée prochainement avec le contenu détaillé de ce projet.</p>
 				<p>Vous pourrez bientôt voir :</p>
 				<ul>
 					<li>Captures d'écran</li>
