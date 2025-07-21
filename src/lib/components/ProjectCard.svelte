@@ -43,7 +43,15 @@
 			{/each}
 		</div>
 		<div class="project-links">
-			<a href={link} class="project-link"> Voir le projet → </a>
+			<a
+				href={link}
+				class="project-link"
+				on:click|preventDefault={() => {
+					console.log(`Lien cliqué (navigation bloquée pour debug) : ${link}`);
+				}}
+			>
+				Voir le projet →
+			</a>
 			<!--
             {#if git}
                 <a href={git} class="git-link" target="_blank" rel="noopener noreferrer" title="Voir le code source sur GitHub">
