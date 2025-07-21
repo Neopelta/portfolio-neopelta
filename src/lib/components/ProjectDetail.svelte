@@ -104,7 +104,7 @@
 
 <div class="project-detail">
 	{#if title}
-		<h3 class="detail-title">{title}</h3>
+		<h2 class="detail-title">{title}</h2>
 	{/if}
 
 	{#if content}
@@ -119,14 +119,14 @@
 				{#if block.type === 'text'}
 					<div class="content-text">
 						{#if block.title}
-							<h4 class="block-title" class:underlined={block.underlined}>{block.title}</h4>
+							<h3 class="block-title" class:underlined={block.underlined}>{block.title}</h3>
 						{/if}
 						{@html block.content}
 					</div>
 				{:else if block.type === 'images'}
 					<div class="content-images">
 						{#if block.title}
-							<h4 class="block-title" class:underlined={block.underlined}>{block.title}</h4>
+							<h3 class="block-title" class:underlined={block.underlined}>{block.title}</h3>
 						{/if}
 						<p class="click-hint">💡 Cliquez sur une image pour l'agrandir</p>
 						<div class="images-carousel-container">
@@ -185,7 +185,7 @@
 				{:else if block.type === 'code'}
 					<div class="content-code">
 						{#if block.title}
-							<h4 class="block-title" class:underlined={block.underlined}>{block.title}</h4>
+							<h3 class="block-title" class:underlined={block.underlined}>{block.title}</h3>
 						{/if}
 						<div class="code-snippet">
 							<div class="snippet-header">
@@ -204,7 +204,7 @@
 
 	{#if images.length > 0}
 		<div class="detail-images">
-			<h4>Captures d'écran</h4>
+			<h3>Captures d'écran</h3>
 			<p class="click-hint">💡 Cliquez sur une image pour l'agrandir</p>
 			<div class="images-grid">
 				{#each images as image}
@@ -228,7 +228,7 @@
 
 	{#if codeSnippets.length > 0}
 		<div class="detail-section">
-			<h4>Extraits de code</h4>
+			<h3>Extraits de code</h3>
 			{#each codeSnippets as snippet}
 				<div class="code-snippet">
 					<div class="snippet-header">
@@ -273,7 +273,7 @@
 									<span>{download.icon}</span>
 								{/if}
 							</div>
-							<h5 class="download-title">{download.title}</h5>
+							<h4 class="download-title">{download.title}</h4>
 						</div>
 						<p class="download-description">{download.description}</p>
 						<a href="/downloads/{download.filename}" class="download-link" download>
@@ -429,7 +429,7 @@
 		font-size: 0.75rem;
 		color: var(--color-text-light);
 		margin-bottom: var(--spacing-xs);
-		opacity: 0.7;
+		opacity: 0.9;
 	}
 
 	.images-carousel-container {
@@ -533,7 +533,7 @@
 		margin-bottom: var(--spacing-lg);
 	}
 
-	.detail-section h4 {
+	.detail-section h3 {
 		font-size: 1.1rem;
 		font-weight: 600;
 		color: var(--color-text);
@@ -547,7 +547,7 @@
 		margin-bottom: var(--spacing-lg);
 	}
 
-	.detail-images h4 {
+	.detail-images h3 {
 		font-size: 1.1rem;
 		font-weight: 600;
 		color: var(--color-text);
