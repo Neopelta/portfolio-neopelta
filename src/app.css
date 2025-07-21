@@ -17,8 +17,8 @@ html {
 	--color-text: #333;
 	--color-text-light: #555;
 	--color-border: #eee;
-	--color-green: #16a34a;
-	--color-green-hover: #15803d;
+	--color-green: #15803d;
+	--color-green-hover: #166534;
 	--max-width: 800px;
 	--info-note-bg: #fafafa;
 	--tech-tag-bg: #f5f5f5;
@@ -33,6 +33,10 @@ body {
 	line-height: 1.6;
 	color: var(--color-text);
 	background: var(--body-bg);
+}
+
+h1 {
+	font-size: 2rem;
 }
 
 .container {
@@ -97,9 +101,19 @@ body {
 	outline-offset: 2px;
 }
 
+@media (max-width: 768px) {
+	h1 {
+		font-size: 1.7rem;
+	}
+}
+
 @media (max-width: 600px) {
 	.container {
 		padding: 0 var(--spacing-sm);
+	}
+	
+	h1 {
+		font-size: 1.5rem;
 	}
 }
 
