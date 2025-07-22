@@ -114,7 +114,7 @@ export const projects = [
 		git: 'https://github.com/Neopelta/station-meteo/tree/master',
 		image: '/images/projects/station-meteo/montage_station-meteo.webp',
 		alt: 'Station météo connectée STM32 avec capteurs et interface Qt affichant graphiques temps réel',
-		tags: ['STM32', 'Qt', 'C++', 'IoT', 'BLE', 'Capteurs', 'Temps réel', 'Embedded']
+		tags: ['STM32', 'Qt', 'C++', 'IoT', 'BLE', 'Capteurs', 'Temps réel', 'Embarqué']
 	},
 	{
 		id: 'kapture-game',
