@@ -9,7 +9,6 @@
 				<p>&copy; {currentYear} Ronan PLUTA FONTAINE</p>
 				<span class="location">Disponible pour alternance</span>
 			</div>
-
 			<div class="footer-right">
 				<a href="mailto:rplutafontaine@protonmail.com" class="contact-link">
 					rplutafontaine@protonmail.com
@@ -31,6 +30,10 @@
 						class="social-link"
 					>
 						GitHub
+					</a>
+					<span class="separator">•</span>
+					<a href="/sitemap" class="social-link">
+						Plan du site
 					</a>
 				</div>
 			</div>

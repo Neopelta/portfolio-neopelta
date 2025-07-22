@@ -8,6 +8,9 @@ node_modules
 /.svelte-kit
 /build
 
+# Generated files
+static/sitemap.xml
+
 # OS
 .DS_Store
 Thumbs.db
