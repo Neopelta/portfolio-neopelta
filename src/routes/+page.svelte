@@ -13,11 +13,14 @@
 	<title>Ronan PLUTA FONTAINE - Portfolio</title>
 	<meta
 		name="description"
-		content="Étudiant en Master 2 Informatique à Poitiers, spécialisé dans le développement web écoresponsable."
+		content="Étudiant en Master Informatique à Poitiers, spécialisé en Développement Logiciel & Big Data, recherche alternance septembre 2025."
 	/>
 	<meta property="og:title" content="Ronan PLUTA FONTAINE - Portfolio" />
-	<meta property="og:description" content="Développeur web spécialisé en éco-conception" />
+	<meta property="og:description" content="Développeur logiciel - Java, React, APIs REST, ... - Recherche alternance" />
 	<meta property="og:type" content="website" />
+	<meta property="og:image" content="https://www.neopelta.fr/ronan-og.png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
 </svelte:head>
 
 <Navigation />
