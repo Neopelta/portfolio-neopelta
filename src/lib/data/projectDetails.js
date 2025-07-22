@@ -444,7 +444,6 @@ export const projectDetails = {
 			}
 		]
 	},
-
 	'polysyllogism-validator': {
 		title: 'Outil Pédagogique de Validation de Raisonnements Logiques',
 		contentBlocks: [
@@ -815,6 +814,365 @@ export const projectDetails = {
 				filename: 'FR_SUDOKU_methods.pdf',
 				description: 'Document PDF détaillant les méthodes de résolution de Sudoku possible.',
 				icon: '/images/logo/pdf/pdf-logo.svg'
+			}
+		]
+	},
+	'station-meteo': {
+		title: 'Station Météo Connectée BLE - Système IoT Embarqué',
+		contentBlocks: [
+			{
+				type: 'text',
+				content: `
+					<p>Station météorologique IoT complète développée en binôme dans le cadre d'un projet BLE & Capteurs à l'Université de Poitiers. Ce système embarqué acquisition, traite et transmet des données environnementales (température, humidité, pression atmosphérique) via deux modes de communication : liaison série USB et Bluetooth Low Energy vers une interface graphique Qt temps réel.</p>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Architecture du système',
+				underlined: true,
+				content: `
+					<p>Le système repose sur une architecture modulaire combinant hardware et software avec un flux de données optimisé :</p>
+					<ul>
+						<li><strong>Couche capteurs</strong> : Acquisition des mesures environnementales via protocole I2C</li>
+						<li><strong>Couche traitement</strong> : STM32L476RG pour traitement temps réel et formatage des données</li>
+						<li><strong>Couche communication</strong> : Double transmission série (USB) et sans fil (BLE)</li>
+						<li><strong>Couche visualisation</strong> : Application Qt avec graphiques temps réel et interface responsive</li>
+					</ul>
+				`
+			},
+			{
+				type: 'images',
+				title: 'Architecture et flux de données',
+				underlined: true,
+				images: [
+					{
+						src: '/images/projects/station-meteo/flux_donnees.webp',
+						alt: 'Diagramme du flux de données du système',
+						caption: 'Architecture complète : des capteurs vers l\'interface de visualisation'
+					},
+					{
+						src: '/images/projects/station-meteo/schema_pressure.webp',
+						alt: 'Schéma technique du capteur de pression LPS22HH',
+						caption: 'Schéma électronique détaillé du capteur de pression'
+					},
+					{
+						src: '/images/projects/station-meteo/schema_humidity_temp.webp',
+						alt: 'Schéma technique du capteur température/humidité HTS221',
+						caption: 'Architecture interne des capteurs température et humidité'
+					}
+				]
+			},
+			{
+				type: 'text',
+				title: 'Matériel et composants techniques',
+				underlined: true,
+				content: `
+					<p>Le projet s'appuie sur un écosystème STMicroelectronics :</p>
+					
+					<h4>Microcontrôleur principal</h4>
+					<ul>
+						<li><strong>STM32L476RG Nucleo</strong> : Cortex-M4 80MHz, 1MB Flash, 128KB SRAM</li>
+						<li>Périphériques intégrés : I2C, SPI, UART, Timer, EXTI</li>
+						<li>Optimisé pour applications IoT basse consommation</li>
+					</ul>
+					
+					<h4>Shield capteurs environnementaux</h4>
+					<ul>
+						<li><strong>X-NUCLEO-IKS01A3</strong> : Plateforme multi-capteurs MEMS</li>
+						<li><strong>HTS221</strong> : Température (-40°C/+85°C) et humidité relative (0-100%)</li>
+						<li><strong>LPS22HH</strong> : Pression barométrique (260-1260 hPa)</li>
+						<li>Communication I2C avec adressage automatique</li>
+					</ul>
+					
+					<h4>Module de communication sans fil</h4>
+					<ul>
+						<li><strong>X-NUCLEO-BNRG2A1</strong> : Module Bluetooth Low Energy BlueNRG-2</li>
+						<li>Protocole GATT/ATT pour transmission structurée</li>
+						<li>Portée 10m, consommation optimisée</li>
+					</ul>
+				`
+			},
+			{
+				type: 'images',
+				title: 'Composants matériels du système',
+				underlined: true,
+				images: [
+					{
+						src: '/images/projects/station-meteo/L476RG.webp',
+						alt: 'Carte STM32L476RG Nucleo avec microcontrôleur ARM',
+						caption: 'STM32L476RG Nucleo : cœur du système embarqué'
+					},
+					{
+						src: '/images/projects/station-meteo/IKS01A3.webp',
+						alt: 'Shield X-NUCLEO-IKS01A3 avec capteurs MEMS',
+						caption: 'X-NUCLEO-IKS01A3 : plateforme capteurs environnementaux'
+					},
+					{
+						src: '/images/projects/station-meteo/BNRG2A1.webp',
+						alt: 'Module X-NUCLEO-BNRG2A1 Bluetooth Low Energy',
+						caption: 'X-NUCLEO-BNRG2A1 : communication BLE professionnelle'
+					}
+				]
+			},
+			{
+				type: 'text',
+				title: 'Défis techniques et solutions de montage',
+				underlined: true,
+				content: `
+					<p>Le projet présentait un défi majeur d'incompatibilité matérielle entre les shields X-NUCLEO-IKS01A3 et X-NUCLEO-BNRG2A1, conçus pour être empilés mais présentant des conflits électriques.</p>
+					
+					<h4>Problématique identifiée</h4>
+					<ul>
+						<li>Conflits de broches entre les deux shields expansion</li>
+						<li>Incompatibilités électriques au niveau des signaux de contrôle</li>
+						<li>Impossibilité d'empilage direct selon la documentation</li>
+					</ul>
+					
+					<h4>Solution technique implémentée</h4>
+					<ul>
+						<li><strong>Montage hybride</strong> : Shield BLE empilé + capteurs en connexion filaire</li>
+						<li><strong>Isolement électrique</strong> : Contrôle précis des connexions actives</li>
+						<li><strong>Routage manuel</strong> : Câblage point-à-point des signaux I2C critiques</li>
+						<li><strong>Validation électrique</strong> : Tests de continuité et absence de court-circuits</li>
+					</ul>
+				`
+			},
+			{
+				type: 'images',
+				title: 'Montage final et solutions techniques',
+				underlined: true,
+				images: [
+					{
+						src: '/images/projects/station-meteo/montage_station-meteo.webp',
+						alt: 'Station météo assemblée avec montage hybride des cartes',
+						caption: 'Montage final : solution hybride pour résoudre les incompatibilités'
+					},
+					{
+						src: '/images/projects/station-meteo/montage_fils_1.webp',
+						alt: 'Détail des connexions filaires entre les shields',
+						caption: 'Connexions filaires sur la carte "X-NUCLEO-IKS01A3" pour isoler les conflits électriques'
+					},
+					{
+						src: '/images/projects/station-meteo/montage_fils_2.webp',
+						alt: 'Vue d\'ensemble du câblage manuel réalisé',
+						caption: 'Routage manuel sur le "shield", elle même sur le "STM32L476RG Nucleo", pour les signaux I2C et alimentation'
+					}
+				]
+			},
+			{
+				type: 'text',
+				title: 'Développement de la partie embarquée STM32',
+				underlined: true,
+				content: `
+					<p>La partie embarquée constitue le cœur technique du projet, développée avec STM32CubeIDE et les bibliothèques HAL :</p>
+					
+					<h4>Architecture logicielle modulaire</h4>
+					<ul>
+						<li><strong>Couche d'abstraction matérielle</strong> : Drivers HAL pour périphériques</li>
+						<li><strong>Gestionnaire de capteurs</strong> : Abstraction des protocoles I2C spécifiques</li>
+						<li><strong>Module de communication</strong> : Routines série et BLE unifiées</li>
+						<li><strong>Planificateur temps réel</strong> : Timer système pour acquisition périodique (10s)</li>
+					</ul>
+					
+					<h4>Protocole de communication BLE optimisé</h4>
+					<p>Implémentation d'un protocole GATT personnalisé pour transmission efficace :</p>
+					<ul>
+						<li><strong>Structure de données compacte</strong> : 10 octets (timestamp 2B + pression 4B + température 2B + humidité 2B)</li>
+						<li><strong>Endianness gérée</strong> : Conversion automatique pour compatibilité multi-plateformes</li>
+						<li><strong>Service GATT dédié</strong> : Caractéristique environnementale avec notification</li>
+					</ul>
+				`
+			},
+			{
+				type: 'images',
+				images: [
+					{
+						src: '/images/projects/station-meteo/activation_bits.webp',
+						alt: 'Diagramme de la structure des données BLE transmises',
+						caption: 'Structure optimisée des données BLE : 10 octets pour efficacité maximale'
+					}
+				]
+			},
+			{
+				type: 'text',
+				title: 'Application Qt : Interface utilisateur professionnelle',
+				underlined: true,
+				content: `
+					<p>Interface desktop moderne développée avec Qt 6.8.3 et architecture MVC :</p>
+					
+					<h4>Architecture logicielle Qt</h4>
+					<ul>
+						<li><strong>Build system CMake</strong> : Compilation cross-platform</li>
+						<li><strong>Modules Qt spécialisés</strong> : SerialPort, Bluetooth, Widgets</li>
+						<li><strong>QCustomPlot</strong> : Bibliothèque de graphiques temps réel</li>
+						<li><strong>Gestion d'état réactive</strong> : Mise à jour automatique des vues</li>
+					</ul>
+					
+					<h4>Fonctionnalités interface utilisateur</h4>
+					<ul>
+						<li><strong>Mode de connexion dual</strong> : Port série (USB) et Bluetooth LE au choix</li>
+						<li><strong>Visualisation temps réel</strong> : Graphiques animés avec historique</li>
+						<li><strong>Dashboard textuel</strong> : Affichage numérique précis avec unités</li>
+						<li><strong>Configuration avancée</strong> : Scan BLE, sélection ports COM</li>
+					</ul>
+				`
+			},
+			{
+				type: 'images',
+				images: [
+					{
+						src: '/images/projects/station-meteo/qt_donnees_textuelles.webp',
+						alt: 'Interface Qt affichant les données numériques en temps réel',
+						caption: 'Onglet données textuelles : valeurs instantanées avec unités physiques'
+					},
+					{
+						src: '/images/projects/station-meteo/qt_graphique.webp',
+						alt: 'Graphiques temps réel des trois paramètres environnementaux',
+						caption: 'Visualisation graphique : évolution temporelle des mesures'
+					},
+					{
+						src: '/images/projects/station-meteo/qt_config_port_serie.webp',
+						alt: 'Configuration de la connexion port série',
+						caption: 'Configuration série : sélection automatique des ports disponibles'
+					},
+					{
+						src: '/images/projects/station-meteo/qt_config_bluetooth.webp',
+						alt: 'Configuration Bluetooth avec scan des périphériques BLE',
+						caption: 'Configuration Bluetooth : scan automatique et connexion BLE'
+					}
+				]
+			},
+			{
+				type: 'text',
+				title: 'Mes contributions techniques principales',
+				underlined: true,
+				content: `
+					<h4>1. Architecture système et conception globale</h4>
+					<p>Définition de l'architecture complète du projet avec mon binôme, depuis la spécification des protocoles de communication jusqu'à l'interface utilisateur finale.</p>
+					
+					<h4>2. Résolution des incompatibilités matérielles</h4>
+					<p>Analyse des conflits entre shields et conception de la solution de montage hybride. Identification des signaux critiques, conception du câblage manuel et validation électrique complète du système.</p>
+					
+					<h4>3. Développement de l'interface Qt avancée</h4>
+					<p>Implémentation complète de l'application desktop avec mon binôme, gestion des deux modes de communication. Développement du système de graphiques temps réel avec QCustomPlot, interface responsive et gestion des erreurs de communication.</p>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Validation et tests',
+				underlined: true,
+				content: `
+					<p>Validation du système avec les outils officiels STMicroelectronics :</p>
+					
+					<h4>Application ST BLE Sensor</h4>
+					<ul>
+						<li><strong>Reconnaissance automatique</strong> : Le système est détecté</li>
+					</ul>
+				`
+			},
+			{
+				type: 'images',
+				images: [
+					{
+						src: '/images/projects/station-meteo/app_STBLE_sensor_classic.webp',
+						alt: 'Application mobile ST BLE Sensor affichant nos données',
+						caption: "Reconnaissance du montage dans l'application ST BLE Sensor : affichage des données environnementales"
+					}
+				]
+			},
+			{
+				type: 'text',
+				title: 'Technologies et outils de développement',
+				underlined: true,
+				content: `
+					<h4>Partie Embarquée</h4>
+					<ul>
+						<li><strong>STM32CubeIDE</strong> : Environnement de développement intégré Eclipse</li>
+						<li><strong>STM32CubeMX</strong> : Configurateur graphique de périphériques</li>
+						<li><strong>HAL Libraries</strong> : Abstraction matérielle STMicroelectronics</li>
+					</ul>
+					
+					<h4>Application Desktop</h4>
+					<ul>
+						<li><strong>Qt 6.8.3</strong> : Framework cross-platform</li>
+						<li><strong>CMake</strong> : Système de build</li>
+						<li><strong>QCustomPlot</strong> : Bibliothèque de graphiques</li>
+						<li><strong>QtBluetooth & QtSerialPort</strong> : Modules de communication</li>
+					</ul>
+					
+					<h4>Outils et Méthodologie</h4>
+					<ul>
+						<li><strong>Git</strong> : Contrôle de version avec branches feature</li>
+						<li><strong>Qt Creator 16</strong></li>
+					</ul>
+				`
+			},
+			{
+				type: 'images',
+				images: [
+					{
+						src: '/images/projects/station-meteo/logo_qt.webp',
+						alt: 'Logo Qt Framework',
+						caption: 'Qt 6.8.3 : Framework moderne pour interface desktop'
+					},
+					{
+						src: '/images/projects/station-meteo/logo_st.webp',
+						alt: 'Logo STMicroelectronics',
+						caption: 'STMicroelectronics : Écosystème embarqué professionnel'
+					}
+				]
+			},
+			{
+				type: 'text',
+				title: 'Résultats et impact pédagogique',
+				underlined: true,
+				content: `
+					<p>Ce projet représente une réalisation technique complète combinant hardware, software embarqué et interface utilisateur :</p>
+					
+					<h4>Réalisations techniques</h4>
+					<ul>
+						<li><strong>Système IoT fonctionnel</strong> : Acquisition, traitement et transmission temps réel</li>
+						<li><strong>Communication dual-mode</strong> : Flexibilité d'usage série et sans fil</li>
+						<li><strong>Interface</strong> : Application desktop avec graphiques temps réel</li>
+					</ul>
+					
+					<h4>Compétences développées</h4>
+					<ul>
+						<li><strong>Programmation embarquée</strong> : STM32, protocoles I2C/SPI, temps réel</li>
+						<li><strong>Développement d'interfaces</strong> : Qt, MVC, expérience utilisateur</li>
+						<li><strong>Résolution de problèmes</strong> : Debugging hardware, analyse de conflits</li>
+					</ul>
+					
+					<h4>Perspective d'évolution</h4>
+					<p>Base solide pour extensions futures : ajout de capteurs, stockage de données, interfaces web, ou déploiement en réseau de capteurs distribués.</p>
+				`
+			}
+		],
+		sources: [
+			{
+				name: 'Université de Poitiers',
+				url: 'https://www.univ-poitiers.fr',
+				description: 'Contexte académique - Projet BLE & Capteurs Master 1'
+			},
+			{
+				name: 'STMicroelectronics Developer Zone',
+				url: 'https://www.st.com/en/development-tools.html',
+				description: 'Documentation technique STM32 et shields X-NUCLEO'
+			},
+			{
+				name: 'Qt Documentation',
+				url: 'https://doc.qt.io/',
+				description: 'Documentation officielle Qt 6.8.3 et modules'
+			},
+			{
+				name: 'Repository GitHub',
+				url: 'https://github.com/Neopelta/station-meteo',
+				description: 'Code source complet avec documentation technique'
+			},
+			{
+				name: 'ST BLE Sensor App',
+				url: 'https://www.st.com/en/embedded-software/stblesensor.html',
+				description: 'Application officielle de validation Bluetooth LE'
 			}
 		]
 	}

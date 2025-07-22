@@ -100,7 +100,7 @@ export const projects = [
 		title: 'Station Météo Connectée BLE',
 		description: "Station météorologique IoT basée sur STM32 avec capteurs environnementaux (température, humidité, pression). Communication dual filaire/Bluetooth Low Energy vers interface graphique Qt temps réel. Projet universitaire intégrant programmation embarquée, protocoles sans fil et développement d'IHM.",
 		date: '2025',
-		category: 'Embedded & Desktop',
+		category: 'Embarqué',
 		featured: false,
 		technologies: [
 			{ name: 'STM32', highlighted: true },
