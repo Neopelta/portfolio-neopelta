@@ -1175,6 +1175,183 @@ export const projectDetails = {
 				description: 'Application officielle de validation Bluetooth LE'
 			}
 		]
+	},
+	portfolio: {
+		title: 'Portfolio Personnel - Site Web Moderne et Performant',
+		contentBlocks: [
+			{
+				type: 'text',
+				content: `
+					<p>Portfolio personnel développé avec SvelteKit, conçu pour présenter mes projets, compétences et expériences de manière moderne et accessible. Ce site met l'accent sur les performances, l'accessibilité et l'expérience utilisateur, tout en servant de vitrine technique de mes compétences en développement.</p>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Objectifs et philosophie du projet',
+				underlined: true,
+				content: `
+					<p>Ce portfolio représente ma vitrine professionnelle mais aussi un terrain d'expérimentation technique. L'objectif principal était de créer un site performant, accessible et respectueux de l'environnement, tout en découvrant le framework SvelteKit par curiosité technique.</p>
+					
+					<p><strong>Valeurs du projet :</strong></p>
+					<ul>
+						<li><strong>Performance optimale</strong> : Temps de chargement minimal et expérience utilisateur fluide</li>
+						<li><strong>Accessibilité universelle</strong> : Respect des standards WCAG et RGAA</li>
+						<li><strong>Impact environnemental</strong> : Site éco-conçu avec empreinte carbone minimale</li>
+					</ul>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Architecture technique et choix technologiques',
+				underlined: true,
+				content: `
+					<h4>SvelteKit : Un choix par curiosité</h4>
+					<p>Le choix de SvelteKit s'est fait par curiosité intellectuelle et désir de découvrir ce framework open source innovant. SvelteKit offre une approche différente des frameworks traditionnels avec sa compilation ahead-of-time, générant du JavaScript optimisé sans runtime framework lourd.</p>
+					
+					<h4>Site statique et hébergement</h4>
+					<p>Le site est généré comme une application statique (<code>adapter-static</code>) et hébergé chez OVH sur un serveur Apache. Cette approche garantit :</p>
+					<ul>
+						<li><strong>Performances optimales</strong> : Pas de traitement côté serveur</li>
+						<li><strong>Sécurité renforcée</strong> : Surface d'attaque minimale</li>
+						<li><strong>Simplicité de déploiement</strong> : Upload direct des fichiers statiques</li>
+						<li><strong>Coût maîtrisé</strong> : Hébergement simple et économique</li>
+					</ul>
+					
+					<h4>Outils de développement</h4>
+					<ul>
+						<li><strong>Vite.js</strong> : Build tool moderne pour développement rapide et optimisations</li>
+						<li><strong>Prettier</strong> : Formatage automatique du code pour cohérence</li>
+						<li><strong>Architecture composants</strong> : Réutilisabilité et maintenabilité</li>
+					</ul>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Performance et optimisations techniques',
+				underlined: true,
+				content: `
+					<h4>Scores Lighthouse</h4>
+					<p>Le site obtient des scores majoritairement à 100% sur tous les critères Lighthouse :</p>
+					<ul>
+						<li><strong>Performance :</strong> - Temps de chargement optimaux</li>
+						<li><strong>Accessibilité :</strong> - Respect des standards d'accessibilité</li>
+						<li><strong>Bonnes pratiques :</strong> - Code et sécurité conformes</li>
+						<li><strong>SEO :</strong> - Optimisation pour les moteurs de recherche</li>
+					</ul>
+					
+					<h4>Optimisation des images WebP</h4>
+					<p>L'ensemble des images du site utilise le format WebP pour plusieurs avantages :</p>
+					
+					<h4>Empreinte carbone</h4>
+					<p>Le site obtient la note A+ sur Website Carbon Calculator.</p>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Accessibilité et conformité aux standards',
+				underlined: true,
+				content: `
+					<h4>Conformité WCAG et RGAA</h4>
+					<p>Une attention particulière a été portée à l'accessibilité avec le respect des Web Content Accessibility Guidelines (WCAG) et du Référentiel Général d'Amélioration de l'Accessibilité (RGAA). Cette démarche garantit l'accès au site pour tous les utilisateurs, y compris ceux en situation de handicap. Ce n'est probablement pas parfait mais je travail toujours sur cet aspect.</p>
+					
+					<h4>Outils et méthodologie d'accessibilité</h4>
+					<ul>
+						<li><strong>Assistant RGAA</strong> : Extension Chrome pour validation des critères d'accessibilité</li>
+						<li><strong>Contraste optimisé</strong> : Ratios de couleurs conformes aux standards</li>
+						<li><strong>Navigation clavier</strong> : Parcours complet au clavier</li>
+						<li><strong>Sémantique HTML</strong> : Structures logiques et balises appropriées</li>
+						<li><strong>Alternatives textuelles</strong> : Descriptions d'images et contenus multimédias</li>
+					</ul>
+					
+					<h4>SEO et découvrabilité</h4>
+					<p>Utilisation de l'extension SiteChecker pour Chrome, permettant d'identifier et corriger les problèmes SEO. Le site inclut :</p>
+					<ul>
+						<li><strong>Sitemap XML</strong> : Indexation facilitée par les moteurs</li>
+						<li><strong>Robots.txt</strong></li>
+						<li><strong>Métadonnées Open Graph</strong> : Partage optimisé sur réseaux sociaux</li>
+						<li><strong>Structure sémantique</strong> : Hiérarchie des titres et contenu structuré</li>
+					</ul>
+				`
+			},
+			{
+				type: 'text',
+				title: 'Création de l\'avatar pixel art personnalisé',
+				underlined: true,
+				content: `
+					<p>L'avatar pixelisé du site a été entièrement créé par mes soins avec le logiciel Aseprite, spécialisé dans l'art pixel et l'animation 2D. Cette création originale apporte une identité visuelle unique au portfolio.</p>
+					
+					<h4>Processus de création</h4>
+					<ul>
+						<li><strong>Logiciel Aseprite</strong> : Outil professionel pour pixel art et animation</li>
+						<li><strong>Deux variantes</strong> : Version neutre (ronan_default) et version parlante (ronan_speak)</li>
+						<li><strong>Optimisation technique</strong> : Rendu crisp avec <code>image-rendering: pixelated</code></li>
+						<li><strong>Formats multiples</strong> : PNG avec et sans fond transparent</li>
+					</ul>
+					
+					<p>Les fichiers sources Aseprite (.ase) et les exports PNG/WebP/SVG sont disponibles en téléchargement, incluant la version Open Graph (ronan-og) utilisée pour les partages sur réseaux sociaux.</p>
+				`
+			},
+			{
+				type: 'images',
+				images: [
+					{
+						src: '/images/projects/portfolio/avatar_default.webp',
+						alt: 'Avatar pixel art créé avec Aseprite',
+						caption: 'Avatar pixelisé créé avec Aseprite, utilisé sur le site'
+					},
+					{
+						src: '/images/projects/portfolio/avatar_speak.webp',
+						alt: 'Avatar pixel art créé avec Aseprite',
+						caption: 'Avatar pixelisé créé avec Aseprite, utilisé sur le site'
+					},
+					{
+						src: '/images/projects/portfolio/avatar-og.webp',
+						alt: 'Avatar Open Graph pour les partages sociaux',
+						caption: 'Version Open Graph de l\'avatar pour les réseaux sociaux'
+					}
+				]
+			}
+		],
+		sources: [
+			{
+				name: 'SvelteKit Documentation',
+				url: 'https://kit.svelte.dev/',
+				description: 'Documentation officielle du framework SvelteKit'
+			},
+			{
+				name: 'WCAG Guidelines',
+				url: 'https://www.w3.org/WAG/WCAG21/quickref/',
+				description: 'Web Content Accessibility Guidelines (WCAG) 2.1'
+			},
+			{
+				name: 'RGAA 4.1',
+				url: 'https://www.numerique.gouv.fr/publications/rgaa-accessibilite/',
+				description: 'Référentiel Général d\'Amélioration de l\'Accessibilité'
+			},
+			{
+				name: 'Website Carbon Calculator',
+				url: 'https://www.websitecarbon.com/website/neopelta-fr/',
+				description: 'Test d\'empreinte carbone du site (Note A+)'
+			},
+			{
+				name: 'Google Lighthouse',
+				url: 'https://developers.google.com/web/tools/lighthouse',
+				description: 'Outil d\'audit des performances et qualité web'
+			},
+			{
+				name: 'Aseprite',
+				url: 'https://www.aseprite.org/',
+				description: 'Logiciel de création d\'art pixel et animation 2D'
+			}
+		],
+		downloads: [
+			{
+				title: 'Avatar Pixel Art - Fichiers sources',
+				filename: 'neopelta-avatar.zip',
+				description: 'Archive contenant les fichiers Aseprite (.ase) et PNG/WebP (avec/sans fond) et SVG de l\'avatar.',
+				icon: '/images/logo/zip/zip-logo.svg'
+			}
+		]
 	}
 };
 
