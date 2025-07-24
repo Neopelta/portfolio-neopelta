@@ -1,5 +1,6 @@
 <script>
 	import { page } from '$app/stores';
+	import { afterNavigate } from '$app/navigation';
 	import Navigation from '$lib/components/Navigation.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
@@ -11,6 +12,12 @@
 	export let data;
 
 	$: ({ project, prevProject, nextProject, similarProjects } = data);
+
+	afterNavigate(({ from, to }) => {
+		if (from && to && from.route.id === '/projects/[slug]' && to.route.id === '/projects/[slug]') {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		}
+	});
 </script>
 
 <svelte:head>
