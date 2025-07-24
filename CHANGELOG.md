@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+**Added**
+
+- Smooth scroll to top when navigating between project pages
+- Random selection system for similar projects display (maximum 2 projects shown)
+- Complete rewrite of *Portfolio* project content with detailed sections
+
 ## [1.0.0] - 2025-07-23
 
 ### Initial Release
