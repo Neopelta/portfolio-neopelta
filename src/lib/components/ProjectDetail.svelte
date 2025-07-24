@@ -15,14 +15,9 @@
 		const modal = document.getElementById('imageModal');
 		const modalImg = document.getElementById('modalImg');
 
-		currentImages = [];
-		currentImageIndex = -1;
+		currentImages = [...imagesArray];
+		currentImageIndex = imageIndex;
 		isImageLoading = false;
-
-		setTimeout(() => {
-			currentImages = [...imagesArray];
-			currentImageIndex = imageIndex;
-		}, 0);
 
 		modal.style.display = 'block';
 		modalImg.src = imageSrc;
