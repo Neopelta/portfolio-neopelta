@@ -10,6 +10,7 @@
 	let currentImageIndex = 0;
 	let currentImages = [];
 	let isImageLoading = false;
+	let previousFocusElement = null;
 
 	function openImageModal(imageSrc, imageAlt, imagesArray = [], imageIndex = 0) {
 		const modal = document.getElementById('imageModal');
@@ -18,6 +19,8 @@
 		currentImages = [...imagesArray];
 		currentImageIndex = imageIndex;
 		isImageLoading = false;
+
+		previousFocusElement = document.activeElement;
 
 		modal.style.display = 'block';
 		modalImg.src = imageSrc;
@@ -29,6 +32,10 @@
 		const modal = document.getElementById('imageModal');
 		modal.style.display = 'none';
 		isImageLoading = false;
+
+		if (previousFocusElement) {
+			previousFocusElement.focus();
+		}
 	}
 
 	function navigateToImage(direction) {
