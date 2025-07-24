@@ -23,7 +23,7 @@ export function load({ params }) {
 	const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
 	const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
 
-	const similarProjects = projects
+	const candidateSimilarProjects = projects
 		.filter((p) => p.id !== params.slug)
 		.filter(
 			(p) =>
@@ -31,8 +31,15 @@ export function load({ params }) {
 				p.technologies.some((tech) =>
 					project.technologies.some((pTech) => pTech.name === tech.name)
 				)
-		)
-		.slice(0, 3);
+		);
+
+	let similarProjects = [];
+	if (candidateSimilarProjects.length <= 2) {
+		similarProjects = candidateSimilarProjects;
+	} else {
+		const shuffled = [...candidateSimilarProjects].sort(() => 0.5 - Math.random());
+		similarProjects = shuffled.slice(0, 2);
+	}
 
 	const projectDetails = getProjectDetails(params.slug);
 
