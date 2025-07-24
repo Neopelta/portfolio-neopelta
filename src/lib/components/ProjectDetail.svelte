@@ -207,7 +207,7 @@
 			<h3>Captures d'écran</h3>
 			<p class="click-hint">💡 Cliquez sur une image pour l'agrandir</p>
 			<div class="images-grid">
-				{#each images as image}
+				{#each images as image, index}
 					<div
 						class="image-item"
 						role="button"
