@@ -109,11 +109,16 @@
 		<div
 			class="mobile-menu-overlay"
 			on:click={closeMobileMenu}
-			on:keydown={(e) => e.key === 'Escape' && closeMobileMenu()}
+			on:keydown={(e) => {
+				if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') {
+				e.preventDefault();
+				closeMobileMenu();
+				}
+			}}
 			role="button"
 			tabindex="0"
-			aria-label="Fermer le menu"
-		></div>
+			aria-label="Fermer le menu de navigation"
+			></div>
 	{/if}
 </nav>
 
