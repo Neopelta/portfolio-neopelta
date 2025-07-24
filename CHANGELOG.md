@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2025-07-24
+
+### Fixed
+- **Navigation:** Improved accessibility of the mobile menu overlay ([1ec5c7e])
+- **ProjectDetail:** Resolved undefined `index` variable in image loop ([5aabb6e])
+- **ProjectDetail:** Restore focus to previously active element on modal close for accessibility ([9bd366f])
+
+### Changed
+- **ProjectDetail:** Simplified internal logic for image modal handling ([ec18af2])
+
+### Chore
+- Removed commented code and unused exports ([5c1f0ac])
+- Added TODO to remove console.logs ([b89c9b8])
+
 ## [1.0.0] - 2025-07-23
 
 ### Initial Release
