@@ -16,8 +16,8 @@
 		const modal = document.getElementById('imageModal');
 		const modalImg = document.getElementById('modalImg');
 
-		currentImages = [];
-		currentImageIndex = -1;
+		currentImages = [...imagesArray];
+		currentImageIndex = imageIndex;
 		isImageLoading = false;
 
 		previousFocusElement = document.activeElement;
