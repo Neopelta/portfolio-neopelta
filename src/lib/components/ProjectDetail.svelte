@@ -150,6 +150,7 @@
 										role="button"
 										tabindex="0"
 										on:click={() => {
+											/* TODO: delete console.log*/
 											console.log(
 												'Clicked on image:',
 												image.src,
