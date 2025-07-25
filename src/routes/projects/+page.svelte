@@ -45,6 +45,7 @@
 		name="description"
 		content="Découvrez tous mes projets de développement logiciel, applications mobiles et sites web."
 	/>
+	<link rel="canonical" href="https://www.neopelta.fr/projects" />
 </svelte:head>
 
 <Navigation />

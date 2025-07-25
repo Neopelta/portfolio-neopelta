@@ -23,6 +23,7 @@
 <svelte:head>
 	<title>{project.title} - Ronan PLUTA FONTAINE</title>
 	<meta name="description" content={project.description} />
+	<link rel="canonical" href="https://www.neopelta.fr/projects/{project.id}" />
 	<meta property="og:title" content="{project.title} - Ronan PLUTA FONTAINE" />
 	<meta property="og:description" content={project.description} />
 	<meta property="og:image" content={project.image} />

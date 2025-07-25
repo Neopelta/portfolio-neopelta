@@ -15,6 +15,7 @@
 		name="description"
 		content="Étudiant en Master Informatique à Poitiers, spécialisé en Développement Logiciel & Big Data, recherche alternance septembre 2025."
 	/>
+	<link rel="canonical" href="https://www.neopelta.fr" />
 	<meta property="og:title" content="Ronan PLUTA FONTAINE - Portfolio" />
 	<meta property="og:description" content="Développeur logiciel - Java, React, APIs REST, ... - Recherche alternance" />
 	<meta property="og:type" content="website" />

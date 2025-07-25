@@ -14,6 +14,7 @@
 <svelte:head>
 	<title>Plan du site - Ronan PLUTA FONTAINE</title>
 	<meta name="description" content="Plan du site avec tous les projets et pages disponibles." />
+	<link rel="canonical" href="https://www.neopelta.fr/sitemap" />
 </svelte:head>
 
 <Navigation />

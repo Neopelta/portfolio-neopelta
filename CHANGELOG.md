@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 **Added**
 
+- **SEO:** Add canonical tags to all pages for duplicate content prevention
 - Update personal information
 - Smooth scroll to top when navigating between project pages
 - Random selection system for similar projects display (maximum 2 projects shown)
