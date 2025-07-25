@@ -7,10 +7,10 @@
 		<div class="hero-avatar">
 			<Avatar size="extra-large" />
 		</div>
-		<h1>Bonjour, je suis Ronan PLUTA FONTAINE</h1>
+		<h1>Bonjour, je suis <br> Ronan PLUTA FONTAINE</h1>
 		<p>
 			Étudiant en Master Informatique | Développeur logiciel en recherche d'alternance (septembre
-			2025)
+			2025) pour 2 semaines en entreprise et 2 semaines en enseignement.
 		</p>
 	</div>
 </section>
