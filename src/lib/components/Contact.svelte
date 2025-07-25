@@ -48,7 +48,12 @@
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				<img src="/images/logo/linkedin/LinkedIn-logo.svg" alt="" width="20" height="20" />
+				<img 
+					src="/images/logo/linkedin/LinkedIn-logo.svg" 
+					alt=""
+					title="LinkedIn"
+					width="20" 
+					height="20" />
 				LinkedIn
 			</a>
 			<a
@@ -57,7 +62,12 @@
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				<img src="/images/logo/github/github-logo.svg" alt="" width="20" height="20" />
+				<img 
+					src="/images/logo/github/github-logo.svg" 
+					alt=""
+					title="GitHub" 
+					width="20" 
+					height="20" />
 				GitHub
 			</a>
 		</div>

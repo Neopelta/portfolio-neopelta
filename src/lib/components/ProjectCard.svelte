@@ -20,7 +20,11 @@
 <article class="project">
 	<div class="project-image">
 		{#if image}
-			<img src={image} alt={alt || title} loading="lazy" />
+			<img 
+				src={image} 
+				alt={alt || title}
+				title={title} 
+				loading="lazy" />
 		{:else}
 			<Avatar size="large" />
 		{/if}

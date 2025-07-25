@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 **Added**
 
+- **Accessibility:** Add title attributes to all images for better user experience
 - **SEO:** Add canonical tags to all pages for duplicate content prevention
 - Update personal information
 - Smooth scroll to top when navigating between project pages

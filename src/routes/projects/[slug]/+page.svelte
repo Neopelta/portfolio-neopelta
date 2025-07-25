@@ -43,7 +43,11 @@
 	<header class="project-header">
 		<div class="project-image-container">
 			{#if project.image}
-				<img src={project.image} alt={project.alt || project.title} class="project-image" />
+				<img 
+					src={project.image} 
+					alt={project.alt || project.title} 
+					title={project.title}
+					class="project-image" />
 			{:else}
 				<div class="project-image-placeholder">
 					<Avatar size="large" />

@@ -18,6 +18,7 @@
 <img
 	src={avatarSrc}
 	alt="Ronan avatar"
+	title="Ronan PLUTA FONTAINE - Avatar personnel"
 	width={avatarSize}
 	height={avatarSize}
 	class="avatar avatar-{size}"

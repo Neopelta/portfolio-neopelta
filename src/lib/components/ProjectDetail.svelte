@@ -167,7 +167,11 @@
 											handleImageKeydown(e, image.src, image.alt, block.images, index)}
 										aria-label="Agrandir l'image : {image.alt}"
 									>
-										<img src={image.src} alt={image.alt} loading="lazy" />
+										<img 
+											src={image.src} 
+											alt={image.alt}
+											title={image.alt} 
+											loading="lazy" />
 										{#if image.caption}
 											<p class="image-caption">{image.caption}</p>
 										{/if}
@@ -219,7 +223,11 @@
 						on:keydown={(e) => handleImageKeydown(e, image.src, image.alt, images, index)}
 						aria-label="Agrandir l'image : {image.alt}"
 					>
-						<img src={image.src} alt={image.alt} loading="lazy" />
+						<img 
+							src={image.src} 
+							alt={image.alt} 
+							title={image.alt}
+							loading="lazy" />
 						{#if image.caption}
 							<p class="image-caption">{image.caption}</p>
 						{/if}
@@ -271,7 +279,12 @@
 						<div class="download-header">
 							<div class="download-icon">
 								{#if download.icon.startsWith('/') || download.icon.startsWith('http')}
-									<img src={download.icon} alt="Icône {download.title}" width="24" height="24" />
+									<img 
+										src={download.icon} 
+										alt="Icône {download.title}"
+										title="Icône {download.title}"
+										width="24" 
+										height="24" />
 								{:else}
 									<span>{download.icon}</span>
 								{/if}
@@ -336,7 +349,11 @@
 		</div>
 	{/if}
 
-	<img class="modal-content" id="modalImg" alt="" />
+	<img 
+		class="modal-content" 
+		id="modalImg" 
+		alt="" 
+		title="Image agrandie - Appuyez sur Échap pour fermer"/>
 </div>
 
 <style>
