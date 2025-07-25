@@ -10,13 +10,13 @@
 </script>
 
 <svelte:head>
-	<title>Ronan PLUTA FONTAINE - Portfolio</title>
+	<title>Ronan PLUTA FONTAINE - Développeur logiciel & Étudiant Master Informatique</title>
 	<meta
 		name="description"
 		content="Étudiant en Master Informatique à Poitiers, spécialisé en Développement Logiciel & Big Data, recherche alternance septembre 2025."
 	/>
 	<link rel="canonical" href="https://www.neopelta.fr" />
-	<meta property="og:title" content="Ronan PLUTA FONTAINE - Portfolio" />
+	<meta property="og:title" content="Ronan PLUTA FONTAINE - Développeur logiciel & Étudiant Master Informatique" />
 	<meta property="og:description" content="Développeur logiciel - Java, React, APIs REST, ... - Recherche alternance" />
 	<meta property="og:type" content="website" />
 	<meta property="og:image" content="https://www.neopelta.fr/ronan-og.png" />
