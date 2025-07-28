@@ -5,7 +5,7 @@
 <section class="section">
 	<div class="about">
 		<p>
-			Actuellement en Master 1 Informatique à l'Université de Poitiers (spécialisation Développement
+			Actuellement en Master Informatique à l'Université de Poitiers (spécialisation Développement
 			Logiciel & Big Data), je recherche une alternance de 12 mois à partir de septembre 2025.
 			Passionné par l'agilité, l'automatisation et la qualité logicielle, je mets en pratique mes
 			compétences en Java, React et développement d'APIs REST.
