@@ -155,7 +155,7 @@ export const projectDetails = {
 				type: 'text',
 				content: `
                     <h4>3. Design et templates Figma</h4>
-                    <p>Création de l'ensemble du design system de l'application avec Figma. Définition de la charte graphique, des composants réutilisables, et des parcours utilisateur complets. Les templates incluent tous les écrans avec leurs états (vide, chargement, erreur) et les animations de transition.</p>
+                    <p>Création de l'ensemble du design system de l'application avec Figma. Définition de la charte graphique. Les templates représentent les écrans principaux de l'application.</p>
                 `
 			},
 			{
@@ -252,7 +252,7 @@ export const projectDetails = {
 				title: 'Architecture complète du système',
 				underlined: true,
 				content: `
-					<p>Le projet SkillTracker se compose de trois composants principaux interconnectés :</p>
+					<p>Le projet SkillTracker se compose de plusieurs composants principaux interconnectés :</p>
 					<ul>
 						<li><strong>Application Web React</strong> : Interface moderne avec authentification Discord OAuth2</li>
 						<li><strong>Bot Discord</strong> : Interaction directe via commandes pour consulter et modifier les compétences</li>
@@ -298,7 +298,6 @@ export const projectDetails = {
 						<li>Authentification sécurisée via Discord OAuth2</li>
 						<li>Tableau de bord interactif avec toutes les compétences étudiantes</li>
 						<li>Recherche et filtrage par nom d'étudiant</li>
-						<li>Profils individuels détaillés avec graphiques de progression</li>
 						<li>Système de permissions (administrateur/utilisateur)</li>
 						<li>Interface responsive adaptée mobile et desktop</li>
 					</ul>
@@ -462,7 +461,7 @@ export const projectDetails = {
 					<ul>
 						<li><strong>Mode Guidé</strong> : Interface step-by-step pour construire des syllogismes classiques à deux prémisses</li>
 						<li><strong>Mode Libre</strong> : Création de polysyllogismes complexes avec ajout dynamique de prémisses</li>
-						<li><strong>Système de validation</strong> : Vérification automatique basée sur 8 règles logiques fondamentales</li>
+						<li><strong>Système de validation</strong> : Vérification basée sur 8 règles logiques fondamentales</li>
 						<li><strong>Éditeur de quantificateurs</strong> : Personnalisation des quantificateurs logiques avec persistance</li>
 						<li><strong>Générateur exhaustif</strong> : Calcul et affichage des 256 combinaisons possibles de syllogismes</li>
 						<li><strong>Support multilingue</strong> : Interface disponible en français et anglais</li>
@@ -501,7 +500,7 @@ export const projectDetails = {
 				title: 'Fondements théoriques et règles logiques',
 				underlined: true,
 				content: `
-					<p>L'application implémente un système de validation rigoureux basé sur les 8 règles fondamentales de la logique syllogistique :</p>
+					<p>L'application implémente un système de validation basé sur les 8 règles fondamentales de la logique syllogistique :</p>
 					
 					<h4>Règles structurelles</h4>
 					<ul>
@@ -582,19 +581,6 @@ export const projectDetails = {
 					
 					<p>Ma contribution principale s'est concentrée sur l'interface utilisateur et la logique de parsing, en étroite collaboration avec l'équipe pour assurer la cohérence de l'architecture globale.</p>
 				`
-			},
-			{
-				type: 'text',
-				title: 'Impact pédagogique et résultats',
-				underlined: true,
-				content: `
-					<p>L'application répond à un besoin réel d'outils pédagogiques modernes pour l'enseignement de la logique formelle. Les fonctionnalités développées permettent :</p>
-					<ul>
-						<li><strong>Apprentissage progressif</strong> : Du mode guidé vers la construction libre de raisonnements complexes</li>
-						<li><strong>Exploration exhaustive</strong> : Visualisation complète de l'espace des possibles via le générateur</li>
-						<li><strong>Personnalisation</strong> : Adaptation aux spécificités linguistiques via l'éditeur de quantificateurs</li>
-					</ul>
-				`
 			}
 		],
 		sources: [
@@ -647,21 +633,9 @@ export const projectDetails = {
 			},
 			{
 				type: 'text',
-				title: 'Architecture technique modulaire',
+				title: 'Structures de données optimisées',
 				underlined: true,
 				content: `
-					<p>Le projet suit une architecture modulaire rigoureuse avec séparation claire des responsabilités :</p>
-					
-					<h4>Structure des fichiers</h4>
-					<ul>
-						<li><strong>main.c</strong> : Point d'entrée, orchestration des algorithmes de résolution</li>
-						<li><strong>sudoku.c/h</strong> : Cœur des algorithmes de résolution (singleton, k-uplets, X-Wing, backtracking)</li>
-						<li><strong>access.c/h</strong> : Gestion des cellules, notes de candidats et voisinages</li>
-						<li><strong>utils.c/h</strong> : Fonctions utilitaires d'affichage et validation</li>
-						<li><strong>types.c/h</strong> : Définitions des structures de données et constantes</li>
-					</ul>
-					
-					<h4>Structures de données optimisées</h4>
 					<p>Chaque cellule du Sudoku est représentée par une structure contenant sa valeur et un entier représentant les notes possibles via manipulation binaire. Cette approche permet une gestion efficace de la mémoire et des opérations sur les candidats.</p>
 				`
 			},
@@ -695,14 +669,23 @@ export const projectDetails = {
 				content: `
 					<p>Le solveur suit un flux d'exécution optimisé appliquant les techniques dans l'ordre de complexité croissante :</p>
 					
-					<ol>
-						<li><strong>Initialisation des notes</strong> : Calcul des candidats possibles pour chaque cellule vide</li>
-						<li><strong>Singleton Method</strong> : Résolution des cellules évidentes</li>
-						<li><strong>Boucle K-uplets</strong> : Application des k-uplets pour k=1 à 9</li>
-						<li><strong>Réductions d'intersections</strong> : Analyse des contraintes bloc/ligne/colonne</li>
-						<li><strong>X-Wing</strong> : Recherche de patterns avancés</li>
-						<li><strong>Backtracking</strong> : Solution de dernier recours si aucune technique humaine ne progresse</li>
-					</ol>
+					<h4><strong>1. Initialisation des notes</strong></h4> 
+					<p>Calcul des candidats possibles pour chaque cellule vide</p>
+
+					<h4><strong>2. Singleton Method</strong></h4> 
+					<p>Résolution des cellules évidentes</p>
+
+					<h4><strong>3. Boucle K-uplets</strong></h4> 
+					<p>Application des k-uplets pour k=1 à 9</p>
+
+					<h4><strong>4. Réductions d'intersections</strong></h4> 
+					<p>Analyse des contraintes bloc/ligne/colonne</p>
+
+					<h4><strong>5. X-Wing</strong></h4> 
+					<p>Recherche de patterns avancés</p>
+
+					<h4><strong>6. Backtracking</strong></h4> 
+					<p>Solution de dernier recours si aucune technique humaine ne progresse</p>
 					
 					<p>Cette approche garantit une résolution efficace : les techniques rapides résolvent la majorité des cas, et le backtracking n'intervient que pour les grilles les plus complexes.</p>
 				`
@@ -746,10 +729,10 @@ export const projectDetails = {
 					
 					<h4>Organisation de l'équipe</h4>
 					<ul>
-						<li><strong>Maxime MARCHIVE</strong> : Coordinateur projet et liaison équipe académique</li>
+						<li><strong>Maxime MARCHIVE</strong> : Algorithmes complexes </li>
 						<li><strong>Ronan PLUTA FONTAINE</strong> : Chef d'équipe, architecture technique et k-uplets</li>
-						<li><strong>Raphaël SIMON</strong> : Algorithmes de base et validation</li>
-						<li><strong>Diewertje VAN DAM</strong> : Techniques avancées et optimisations</li>
+						<li><strong>Raphaël SIMON</strong> : Algorithmes de base</li>
+						<li><strong>Diewertje VAN DAM</strong> : Algorithmes de base</li>
 					</ul>
 					
 					<h4>Outils et processus</h4>
@@ -779,7 +762,7 @@ export const projectDetails = {
 					</ul>
 					
 					<h4>Robustesse et fiabilité</h4>
-					<p>Tests extensifs sur plus de 1000 grilles générées automatiquement, validation sur grilles de référence connues, et respect des contraintes de validité (minimum 17 cases pour grilles 9x9).</p>
+					<p>Validation sur grilles de référence connues, et respect des contraintes de validité (minimum 17 cases pour grilles 9x9).</p>
 					
 					<h4>Extensibilité</h4>
 					<p>Architecture modulaire permettant l'ajout facile de nouvelles techniques (Swordfish, Y-Wing, etc.) sans modification du code existant. Base solide pour des extensions futures.</p>
