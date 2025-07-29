@@ -60,5 +60,20 @@
     "title": "Software Developer & Computer Science Master's Student",
     "description": "Computer Science Master's Student in Poitiers, specialized in Software Development & Big Data, seeking apprenticeship September 2025.",
     "og_description": "Software Developer - Java, React, REST APIs, ... - Seeking apprenticeship"
+  },
+  "project_detail": {
+    "click_hint": "💡 Click on an image to enlarge it",
+    "screenshots": "Screenshots",
+    "code_snippets": "Code snippets", 
+    "sources": "Sources",
+    "downloads": "Downloads",
+    "download": "Download",
+    "icon": "Icon",
+    "enlarge_image": "Enlarge image",
+    "enlarged_image": "Enlarged image",
+    "enlarged_image_title": "Enlarged image - Press Esc to close",
+    "close_image": "Close enlarged image", 
+    "prev_image": "Previous image",
+    "next_image": "Next image"
   }
 }

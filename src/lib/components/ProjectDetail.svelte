@@ -1,4 +1,6 @@
 <script>
+	import { _ } from 'svelte-i18n';
+
 	export let title = '';
 	export let content = '';
 	export let contentBlocks = [];
@@ -130,13 +132,13 @@
 						{#if block.title}
 							<h3 class="block-title" class:underlined={block.underlined}>{block.title}</h3>
 						{/if}
-						<p class="click-hint">💡 Cliquez sur une image pour l'agrandir</p>
+						<p class="click-hint">{$_('project_detail.click_hint')}</p>
 						<div class="images-carousel-container">
 							{#if block.images.length > 1}
 								<button
 									class="carousel-btn carousel-btn-left"
 									on:click={() => scrollCarousel(`carousel-${index}`, 'left')}
-									aria-label="Image précédente"
+									aria-label={$_('project_detail.prev_image')}
 								>
 									‹
 								</button>
@@ -165,7 +167,7 @@
 										}}
 										on:keydown={(e) =>
 											handleImageKeydown(e, image.src, image.alt, block.images, index)}
-										aria-label="Agrandir l'image : {image.alt}"
+										aria-label="{$_('project_detail.enlarge_image')}: {image.alt}"
 									>
 										<img 
 											src={image.src} 
@@ -182,7 +184,7 @@
 								<button
 									class="carousel-btn carousel-btn-right"
 									on:click={() => scrollCarousel(`carousel-${index}`, 'right')}
-									aria-label="Image suivante"
+									aria-label={$_('project_detail.next_image')}
 								>
 									›
 								</button>
@@ -211,8 +213,8 @@
 
 	{#if images.length > 0}
 		<div class="detail-images">
-			<h3>Captures d'écran</h3>
-			<p class="click-hint">💡 Cliquez sur une image pour l'agrandir</p>
+			<h3>{$_('project_detail.screenshots')}</h3>
+			<p class="click-hint">{$_('project_detail.click_hint')}</p>
 			<div class="images-grid">
 				{#each images as image, index}
 					<div
@@ -221,7 +223,7 @@
 						tabindex="0"
 						on:click={() => openImageModal(image.src, image.alt, images, index)}
 						on:keydown={(e) => handleImageKeydown(e, image.src, image.alt, images, index)}
-						aria-label="Agrandir l'image : {image.alt}"
+						aria-label="{$_('project_detail.enlarge_image')}: {image.alt}"
 					>
 						<img 
 							src={image.src} 
@@ -239,7 +241,7 @@
 
 	{#if codeSnippets.length > 0}
 		<div class="detail-section">
-			<h3>Extraits de code</h3>
+			<h3>{$_('project_detail.code_snippets')}</h3>
 			{#each codeSnippets as snippet}
 				<div class="code-snippet">
 					<div class="snippet-header">
@@ -256,7 +258,7 @@
 
 	{#if sources.length > 0}
 		<div class="detail-section">
-			<h2 class="section-title">Sources</h2>
+			<h2 class="section-title">{$_('project_detail.sources')}</h2>
 			<div class="sources-list">
 				{#each sources as source}
 					<p class="source-item">
@@ -272,7 +274,7 @@
 
 	{#if downloads.length > 0}
 		<div class="detail-section">
-			<h2 class="section-title">Documents à télécharger</h2>
+			<h2 class="section-title">{$_('project_detail.downloads')}</h2>
 			<div class="downloads-grid" class:single-download={downloads.length === 1}>
 				{#each downloads as download}
 					<div class="download-item">
@@ -281,8 +283,8 @@
 								{#if download.icon.startsWith('/') || download.icon.startsWith('http')}
 									<img 
 										src={download.icon} 
-										alt="Icône {download.title}"
-										title="Icône {download.title}"
+										alt="{$_('project_detail.icon')} {download.title}"
+										title="{$_('project_detail.icon')} {download.title}"
 										width="24" 
 										height="24" />
 								{:else}
@@ -293,7 +295,7 @@
 						</div>
 						<p class="download-description">{download.description}</p>
 						<a href="/downloads/{download.filename}" class="download-link" download>
-							Télécharger {download.filename}
+							{$_('project_detail.download')} {download.filename}
 						</a>
 					</div>
 				{/each}
@@ -307,7 +309,7 @@
 	class="modal"
 	role="dialog"
 	aria-modal="true"
-	aria-label="Image agrandie"
+	aria-label={$_('project_detail.enlarged_image')}
 	tabindex="-1"
 	on:click={closeImageModal}
 	on:keydown={handleModalKeydown}
@@ -316,7 +318,7 @@
 		class="modal-close"
 		role="button"
 		tabindex="0"
-		aria-label="Fermer l'image agrandie"
+		aria-label={$_('project_detail.close_image')}
 		on:click={closeImageModal}
 		on:keydown={handleCloseKeydown}>&times;</span
 	>
@@ -328,7 +330,7 @@
 				e.stopPropagation();
 				navigateToImage('prev');
 			}}
-			aria-label="Image précédente"
+			aria-label={$_('project_detail.prev_image')}
 		>
 			‹
 		</button>
@@ -339,7 +341,7 @@
 				e.stopPropagation();
 				navigateToImage('next');
 			}}
-			aria-label="Image suivante"
+			aria-label={$_('project_detail.next_image')}
 		>
 			›
 		</button>
@@ -353,7 +355,7 @@
 		class="modal-content" 
 		id="modalImg" 
 		alt="" 
-		title="Image agrandie - Appuyez sur Échap pour fermer"/>
+		title={$_('project_detail.enlarged_image_title')}/>
 </div>
 
 <style>

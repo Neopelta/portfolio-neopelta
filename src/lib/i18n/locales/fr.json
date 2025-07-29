@@ -60,5 +60,20 @@
     "title": "Développeur logiciel & Étudiant Master Informatique",
     "description": "Étudiant en Master Informatique à Poitiers, spécialisé en Développement Logiciel & Big Data, recherche alternance septembre 2025.",
     "og_description": "Développeur logiciel - Java, React, APIs REST, ... - Recherche alternance"
+  },
+  "project_detail": {
+    "click_hint": "💡 Cliquez sur une image pour l'agrandir",
+    "screenshots": "Captures d'écran",
+    "code_snippets": "Extraits de code",
+    "sources": "Sources",
+    "downloads": "Documents à télécharger",
+    "download": "Télécharger",
+    "icon": "Icône",
+    "enlarge_image": "Agrandir l'image",
+    "enlarged_image": "Image agrandie",
+    "enlarged_image_title": "Image agrandie - Appuyez sur Échap pour fermer", 
+    "close_image": "Fermer l'image agrandie",
+    "prev_image": "Image précédente",
+    "next_image": "Image suivante"
   }
 }
