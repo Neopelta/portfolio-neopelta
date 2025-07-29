@@ -75,5 +75,16 @@
     "close_image": "Close enlarged image", 
     "prev_image": "Previous image",
     "next_image": "Next image"
+  },
+  "projects_filters": {
+    "search_placeholder": "Search for a project...",
+    "clear_search": "Clear search",
+    "category": "Category",
+    "technology": "Technology",
+    "year": "Year", 
+    "all": "All",
+    "reset": "Reset",
+    "active_filters": "Active filters",
+    "search": "Search"
   }
 }

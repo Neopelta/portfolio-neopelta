@@ -75,5 +75,16 @@
     "close_image": "Fermer l'image agrandie",
     "prev_image": "Image précédente",
     "next_image": "Image suivante"
+  },
+  "projects_filters": {
+    "search_placeholder": "Rechercher un projet...",
+    "clear_search": "Effacer la recherche",
+    "category": "Catégorie",
+    "technology": "Technologie", 
+    "year": "Année",
+    "all": "Toutes",
+    "reset": "Réinitialiser",
+    "active_filters": "Filtres actifs",
+    "search": "Recherche"
   }
 }

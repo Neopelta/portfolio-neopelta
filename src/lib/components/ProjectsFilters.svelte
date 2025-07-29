@@ -1,4 +1,5 @@
 <script>
+	import { _ } from 'svelte-i18n';
 	import { filters, projectsActions, filterOptions } from '$lib/stores/projectsStore.js';
 
 	export let showSearch = true;
@@ -7,8 +8,9 @@
 	export let showYear = true;
 	export let showReset = true;
 	export let layout = 'horizontal'; // 'horizontal' | 'vertical' | 'compact'
-	export let placeholder = 'Rechercher un projet...';
+	export let placeholder = '';
 
+	$: searchPlaceholder = placeholder || $_('projects_filters.search_placeholder');
 	$: currentFilters = $filters;
 
 	function handleSearchInput(event) {
@@ -38,7 +40,7 @@
 			<div class="search-input-wrapper">
 				<input
 					type="text"
-					{placeholder}
+					placeholder={searchPlaceholder}
 					value={currentFilters.search}
 					on:input={handleSearchInput}
 					class="search-input"
@@ -47,7 +49,7 @@
 					<button
 						on:click={() => handleFilterChange('search', '')}
 						class="clear-search"
-						title="Effacer la recherche"
+						title={$_('projects_filters.clear_search')}
 					>
 						✕
 					</button>
@@ -60,14 +62,14 @@
 		<div class="filters-row">
 			{#if showCategory}
 				<div class="filter-group">
-					<label for="category-filter" class="filter-label">Catégorie</label>
+					<label for="category-filter" class="filter-label">{$_('projects_filters.category')}</label>
 					<select
 						id="category-filter"
 						value={currentFilters.category}
 						on:change={(e) => handleFilterChange('category', e.target.value)}
 						class="filter-select"
 					>
-						<option value="all">Toutes</option>
+						<option value="all">{$_('projects_filters.all')}</option>
 						{#each filterOptions.categories as category}
 							<option value={category}>{category}</option>
 						{/each}
@@ -77,14 +79,14 @@
 
 			{#if showTechnology}
 				<div class="filter-group">
-					<label for="tech-filter" class="filter-label">Technologie</label>
+					<label for="tech-filter" class="filter-label">{$_('projects_filters.technology')}</label>
 					<select
 						id="tech-filter"
 						value={currentFilters.technology}
 						on:change={(e) => handleFilterChange('technology', e.target.value)}
 						class="filter-select"
 					>
-						<option value="all">Toutes</option>
+						<option value="all">{$_('projects_filters.all')}</option>
 						{#each filterOptions.technologies as tech}
 							<option value={tech}>{tech}</option>
 						{/each}
@@ -94,14 +96,14 @@
 
 			{#if showYear}
 				<div class="filter-group">
-					<label for="year-filter" class="filter-label">Année</label>
+					<label for="year-filter" class="filter-label">{$_('projects_filters.year')}</label>
 					<select
 						id="year-filter"
 						value={currentFilters.year}
 						on:change={(e) => handleFilterChange('year', e.target.value)}
 						class="filter-select"
 					>
-						<option value="all">Toutes</option>
+						<option value="all">{$_('projects_filters.all')}</option>
 						{#each filterOptions.years as year}
 							<option value={year}>{year}</option>
 						{/each}
@@ -117,7 +119,7 @@
 						class:has-filters={activeFiltersCount > 0}
 						disabled={activeFiltersCount === 0}
 					>
-						Réinitialiser
+						{$_('projects_filters.reset')}
 						{#if activeFiltersCount > 0}
 							<span class="filters-count">({activeFiltersCount})</span>
 						{/if}
@@ -128,11 +130,11 @@
 
 		{#if layout === 'compact' && activeFiltersCount > 0}
 			<div class="active-filters">
-				<span class="active-filters-label">Filtres actifs :</span>
+				<span class="active-filters-label">{$_('projects_filters.active_filters')} :</span>
 				<div class="active-filters-tags">
 					{#if currentFilters.search}
 						<span class="filter-tag">
-							Recherche: "{currentFilters.search}"
+							{$_('projects_filters.search')}: "{currentFilters.search}"
 							<button on:click={() => handleFilterChange('search', '')}>✕</button>
 						</span>
 					{/if}
