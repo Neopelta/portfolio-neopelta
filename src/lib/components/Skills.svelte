@@ -1,25 +1,26 @@
 <script>
+	import { _ } from 'svelte-i18n';
 	import Avatar from '$lib/components/Avatar.svelte';
 </script>
 
 <section id="competences" class="section">
 	<div class="skills">
-		<h2 class="section-title">Compétences</h2>
+		<h2 class="section-title">{$_('skills.title')}</h2>
 
 		<div class="skills-content">
 			<div class="skill-group">
-				<h3>Technologies maîtrisées</h3>
-				<p>Java • React • TypeScript • APIs REST • Git • SQL • Python</p>
+				<h3>{$_('skills.mastered_tech')}</h3>
+				<p>{$_('skills.mastered_tech_list')}</p>
 			</div>
 
 			<div class="skill-group">
-				<h3>Méthodologies & Outils</h3>
-				<p>Make • Agile/Scrum • Clean Code • Tests unitaires • Documentation technique</p>
+				<h3>{$_('skills.methodologies')}</h3>
+				<p>{$_('skills.methodologies_list')}</p>
 			</div>
 
 			<div class="skill-group">
-				<h3>Domaines d'application</h3>
-				<p>Développement logiciel • Big Data • Visualisation de données • Automatisation</p>
+				<h3>{$_('skills.domains')}</h3>
+				<p>{$_('skills.domains_list')}</p>
 			</div>
 		</div>
 	</div>
