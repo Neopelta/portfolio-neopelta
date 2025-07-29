@@ -29,7 +29,8 @@
     "no_projects": "Aucun projet trouvé.",
     "reset_filters": "Réinitialiser les filtres",
     "projects_found": "{count} projet trouvé | {count} projets trouvés",
-    "back_home": "← Retour à l'accueil"
+    "back_home": "← Retour à l'accueil",
+    "view_project": "Voir le projet →"
   },
   "skills": {
     "title": "Compétences",

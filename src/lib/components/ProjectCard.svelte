@@ -1,5 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
+	import { _ } from 'svelte-i18n';
 	import Avatar from '$lib/components/Avatar.svelte';
 
 	export let id = '';
@@ -52,7 +53,7 @@
 			{/each}
 		</div>
 		<div class="project-links">
-			<a href={projectLink} class="project-link"> Voir le projet → </a>
+			<a href={projectLink} class="project-link">{$_('projects.view_project')}</a>
 		</div>
 	</div>
 </article>
@@ -165,29 +166,6 @@
 	.project-link:hover {
 		text-decoration: underline;
 	}
-
-	/*
-	.git-link {
-		display: flex;
-		align-items: center;
-		gap: var(--spacing-xs);
-		color: var(--color-text-light);
-		text-decoration: none;
-		font-size: 0.8rem;
-		font-weight: 500;
-		transition: color 0.2s ease;
-	}
-
-	.git-link:hover {
-		color: var(--color-green-hover);
-	}
-
-	.git-link svg {
-		width: 16px;
-		height: 16px;
-		fill: currentColor;
-	}
-    */
 
 	@media (prefers-color-scheme: dark) {
 		.project-image {

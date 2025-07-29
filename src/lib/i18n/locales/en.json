@@ -29,7 +29,8 @@
     "no_projects": "No projects found.",
     "reset_filters": "Reset filters",
     "projects_found": "{count} project found | {count} projects found",
-    "back_home": "← Back home"
+    "back_home": "← Back home",
+    "view_project": "View project →"
   },
   "skills": {
     "title": "Skills",
