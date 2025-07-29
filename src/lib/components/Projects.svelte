@@ -1,5 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
+	import { _ } from 'svelte-i18n';
 	import ProjectsGrid from '$lib/components/ProjectsGrid.svelte';
 	import { projects } from '$lib/data/projects.js';
 	import { filterOptions } from '$lib/stores/projectsStore.js';
@@ -14,20 +15,20 @@
 <section id="projects" class="section">
 	<div class="projects">
 		<div class="projects-header">
-			<h2 class="section-title">Projets en vedette</h2>
+			<h2 class="section-title">{$_('projects.title')}</h2>
 			<a href="/{currentLang}/projects" class="view-all-link">
-				Voir tous les projets ({totalProjectsCount}) →
+				{$_('projects.view_all', { values: { count: totalProjectsCount } })}
 			</a>
 		</div>
 
 		<ProjectsGrid
 			class="projects-grid"
 			projects={featuredProjects}
-			emptyMessage="Aucun projet vedette pour le moment."
+			emptyMessage={$_('projects.no_projects')}
 		/>
 
 		<div class="projects-footer">
-			<a href="/{currentLang}/projects" class="view-all-button"> Découvrir tous mes projets </a>
+			<a href="/{currentLang}/projects" class="view-all-button">{$_('projects.discover_all')}</a>
 		</div>
 	</div>
 </section>
