@@ -1,5 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
+	import { _ } from 'svelte-i18n';
 	
 	$: currentYear = new Date().getFullYear();
 	
@@ -11,8 +12,8 @@
 	<div class="container">
 		<div class="footer-content">
 			<div class="footer-left">
-				<p>&copy; {currentYear} Ronan PLUTA FONTAINE</p>
-				<span class="location">Disponible pour alternance</span>
+				<p>{$_('footer.copyright', { values: { year: currentYear } })}</p>
+				<span class="location">{$_('footer.available')}</span>
 			</div>
 			<div class="footer-right">
 				<a href="mailto:rplutafontaine@protonmail.com" class="contact-link">
@@ -38,7 +39,7 @@
 					</a>
 					<span class="separator">•</span>
 					<a href="/{currentLang}/sitemap" class="social-link">
-						Plan du site
+						{$_('footer.sitemap')}
 					</a>
 				</div>
 			</div>
