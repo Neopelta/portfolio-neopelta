@@ -1,17 +1,21 @@
 <script>
+	import { getContext } from 'svelte';
 	import ProjectsGrid from '$lib/components/ProjectsGrid.svelte';
 	import { projects } from '$lib/data/projects.js';
 	import { filterOptions } from '$lib/stores/projectsStore.js';
 
 	$: featuredProjects = projects.filter((project) => project.featured);
 	$: totalProjectsCount = projects.length;
+	
+	const langStore = getContext('lang');
+	$: currentLang = langStore ? $langStore : 'fr';
 </script>
 
 <section id="projects" class="section">
 	<div class="projects">
 		<div class="projects-header">
 			<h2 class="section-title">Projets en vedette</h2>
-			<a href="/projects" class="view-all-link">
+			<a href="/{currentLang}/projects" class="view-all-link">
 				Voir tous les projets ({totalProjectsCount}) →
 			</a>
 		</div>
@@ -23,7 +27,7 @@
 		/>
 
 		<div class="projects-footer">
-			<a href="/projects" class="view-all-button"> Découvrir tous mes projets </a>
+			<a href="/{currentLang}/projects" class="view-all-button"> Découvrir tous mes projets </a>
 		</div>
 	</div>
 </section>

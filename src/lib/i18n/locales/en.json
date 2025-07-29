@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "Ronan PLUTA FONTAINE",
+    "description": "Computer Science Master's Student | Software Developer seeking apprenticeship (September 2025) for 2 weeks in company and 2 weeks in education."
+  },
+  "about": {
+    "currently": "Currently pursuing a Master's in Computer Science at the University of Poitiers (specializing in Software Development & Big Data), I am seeking a 12-month apprenticeship starting September 2025. Passionate about agility, automation, and software quality, I apply my skills in Java, React, and REST API development.",
+    "experience": "My experience at Axelor allowed me to develop skills in process automation and API integration.",
+    "location": "Based in Poitiers, I am mobile in Paris and Montpellier. My technical profile combines backend skills (Java, APIs, Databases) and frontend (React, TypeScript) with a methodical approach to software projects."
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "view_all": "View all projects ({count}) →",
+    "discover_all": "Discover all my projects",
+    "all_projects": "All my projects",
+    "all_projects_subtitle": "Discover all my software development achievements",
+    "similar_projects": "Similar projects",
+    "project_details": "Project details",
+    "about_project": "About this project:",
+    "prev_project": "← Previous project",
+    "next_project": "Next project →",
+    "all_projects_nav": "All projects",
+    "no_projects": "No projects found.",
+    "reset_filters": "Reset filters",
+    "projects_found": "{count} project found | {count} projects found",
+    "back_home": "← Back home"
+  },
+  "skills": {
+    "title": "Skills",
+    "mastered_tech": "Mastered Technologies",
+    "mastered_tech_list": "Java • React • TypeScript • REST APIs • Git • SQL • Python",
+    "methodologies": "Methodologies & Tools",
+    "methodologies_list": "Make • Agile/Scrum • Clean Code • Unit Testing • Technical Documentation",
+    "domains": "Application Domains",
+    "domains_list": "Software Development • Big Data • Data Visualization • Automation"
+  },
+  "contact": {
+    "title": "Let's start a project together",
+    "description": "I'm looking for an apprenticeship that will allow me to contribute to innovative projects while continuing my learning.",
+    "looking_for": "Seeking apprenticeship",
+    "duration": "of 12 months starting September 2025 in Software Development & Big Data.",
+    "location": "Based in Poitiers • Mobile in Paris and Montpellier",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "footer": {
+    "copyright": "© {year} Ronan PLUTA FONTAINE",
+    "available": "Available for apprenticeship",
+    "sitemap": "Sitemap"
+  },
+  "meta": {
+    "title": "Software Developer & Computer Science Master's Student",
+    "description": "Computer Science Master's Student in Poitiers, specialized in Software Development & Big Data, seeking apprenticeship September 2025.",
+    "og_description": "Software Developer - Java, React, REST APIs, ... - Seeking apprenticeship"
+  }
+}

@@ -2,10 +2,16 @@
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { afterNavigate } from '$app/navigation';
-	import { onMount } from 'svelte';
+	import { getContext } from 'svelte';
+	import { _ } from 'svelte-i18n';
 	import Avatar from '$lib/components/Avatar.svelte';
+	import LanguageSwitch from '$lib/components/LanguageSwitch.svelte';
 
-	$: isHomePage = $page.route.id === '/';
+	$: isHomePage = $page.route.id === '/[lang]';
+	
+	const langStore = getContext('lang');
+	$: currentLang = langStore ? $langStore : 'fr';
+	
 	let mobileMenuOpen = false;
 
 	async function handleNavClick(event, anchor) {
@@ -18,7 +24,7 @@
 				element.scrollIntoView({ behavior: 'smooth' });
 			}
 		} else {
-			await goto('/');
+			await goto(`/${currentLang}`);
 			setTimeout(() => {
 				const element = document.getElementById(anchor);
 				if (element) {
@@ -53,27 +59,31 @@
 <nav class="nav">
 	<div class="container">
 		<div class="nav-content">
-			<a href="/" class="nav-brand">
+			<a href="/{currentLang}" class="nav-brand">
 				<Avatar size="small" />
 				<span>Ronan PLUTA FONTAINE</span>
 			</a>
 
-			<!-- Menu desktop -->
 			<ul class="nav-links">
 				<li>
-					<a href="/#projects" on:click={(e) => handleNavClick(e, 'projects')}> Projets </a>
-				</li>
-				<li>
-					<a href="/#competences" on:click={(e) => handleNavClick(e, 'competences')}>
-						Compétences
+					<a href="/{currentLang}#projects" on:click={(e) => handleNavClick(e, 'projects')}>
+						{$_('nav.projects')}
 					</a>
 				</li>
 				<li>
-					<a href="/#contact" on:click={(e) => handleNavClick(e, 'contact')}> Contact </a>
+					<a href="/{currentLang}#competences" on:click={(e) => handleNavClick(e, 'competences')}>
+						{$_('nav.skills')}
+					</a>
+				</li>
+				<li>
+					<a href="/{currentLang}#contact" on:click={(e) => handleNavClick(e, 'contact')}>
+						{$_('nav.contact')}
+					</a>
 				</li>
 			</ul>
 
-			<!-- Button burger mobile -->
+			<LanguageSwitch />
+
 			<button
 				class="mobile-menu-button"
 				class:active={mobileMenuOpen}
@@ -87,19 +97,22 @@
 			</button>
 		</div>
 
-		<!-- Menu mobile -->
 		<div class="mobile-menu" class:open={mobileMenuOpen}>
 			<ul class="mobile-nav-links">
 				<li>
-					<a href="/#projects" on:click={(e) => handleNavClick(e, 'projects')}> Projets </a>
-				</li>
-				<li>
-					<a href="/#competences" on:click={(e) => handleNavClick(e, 'competences')}>
-						Compétences
+					<a href="/{currentLang}#projects" on:click={(e) => handleNavClick(e, 'projects')}>
+						{$_('nav.projects')}
 					</a>
 				</li>
 				<li>
-					<a href="/#contact" on:click={(e) => handleNavClick(e, 'contact')}> Contact </a>
+					<a href="/{currentLang}#competences" on:click={(e) => handleNavClick(e, 'competences')}>
+						{$_('nav.skills')}
+					</a>
+				</li>
+				<li>
+					<a href="/{currentLang}#contact" on:click={(e) => handleNavClick(e, 'contact')}>
+						{$_('nav.contact')}
+					</a>
 				</li>
 			</ul>
 		</div>

@@ -1,40 +1,56 @@
 <script>
-	import Navigation from '$lib/components/Navigation.svelte';
-	import Hero from '$lib/components/Hero.svelte';
-	import About from '$lib/components/About.svelte';
-	import Projects from '$lib/components/Projects.svelte';
-	import Skills from '$lib/components/Skills.svelte';
-	import Contact from '$lib/components/Contact.svelte';
-	import Footer from '$lib/components/Footer.svelte';
-	import '../app.css';
+	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
+	import { browser } from '$app/environment';
+	import { detectUserLanguage } from '$lib/i18n';
+	
+	let isRedirecting = false;
+	
+	onMount(async () => {
+		if (browser && !isRedirecting) {
+			isRedirecting = true;
+			const detectedLang = detectUserLanguage();
+			console.log('Detected language:', detectedLang);
+			
+			window.location.replace(`/${detectedLang}`);
+		}
+	});
 </script>
 
 <svelte:head>
-	<title>Ronan PLUTA FONTAINE - Développeur logiciel & Étudiant Master Informatique</title>
-	<meta
-		name="description"
-		content="Étudiant en Master Informatique à Poitiers, spécialisé en Développement Logiciel & Big Data, recherche alternance septembre 2025."
-	/>
-	<link rel="canonical" href="https://www.neopelta.fr" />
-	<meta property="og:title" content="Ronan PLUTA FONTAINE - Développeur logiciel" />
-	<meta property="og:description" content="Développeur logiciel - Java, React, APIs REST, ... - Recherche alternance" />
-	<meta property="og:type" content="website" />
-	<meta property="og:image" content="https://www.neopelta.fr/ronan-og.png" />
-	<meta property="og:image:width" content="1200" />
-	<meta property="og:image:height" content="630" />
+	<title>Ronan PLUTA FONTAINE</title>
+	<meta name="description" content="Portfolio de Ronan PLUTA FONTAINE - Développeur logiciel" />
 </svelte:head>
 
-<Navigation />
-
-<main class="container">
-	<Hero />
-	<About />
-	<Projects />
-	<Skills />
-	<Contact />
+<main class="detection-screen">
+	<div class="redirect">
+		<p>Redirection en cours...</p>
+		<p><a href="/fr">Français</a> | <a href="/en">English</a></p>
+	</div>
 </main>
 
-<Footer />
-
 <style>
+	.detection-screen {
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+	}
+	
+	.redirect {
+		max-width: 400px;
+		padding: 2rem;
+	}
+	
+	.redirect a {
+		color: #15803d;
+		text-decoration: none;
+		margin: 0 0.5rem;
+	}
+	
+	.redirect a:hover {
+		text-decoration: underline;
+	}
 </style>

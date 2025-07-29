@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "projects": "Projets",
+    "skills": "Compétences",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Bonjour, je suis",
+    "name": "Ronan PLUTA FONTAINE",
+    "description": "Étudiant en Master Informatique | Développeur logiciel en recherche d'alternance (septembre 2025) pour 2 semaines en entreprise et 2 semaines en enseignement."
+  },
+  "about": {
+    "currently": "Actuellement en Master Informatique à l'Université de Poitiers (spécialisation Développement Logiciel & Big Data), je recherche une alternance de 12 mois à partir de septembre 2025. Passionné par l'agilité, l'automatisation et la qualité logicielle, je mets en pratique mes compétences en Java, React et développement d'APIs REST.",
+    "experience": "Mon expérience chez Axelor m'a permis de développer des compétences en automatisation de processus et intégration d'APIs.",
+    "location": "Basé à Poitiers, je suis mobile sur Paris et Montpellier. Mon profil technique allie des compétences backend (Java, APIs, Base de donnée) et frontend (React, TypeScript) avec une approche méthodique des projets logiciels."
+  },
+  "projects": {
+    "title": "Projets en vedette",
+    "view_all": "Voir tous les projets ({count}) →",
+    "discover_all": "Découvrir tous mes projets",
+    "all_projects": "Tous mes projets",
+    "all_projects_subtitle": "Découvrez l'ensemble de mes réalisations en développement logiciel",
+    "similar_projects": "Projets similaires",
+    "project_details": "Détails du projet",
+    "about_project": "À propos de ce projet :",
+    "prev_project": "← Projet précédent",
+    "next_project": "Projet suivant →",
+    "all_projects_nav": "Tous les projets",
+    "no_projects": "Aucun projet trouvé.",
+    "reset_filters": "Réinitialiser les filtres",
+    "projects_found": "{count} projet trouvé | {count} projets trouvés",
+    "back_home": "← Retour à l'accueil"
+  },
+  "skills": {
+    "title": "Compétences",
+    "mastered_tech": "Technologies maîtrisées",
+    "mastered_tech_list": "Java • React • TypeScript • APIs REST • Git • SQL • Python",
+    "methodologies": "Méthodologies & Outils",
+    "methodologies_list": "Make • Agile/Scrum • Clean Code • Tests unitaires • Documentation technique",
+    "domains": "Domaines d'application",
+    "domains_list": "Développement logiciel • Big Data • Visualisation de données • Automatisation"
+  },
+  "contact": {
+    "title": "Démarrons un projet ensemble",
+    "description": "Je recherche une alternance qui me permettra de contribuer à des projets innovants tout en continuant mon apprentissage.",
+    "looking_for": "Recherche alternance",
+    "duration": "de 12 mois à partir de septembre 2025 en Développement Logiciel & Big Data.",
+    "location": "Basé à Poitiers • Mobile sur Paris et Montpellier",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "footer": {
+    "copyright": "© {year} Ronan PLUTA FONTAINE",
+    "available": "Disponible pour alternance",
+    "sitemap": "Plan du site"
+  },
+  "meta": {
+    "title": "Développeur logiciel & Étudiant Master Informatique",
+    "description": "Étudiant en Master Informatique à Poitiers, spécialisé en Développement Logiciel & Big Data, recherche alternance septembre 2025.",
+    "og_description": "Développeur logiciel - Java, React, APIs REST, ... - Recherche alternance"
+  }
+}

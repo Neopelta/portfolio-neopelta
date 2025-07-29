@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- **i18n**: Initialize internationalization support with French (`fr`) as default locale. 
+  - Introduced routing structure to support localized URLs (e.g., `/fr/...`, `/en/...`).
+  - Implemented automatic redirection from legacy URLs to locale-prefixed paths.
+  - Base structure prepared for future translation files.
+  - Added a language switcher button in the navigation menu to toggle between available locales.
+
 ### Fixed
 - **About:** Remove incorrect "1" reference from master degree description
 - **Projects:** Correct and improve text content for GamFed, SkillTracker, Polysyllogism, and Sudoku project descriptions

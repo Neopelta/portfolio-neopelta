@@ -12,7 +12,6 @@ export const projects = [
 			{ name: 'Java', highlighted: true },
 			{ name: 'Room (SQLite)', highlighted: false }
 		],
-		link: '/projects/gamfed-quiz',
 		image: '/images/projects/gamfed/gamfed-project.webp',
 		alt: 'Interface de quiz Gamfed avec questions à choix multiples',
 		tags: ['Android', 'Mobile', 'Quiz', 'Sport']

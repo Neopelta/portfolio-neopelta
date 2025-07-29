@@ -1,5 +1,10 @@
 <script>
+	import { getContext } from 'svelte';
+	
 	$: currentYear = new Date().getFullYear();
+	
+	const langStore = getContext('lang');
+	$: currentLang = langStore ? $langStore : 'fr';
 </script>
 
 <footer class="footer">
@@ -32,7 +37,7 @@
 						GitHub
 					</a>
 					<span class="separator">•</span>
-					<a href="/sitemap" class="social-link">
+					<a href="/{currentLang}/sitemap" class="social-link">
 						Plan du site
 					</a>
 				</div>

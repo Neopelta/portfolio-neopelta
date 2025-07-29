@@ -1,10 +1,19 @@
 <script>
+	import { setContext } from 'svelte';
+	import { writable } from 'svelte/store';
+	import { page } from '$app/stores';
 	import Navigation from '$lib/components/Navigation.svelte';
 	import Footer from '$lib/components/Footer.svelte';
-	import '../app.css';
+	import '../../app.css';
 
 	export let status;
 	export let message;
+
+	$: currentLang = $page.params.lang || 'fr';
+	
+	const langStore = writable(currentLang);
+	$: langStore.set(currentLang);
+	setContext('lang', langStore);
 </script>
 
 <svelte:head>
@@ -34,8 +43,8 @@
 			</p>
 
 			<div class="error-actions">
-				<a href="/" class="btn-home"> ← Retour à l'accueil </a>
-				<a href="/projects" class="btn-projects"> Voir les projets </a>
+				<a href="/{currentLang}" class="btn-home"> ← Retour à l'accueil </a>
+				<a href="/{currentLang}/projects" class="btn-projects"> Voir les projets </a>
 			</div>
 		</div>
 	</div>
