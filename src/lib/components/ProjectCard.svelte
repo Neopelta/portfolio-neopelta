@@ -1,13 +1,19 @@
 <script>
+	import { getContext } from 'svelte';
 	import Avatar from '$lib/components/Avatar.svelte';
 
+	export let id = '';
 	export let title = '';
 	export let description = '';
 	export let technologies = [];
-	export let link = '#';
 	export let image = null;
 	export let alt = '';
 	export let date = '';
+
+	const langStore = getContext('lang');
+	$: currentLang = langStore ? $langStore : 'fr';
+	
+	$: projectLink = `/${currentLang}/projects/${id}`;
 
 	function truncateDescription(text, maxLength = 120) {
 		if (text.length <= maxLength) return text;
@@ -46,7 +52,7 @@
 			{/each}
 		</div>
 		<div class="project-links">
-			<a href={link} class="project-link"> Voir le projet → </a>
+			<a href={projectLink} class="project-link"> Voir le projet → </a>
 		</div>
 	</div>
 </article>

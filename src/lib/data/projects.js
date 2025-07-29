@@ -29,7 +29,6 @@ export const projects = [
 			{ name: 'Java', highlighted: true },
 			{ name: 'Room (SQLite)', highlighted: false }
 		],
-		link: '/projects/survival-quiz',
 		git: 'https://github.com/Neopelta/survival-quiz.git',
 		image: '/images/projects/survival-quiz/survival-quiz-project.webp',
 		alt: "Page d'accueil de quiz Survival Quiz",
@@ -49,7 +48,6 @@ export const projects = [
 			{ name: 'CSS', highlighted: false },
 			{ name: 'JavaScript', highlighted: false }
 		],
-		link: '/projects/portfolio',
 		git: 'https://github.com/Neopelta/portfolio-neopelta.git',
 		image: '/images/projects/portfolio/portfolio_home.webp',
 		alt: "Capture d'écran du portfolio personnel avec sections Projets, Compétences et Contact",
@@ -69,7 +67,6 @@ export const projects = [
 			{ name: 'Discord API', highlighted: false },
 			{ name: 'Google Sheets API', highlighted: false }
 		],
-		link: '/projects/skilltracker',
 		git: 'https://github.com/Neopelta/SkillTracker.git',
 		image: '/images/projects/skilltracker/skillTracker-project.webp',
 		alt: 'Tableau de bord SkillTracker avec graphiques de progression',
@@ -88,7 +85,6 @@ export const projects = [
 			{ name: 'C#', highlighted: true },
 			{ name: 'Blender', highlighted: false }
 		],
-		link: '/projects/3d-car-configurator',
 		git: 'https://github.com/Neopelta/3D_car_configurator.git',
 		image: '/images/projects/3D-car-config/3D_car_configurator-project.webp',
 		alt: 'Interface du configurateur de voiture 3D avec widgets ColorMixer, Carousel et Joystick',
@@ -109,7 +105,6 @@ export const projects = [
 			{ name: 'I2C', highlighted: false },
 			{ name: 'CMake', highlighted: false }
 		],
-		link: '/projects/station-meteo',
 		git: 'https://github.com/Neopelta/station-meteo/tree/master',
 		image: '/images/projects/station-meteo/montage_station-meteo.webp',
 		alt: 'Station météo connectée STM32 avec capteurs et interface Qt affichant graphiques temps réel',
@@ -127,7 +122,6 @@ export const projects = [
 			{ name: 'C++', highlighted: true },
 			{ name: 'CMake', highlighted: false }
 		],
-		link: '/projects/kapture-game',
 		git: 'https://github.com/Neopelta/kapture-game.git',
 		image: '/images/projects/kapture/kapture-game.webp',
 		alt: "Capture d'écran du jeu Kapture dans un terminal Linux",
@@ -142,7 +136,6 @@ export const projects = [
 		category: 'Desktop',
 		featured: true,
 		technologies: [{ name: 'C', highlighted: true }],
-		link: '/projects/sudoku-solver',
 		git: 'https://github.com/Neopelta/sudoku-solver.git',
 		image: '/images/projects/sudoku/sudoku-image.webp',
 		alt: "Capture d'écran d'un terminal linux d'un sudoku résolu",
@@ -161,7 +154,6 @@ export const projects = [
 			{ name: 'HTML', highlighted: false },
 			{ name: 'CSS', highlighted: false }
 		],
-		link: '/projects/polysyllogism-validator',
 		git: 'https://github.com/Neopelta/polysyllogisme.git',
 		image: '/images/projects/polysyllogism/syllogisme-project(guide).webp',
 		alt: 'Interface du validateur de polysyllogismes avec formulaire de saisie',
@@ -176,7 +168,6 @@ export const projects = [
 		category: 'Jeu/3D',
 		featured: false,
 		technologies: [{ name: 'Java', highlighted: true }],
-		link: '/projects/the-cave',
 		git: 'https://github.com/Neopelta/The-Cave.git',
 		image: '/images/projects/the-cave/the-cave-intro.webp',
 		alt: 'The Cave - Introduction avec un personnage dans une grotte',
@@ -194,7 +185,6 @@ export const projects = [
 			{ name: 'C', highlighted: true },
 			{ name: 'SDL2', highlighted: false }
 		],
-		link: '/projects/towerdefend',
 		git: 'https://github.com/Neopelta/Towerdefends.git',
 		image: '/images/projects/towerdefends/towerdefends-project.webp',
 		alt: 'Simulation TowerDefend avec tours défensives et unités ennemies sur un plateau de jeu',
@@ -209,7 +199,6 @@ export const projects = [
 		category: 'Jeu/3D',
 		featured: false,
 		technologies: [{ name: 'OCaml', highlighted: true }],
-		link: '/projects/tetris',
 		git: 'https://github.com/Neopelta/tetris.git',
 		image: '/images/projects/tetris/tetris-gameplay.webp',
 		alt: 'Partie de Tetris en cours avec différentes formes colorées',
@@ -228,7 +217,6 @@ export const projects = [
 			{ name: 'CSS', highlighted: true },
 			{ name: 'JavaScript', highlighted: true }
 		],
-		link: '/projects/dinomonie',
 		git: 'https://github.com/Neopelta/dinomonie.git',
 		image: '/images/projects/dinomonie/La-Dinomonie-La-ceremonie-des-jeux-video.webp',
 		alt: "Page d'accueil de Dinomonie - La cérémonie des jeux vidéo",
