@@ -110,5 +110,17 @@
     "page_not_found_description": "La page que vous recherchez n'existe pas ou a été déplacée.",
     "back_home": "← Retour à l'accueil",
     "view_projects": "Voir les projets"
+  },
+  "sitemap": {
+    "title": "Plan du site",
+    "description": "Retrouvez toutes les pages et projets disponibles sur ce site.",
+    "main_pages": "Pages principales",
+    "home": "Accueil",
+    "all_projects": "Tous les projets",
+    "projects_by_category": "Projets par catégorie",
+    "projects_count": "{count} projet | {count} projets",
+    "useful_links": "Liens utiles",
+    "contact_email": "Contact email",
+    "back_home": "← Retour à l'accueil"
   }
 }

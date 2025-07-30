@@ -1,5 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
+	import { _ } from 'svelte-i18n';
 	import Navigation from '$lib/components/Navigation.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import { projects, getUniqueCategories } from '$lib/data/projects.js';
@@ -15,8 +16,8 @@
 </script>
 
 <svelte:head>
-	<title>Plan du site - Ronan PLUTA FONTAINE</title>
-	<meta name="description" content="Plan du site avec tous les projets et pages disponibles." />
+	<title>{$_('sitemap.title')} - {$_('hero.name')}</title>
+	<meta name="description" content={$_('sitemap.description')} />
 	<link rel="canonical" href="https://www.neopelta.fr/{currentLang}/sitemap" />
 </svelte:head>
 
@@ -24,25 +25,25 @@
 
 <main class="container">
 	<div class="sitemap-header">
-		<h1>Plan du site</h1>
-		<p>Retrouvez toutes les pages et projets disponibles sur ce site.</p>
+		<h1>{$_('sitemap.title')}</h1>
+		<p>{$_('sitemap.description')}</p>
 	</div>
 
 	<div class="sitemap-content">
 		<section class="sitemap-section">
-			<h2>Pages principales</h2>
+			<h2>{$_('sitemap.main_pages')}</h2>
 			<ul class="sitemap-list">
-				<li><a href="/{currentLang}">Accueil</a></li>
-				<li><a href="/{currentLang}/projects">Tous les projets</a></li>
-				<li><a href="/{currentLang}/sitemap">Plan du site</a></li>
+				<li><a href="/{currentLang}">{$_('sitemap.home')}</a></li>
+				<li><a href="/{currentLang}/projects">{$_('sitemap.all_projects')}</a></li>
+				<li><a href="/{currentLang}/sitemap">{$_('sitemap.title')}</a></li>
 			</ul>
 		</section>
 
 		<section class="sitemap-section">
-			<h2>Projets par catégorie</h2>
+			<h2>{$_('sitemap.projects_by_category')}</h2>
 			{#each categories as category}
 				<div class="category-group">
-					<h3>{category} ({groupedProjects[category].length} projets)</h3>
+					<h3>{category} ({$_('sitemap.projects_count', { values: { count: groupedProjects[category].length } })})</h3>
 					<ul class="sitemap-list projects-list">
 						{#each groupedProjects[category] as project}
 							<li>
@@ -59,10 +60,10 @@
 		</section>
 
 		<section class="sitemap-section">
-			<h2>Liens utiles</h2>
+			<h2>{$_('sitemap.useful_links')}</h2>
 			<ul class="sitemap-list">
 				<li><a href="/sitemap.xml">Sitemap XML</a></li>
-				<li><a href="mailto:rplutafontaine@protonmail.com">Contact email</a></li>
+				<li><a href="mailto:rplutafontaine@protonmail.com">{$_('sitemap.contact_email')}</a></li>
 				<li><a href="https://linkedin.com/in/ronan-pluta-fontaine" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
 				<li><a href="https://github.com/Neopelta" target="_blank" rel="noopener noreferrer">GitHub</a></li>
 			</ul>
@@ -70,7 +71,7 @@
 	</div>
 
 	<div class="back-home">
-		<a href="/{currentLang}" class="back-link">← Retour à l'accueil</a>
+		<a href="/{currentLang}" class="back-link">{$_('sitemap.back_home')}</a>
 	</div>
 </main>
 

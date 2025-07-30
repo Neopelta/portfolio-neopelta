@@ -110,5 +110,17 @@
     "page_not_found_description": "The page you are looking for does not exist or has been moved.",
     "back_home": "← Back home",
     "view_projects": "View projects"
+  },
+  "sitemap": {
+    "title": "Sitemap",
+    "description": "Find all pages and projects available on this site.",
+    "main_pages": "Main pages",
+    "home": "Home",
+    "all_projects": "All projects", 
+    "projects_by_category": "Projects by category",
+    "projects_count": "{count} project | {count} projects",
+    "useful_links": "Useful links",
+    "contact_email": "Contact email",
+    "back_home": "← Back home"
   }
 }
