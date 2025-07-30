@@ -1,5 +1,5 @@
 <script>
-	import { onMount } from 'svelte';
+	import { onMount, getContext } from 'svelte';
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
 	import { _ } from 'svelte-i18n';
@@ -16,7 +16,24 @@
 	} from '$lib/stores/projectsStore.js';
 	import '../../../app.css';
 
-	onMount(() => {
+	const langStore = getContext('lang');
+	$: currentLang = langStore ? $langStore : 'fr';
+
+	let loading = true;
+
+	$: if (currentLang) {
+		loadProjectsForLanguage(currentLang);
+	}
+
+	async function loadProjectsForLanguage(lang) {
+		loading = true;
+		await projectsActions.loadProjects(lang);
+		loading = false;
+	}
+
+	onMount(async () => {
+		await loadProjectsForLanguage(currentLang);
+
 		if (browser) {
 			const urlParams = new URLSearchParams($page.url.search);
 
@@ -43,7 +60,7 @@
 <svelte:head>
 	<title>{$_('projects.all_projects')} - {$_('hero.name')}</title>
 	<meta name="description" content={$_('projects.all_projects_subtitle')} />
-	<link rel="canonical" href="https://www.neopelta.fr/projects" />
+	<link rel="canonical" href="https://www.neopelta.fr/{currentLang}/projects" />
 </svelte:head>
 
 <Navigation />
@@ -62,6 +79,7 @@
 
 	<ProjectsGrid
 		projects={$paginatedProjects}
+		{loading}
 		emptyMessage={$_('projects.no_projects')}
 		emptyAction={projectsActions.resetFilters}
 		emptyActionText={$_('projects.reset_filters')}
@@ -70,7 +88,7 @@
 	<ProjectsPagination />
 
 	<div class="back-home">
-		<a href="/" class="back-link">{$_('projects.back_home')}</a>
+		<a href="/{currentLang}" class="back-link">{$_('projects.back_home')}</a>
 	</div>
 </main>
 

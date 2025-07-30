@@ -1,18 +1,48 @@
 <script>
-	import { getContext } from 'svelte';
+	import { onMount, getContext } from 'svelte';
 	import { _ } from 'svelte-i18n';
 	import Navigation from '$lib/components/Navigation.svelte';
 	import Footer from '$lib/components/Footer.svelte';
-	import { projects, getUniqueCategories } from '$lib/data/projects.js';
+	import { getProjectsAsync, getUniqueCategoriesAsync } from '$lib/data/projects.js';
 	import '../../../app.css';
 
 	const langStore = getContext('lang');
 	$: currentLang = langStore ? $langStore : 'fr';
-	$: categories = getUniqueCategories();
-	$: groupedProjects = categories.reduce((acc, category) => {
-		acc[category] = projects.filter(p => p.category === category);
-		return acc;
-	}, {});
+
+	let projects = [];
+	let categories = [];
+	let groupedProjects = {};
+	let loading = true;
+
+	$: if (currentLang) {
+		loadSitemapData(currentLang);
+	}
+
+	async function loadSitemapData(lang) {
+		try {
+			loading = true;
+			[projects, categories] = await Promise.all([
+				getProjectsAsync(lang),
+				getUniqueCategoriesAsync(lang)
+			]);
+
+			groupedProjects = categories.reduce((acc, category) => {
+				acc[category] = projects.filter(p => p.category === category);
+				return acc;
+			}, {});
+		} catch (error) {
+			console.error('Erreur lors du chargement du sitemap:', error);
+			projects = [];
+			categories = [];
+			groupedProjects = {};
+		} finally {
+			loading = false;
+		}
+	}
+
+	onMount(() => {
+		loadSitemapData(currentLang);
+	});
 </script>
 
 <svelte:head>
@@ -29,46 +59,53 @@
 		<p>{$_('sitemap.description')}</p>
 	</div>
 
-	<div class="sitemap-content">
-		<section class="sitemap-section">
-			<h2>{$_('sitemap.main_pages')}</h2>
-			<ul class="sitemap-list">
-				<li><a href="/{currentLang}">{$_('sitemap.home')}</a></li>
-				<li><a href="/{currentLang}/projects">{$_('sitemap.all_projects')}</a></li>
-				<li><a href="/{currentLang}/sitemap">{$_('sitemap.title')}</a></li>
-			</ul>
-		</section>
+	{#if loading}
+		<div class="loading-state">
+			<div class="loading-spinner"></div>
+			<p>Chargement du plan du site...</p>
+		</div>
+	{:else}
+		<div class="sitemap-content">
+			<section class="sitemap-section">
+				<h2>{$_('sitemap.main_pages')}</h2>
+				<ul class="sitemap-list">
+					<li><a href="/{currentLang}">{$_('sitemap.home')}</a></li>
+					<li><a href="/{currentLang}/projects">{$_('sitemap.all_projects')}</a></li>
+					<li><a href="/{currentLang}/sitemap">{$_('sitemap.title')}</a></li>
+				</ul>
+			</section>
 
-		<section class="sitemap-section">
-			<h2>{$_('sitemap.projects_by_category')}</h2>
-			{#each categories as category}
-				<div class="category-group">
-					<h3>{category} ({$_('sitemap.projects_count', { values: { count: groupedProjects[category].length } })})</h3>
-					<ul class="sitemap-list projects-list">
-						{#each groupedProjects[category] as project}
-							<li>
-								<a href="/{currentLang}/projects/{project.id}">{project.title}</a>
-								<span class="project-meta">
-									{project.date}
-									{#if project.featured}<span class="featured-badge">★</span>{/if}
-								</span>
-							</li>
-						{/each}
-					</ul>
-				</div>
-			{/each}
-		</section>
+			<section class="sitemap-section">
+				<h2>{$_('sitemap.projects_by_category')}</h2>
+				{#each categories as category}
+					<div class="category-group">
+						<h3>{category} ({$_('sitemap.projects_count', { values: { count: groupedProjects[category].length } })})</h3>
+						<ul class="sitemap-list projects-list">
+							{#each groupedProjects[category] as project}
+								<li>
+									<a href="/{currentLang}/projects/{project.id}">{project.title}</a>
+									<span class="project-meta">
+										{project.date}
+										{#if project.featured}<span class="featured-badge">★</span>{/if}
+									</span>
+								</li>
+							{/each}
+						</ul>
+					</div>
+				{/each}
+			</section>
 
-		<section class="sitemap-section">
-			<h2>{$_('sitemap.useful_links')}</h2>
-			<ul class="sitemap-list">
-				<li><a href="/sitemap.xml">Sitemap XML</a></li>
-				<li><a href="mailto:rplutafontaine@protonmail.com">{$_('sitemap.contact_email')}</a></li>
-				<li><a href="https://linkedin.com/in/ronan-pluta-fontaine" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-				<li><a href="https://github.com/Neopelta" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-			</ul>
-		</section>
-	</div>
+			<section class="sitemap-section">
+				<h2>{$_('sitemap.useful_links')}</h2>
+				<ul class="sitemap-list">
+					<li><a href="/sitemap.xml">Sitemap XML</a></li>
+					<li><a href="mailto:rplutafontaine@protonmail.com">{$_('sitemap.contact_email')}</a></li>
+					<li><a href="https://linkedin.com/in/ronan-pluta-fontaine" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+					<li><a href="https://github.com/Neopelta" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+				</ul>
+			</section>
+		</div>
+	{/if}
 
 	<div class="back-home">
 		<a href="/{currentLang}" class="back-link">{$_('sitemap.back_home')}</a>
@@ -95,6 +132,29 @@
 		color: var(--color-text-light);
 		max-width: 500px;
 		margin: 0 auto;
+	}
+
+	.loading-state {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: var(--spacing-xl);
+		color: var(--color-text-light);
+	}
+
+	.loading-spinner {
+		width: 40px;
+		height: 40px;
+		border: 3px solid var(--color-border);
+		border-top: 3px solid var(--color-green);
+		border-radius: 50%;
+		animation: spin 1s linear infinite;
+		margin-bottom: var(--spacing-md);
+	}
+
+	@keyframes spin {
+		0% { transform: rotate(0deg); }
+		100% { transform: rotate(360deg); }
 	}
 
 	.sitemap-section {

@@ -1,14 +1,17 @@
-import { projects } from '$lib/data/projects.js';
+import { getProjectsAsync } from '$lib/data/projects.js';
 import { getProjectDetails } from '$lib/data/projectDetails.js';
-import { supportedLocales, setupI18n } from '$lib/i18n';
-import { error } from '@sveltejs/kit';
+import { supportedLocales, setupI18n, defaultLocale } from '$lib/i18n';
+import { error, redirect } from '@sveltejs/kit';
 
-export async function load({ params }) {
+export async function load({ params, url }) {
 	const { slug, lang } = params;
 	
 	if (!supportedLocales.includes(lang)) {
-		throw error(404, 'Language not supported');
+		const correctPath = url.pathname.replace(`/${lang}`, `/${defaultLocale}`);
+		throw redirect(302, correctPath);
 	}
+	
+	const projects = await getProjectsAsync(lang);
 	
 	const project = projects.find((p) => p.id === slug);
 	if (!project) {
@@ -51,13 +54,16 @@ export async function load({ params }) {
 	};
 }
 
-export function entries() {
+export async function entries() {
 	const projectEntries = [];
+	
 	for (const lang of supportedLocales) {
+		const projects = await getProjectsAsync(lang);
 		for (const project of projects) {
 			projectEntries.push({ lang, slug: project.id });
 		}
 	}
+	
 	return projectEntries;
 }
 
