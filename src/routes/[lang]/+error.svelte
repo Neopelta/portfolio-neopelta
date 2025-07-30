@@ -2,6 +2,7 @@
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 	import { page } from '$app/stores';
+	import { _ } from 'svelte-i18n';
 	import Navigation from '$lib/components/Navigation.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import '../../app.css';
@@ -17,8 +18,8 @@
 </script>
 
 <svelte:head>
-	<title>Erreur {status} - Ronan PLUTA FONTAINE</title>
-	<meta name="description" content="Page non trouvée" />
+	<title>{$_('error.error_occurred')} {status} - {$_('hero.name')}</title>
+	<meta name="description" content={$_('error.page_not_found_description')} />
 </svelte:head>
 
 <Navigation />
@@ -29,22 +30,22 @@
 			<h1 class="error-status">{status}</h1>
 			<h2 class="error-title">
 				{#if status === 404}
-					Page non trouvée
+					{$_('error.page_not_found')}
 				{:else}
-					Une erreur s'est produite
+					{$_('error.error_occurred')}
 				{/if}
 			</h2>
 			<p class="error-message">
 				{#if status === 404}
-					La page que vous recherchez n'existe pas ou a été déplacée.
+					{$_('error.page_not_found_description')}
 				{:else}
 					{message}
 				{/if}
 			</p>
 
 			<div class="error-actions">
-				<a href="/{currentLang}" class="btn-home"> ← Retour à l'accueil </a>
-				<a href="/{currentLang}/projects" class="btn-projects"> Voir les projets </a>
+				<a href="/{currentLang}" class="btn-home">{$_('error.back_home')}</a>
+				<a href="/{currentLang}/projects" class="btn-projects">{$_('error.view_projects')}</a>
 			</div>
 		</div>
 	</div>

@@ -103,5 +103,12 @@
     "next": "Suivant →",
     "last_page": "Dernière page",
     "go_to_page": "Aller à la page"
+  },
+  "error": {
+    "page_not_found": "Page non trouvée",
+    "error_occurred": "Une erreur s'est produite",
+    "page_not_found_description": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "back_home": "← Retour à l'accueil",
+    "view_projects": "Voir les projets"
   }
 }
