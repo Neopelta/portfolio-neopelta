@@ -45,7 +45,7 @@ export const projectDetails = {
 					},
 					{
 						src: '/images/projects/gamfed/app-result.webp',
-						alt: 'Écran de résultats avec score et analyse',
+						alt: 'Écran de résultats avec score',
 						caption: 'Résultats détaillés avec pourcentage et recommandations'
 					}
 				]
@@ -65,32 +65,32 @@ export const projectDetails = {
 				images: [
 					{
 						src: '/images/projects/gamfed/sol.webp',
-						alt: 'Agrès Sol - gymnastes réalisant des figures au sol',
+						alt: 'Agrès Sol',
 						caption: 'Sol : acrobaties et figures chorégraphiées'
 					},
 					{
 						src: '/images/projects/gamfed/saut.webp',
-						alt: "Agrès Saut - gymnaste s'élançant sur le cheval de saut",
+						alt: "Agrès Saut",
 						caption: 'Saut : impulsion et figures aériennes'
 					},
 					{
 						src: '/images/projects/gamfed/paralleles.webp',
-						alt: 'Barres parallèles - gymnaste en équilibre',
+						alt: 'Agrès Barres parallèles',
 						caption: 'Barres parallèles : force et équilibre'
 					},
 					{
 						src: '/images/projects/gamfed/arcons.webp',
-						alt: "Cheval d'arçons - rotation des jambes",
+						alt: "Agrès Cheval d'arçons",
 						caption: "Cheval d'arçons : rotations et cisseaux"
 					},
 					{
 						src: '/images/projects/gamfed/fixe.webp',
-						alt: 'Barre fixe - gymnaste en suspension',
+						alt: 'Agrès Barre fixe',
 						caption: 'Barre fixe : élans et rotations'
 					},
 					{
 						src: '/images/projects/gamfed/anneaux.webp',
-						alt: 'Anneaux - gymnaste en force statique',
+						alt: 'Agrès Anneaux',
 						caption: 'Anneaux : force pure et maintiens'
 					}
 				]
