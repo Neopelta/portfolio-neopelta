@@ -12,6 +12,7 @@
 
 	$: searchPlaceholder = placeholder || $_('projects_filters.search_placeholder');
 	$: currentFilters = $filters;
+	$: options = $filterOptions;
 
 	function handleSearchInput(event) {
 		projectsActions.setFilter('search', event.target.value);
@@ -70,7 +71,7 @@
 						class="filter-select"
 					>
 						<option value="all">{$_('projects_filters.all')}</option>
-						{#each filterOptions.categories as category}
+						{#each options.categories as category}
 							<option value={category}>{category}</option>
 						{/each}
 					</select>
@@ -87,7 +88,7 @@
 						class="filter-select"
 					>
 						<option value="all">{$_('projects_filters.all')}</option>
-						{#each filterOptions.technologies as tech}
+						{#each options.technologies as tech}
 							<option value={tech}>{tech}</option>
 						{/each}
 					</select>
@@ -104,7 +105,7 @@
 						class="filter-select"
 					>
 						<option value="all">{$_('projects_filters.all')}</option>
-						{#each filterOptions.years as year}
+						{#each options.years as year}
 							<option value={year}>{year}</option>
 						{/each}
 					</select>

@@ -1,15 +1,38 @@
 <script>
-	import { getContext } from 'svelte';
+	import { onMount, getContext } from 'svelte';
 	import { _ } from 'svelte-i18n';
 	import ProjectsGrid from '$lib/components/ProjectsGrid.svelte';
-	import { projects } from '$lib/data/projects.js';
-	import { filterOptions } from '$lib/stores/projectsStore.js';
+	import { getFeaturedProjectsAsync, getProjectsCountAsync } from '$lib/data/projects.js';
 
-	$: featuredProjects = projects.filter((project) => project.featured);
-	$: totalProjectsCount = projects.length;
+	let featuredProjects = [];
+	let totalProjectsCount = 0;
+	let loading = true;
 	
 	const langStore = getContext('lang');
 	$: currentLang = langStore ? $langStore : 'fr';
+	$: if (currentLang) {
+		loadProjects(currentLang);
+	}
+
+	async function loadProjects(lang) {
+		try {
+			loading = true;
+			[featuredProjects, totalProjectsCount] = await Promise.all([
+				getFeaturedProjectsAsync(lang),
+				getProjectsCountAsync(lang)
+			]);
+		} catch (error) {
+			console.error('Error loading projects:', error);
+			featuredProjects = [];
+			totalProjectsCount = 0;
+		} finally {
+			loading = false;
+		}
+	}
+
+	onMount(() => {
+		loadProjects(currentLang);
+	});
 </script>
 
 <section id="projects" class="section">
@@ -24,6 +47,7 @@
 		<ProjectsGrid
 			class="projects-grid"
 			projects={featuredProjects}
+			{loading}
 			emptyMessage={$_('projects.no_projects')}
 		/>
 
