@@ -122,5 +122,18 @@
     "useful_links": "Useful links",
     "contact_email": "Contact email",
     "back_home": "← Back home"
+  },
+  "project_page": {
+    "home": "Home",
+    "coming_soon": "This section will be completed soon with detailed content about this project.",
+    "coming_soon_features": "You will soon be able to see:",
+    "coming_soon_screenshots": "Screenshots",
+    "coming_soon_features_explanation": "Features explanation",
+    "coming_soon_challenges": "Technical challenges encountered", 
+    "coming_soon_learnings": "Learnings and feedback",
+    "coming_soon_code": "Important code snippets",
+    "coming_soon_sources": "Sources",
+    "coming_soon_downloads": "Documents to download",
+    "view_on_github": "View on GitHub"
   }
 }

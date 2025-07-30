@@ -122,5 +122,18 @@
     "useful_links": "Liens utiles",
     "contact_email": "Contact email",
     "back_home": "← Retour à l'accueil"
+  },
+  "project_page": {
+    "home": "Accueil",
+    "coming_soon": "Cette section sera complétée prochainement avec le contenu détaillé de ce projet.",
+    "coming_soon_features": "Vous pourrez bientôt voir :",
+    "coming_soon_screenshots": "Captures d'écran",
+    "coming_soon_features_explanation": "Explication des fonctionnalités", 
+    "coming_soon_challenges": "Défis techniques rencontrés",
+    "coming_soon_learnings": "Apprentissages et retours d'expérience",
+    "coming_soon_code": "Code snippets importants",
+    "coming_soon_sources": "Sources",
+    "coming_soon_downloads": "Documents à télécharger",
+    "view_on_github": "Voir sur GitHub"
   }
 }
