@@ -1,5 +1,18 @@
 import { writable, derived } from 'svelte/store';
-import { projects } from '$lib/data/projects.js';
+import { 
+	getProjectsAsync, 
+	getUniqueYearsAsync, 
+	getUniqueTechnologiesAsync, 
+	getUniqueCategoriesAsync 
+} from '$lib/data/projects.js';
+
+export const currentLanguage = writable('fr');
+export const allProjects = writable([]);
+export const filterOptions = writable({
+	years: [],
+	technologies: [],
+	categories: []
+});
 
 export const filters = writable({
 	year: 'all',
@@ -14,23 +27,26 @@ export const pagination = writable({
 	itemsPerPage: 8
 });
 
-export const filteredProjects = derived(filters, ($filters) => {
-	return projects.filter((project) => {
-		const matchesYear = $filters.year === 'all' || project.date === $filters.year;
-		const matchesTech =
-			$filters.technology === 'all' ||
-			project.technologies.some((t) => t.name === $filters.technology);
-		const matchesCategory = $filters.category === 'all' || project.category === $filters.category;
-		const matchesSearch =
-			$filters.search === '' ||
-			project.title.toLowerCase().includes($filters.search.toLowerCase()) ||
-			project.description.toLowerCase().includes($filters.search.toLowerCase()) ||
-			project.tags.some((tag) => tag.toLowerCase().includes($filters.search.toLowerCase()));
-		const matchesFeatured = !$filters.featuredOnly || project.featured;
+export const filteredProjects = derived(
+	[allProjects, filters], 
+	([$allProjects, $filters]) => {
+		return $allProjects.filter((project) => {
+			const matchesYear = $filters.year === 'all' || project.date === $filters.year;
+			const matchesTech =
+				$filters.technology === 'all' ||
+				project.technologies.some((t) => t.name === $filters.technology);
+			const matchesCategory = $filters.category === 'all' || project.category === $filters.category;
+			const matchesSearch =
+				$filters.search === '' ||
+				project.title.toLowerCase().includes($filters.search.toLowerCase()) ||
+				project.description.toLowerCase().includes($filters.search.toLowerCase()) ||
+				project.tags.some((tag) => tag.toLowerCase().includes($filters.search.toLowerCase()));
+			const matchesFeatured = !$filters.featuredOnly || project.featured;
 
-		return matchesYear && matchesTech && matchesCategory && matchesSearch && matchesFeatured;
-	});
-});
+			return matchesYear && matchesTech && matchesCategory && matchesSearch && matchesFeatured;
+		});
+	}
+);
 
 export const paginatedProjects = derived(
 	[filteredProjects, pagination],
@@ -53,6 +69,25 @@ export const projectsMetadata = derived(
 );
 
 export const projectsActions = {
+	async loadProjects(lang = 'fr') {
+		try {
+			const [projects, years, technologies, categories] = await Promise.all([
+				getProjectsAsync(lang),
+				getUniqueYearsAsync(lang),
+				getUniqueTechnologiesAsync(lang),
+				getUniqueCategoriesAsync(lang)
+			]);
+
+			allProjects.set(projects);
+			filterOptions.set({ years, technologies, categories });
+			currentLanguage.set(lang);
+		} catch (error) {
+			console.error('Erreur lors du chargement des projets:', error);
+			allProjects.set([]);
+			filterOptions.set({ years: [], technologies: [], categories: [] });
+		}
+	},
+
 	setFilter: (key, value) => {
 		filters.update((f) => ({ ...f, [key]: value }));
 		pagination.update((p) => ({ ...p, currentPage: 1 }));
@@ -84,10 +119,4 @@ export const projectsActions = {
 	prevPage: () => {
 		pagination.update((p) => ({ ...p, currentPage: Math.max(1, p.currentPage - 1) }));
 	}
-};
-
-export const filterOptions = {
-	years: [...new Set(projects.map((p) => p.date))].sort().reverse(),
-	technologies: [...new Set(projects.flatMap((p) => p.technologies.map((t) => t.name)))].sort(),
-	categories: [...new Set(projects.map((p) => p.category))].sort()
 };
