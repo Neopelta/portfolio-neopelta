@@ -1,11 +1,12 @@
-import { supportedLocales, setupI18n } from '$lib/i18n';
-import { error } from '@sveltejs/kit';
+import { supportedLocales, setupI18n, defaultLocale } from '$lib/i18n';
+import { redirect } from '@sveltejs/kit';
 
-export async function load({ params }) {
+export async function load({ params, url }) {
 	const { lang } = params;
 	
 	if (!supportedLocales.includes(lang)) {
-		throw error(404, 'Language not supported');
+		const correctPath = url.pathname.replace(`/${lang}`, `/${defaultLocale}`);
+		throw redirect(302, correctPath);
 	}
 	
 	await setupI18n(lang);

@@ -107,9 +107,22 @@
   "error": {
     "page_not_found": "Page non trouvée",
     "error_occurred": "Une erreur s'est produite",
+    "server_error": "Erreur serveur",
+    "service_unavailable": "Service indisponible",
+    "access_forbidden": "Accès interdit",
+    "bad_request": "Requête invalide",
     "page_not_found_description": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "server_error_description": "Une erreur interne du serveur s'est produite. Veuillez réessayer plus tard.",
+    "service_unavailable_description": "Le service est temporairement indisponible. Veuillez réessayer dans quelques minutes.",
+    "access_forbidden_description": "Vous n'avez pas l'autorisation d'accéder à cette ressource.",
+    "bad_request_description": "La requête est mal formée ou contient des données invalides.",
+    "unexpected_error": "Une erreur inattendue s'est produite.",
     "back_home": "← Retour à l'accueil",
-    "view_projects": "Voir les projets"
+    "view_projects": "Voir les projets",
+    "suggestions_title": "Vous cherchez peut-être :",
+    "change_language": "Changer de langue",
+    "redirecting": "Redirection en cours...",
+    "redirect_message": "Vous allez être redirigé vers la bonne page."
   },
   "sitemap": {
     "title": "Plan du site",
