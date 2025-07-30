@@ -86,5 +86,11 @@
     "reset": "Réinitialiser",
     "active_filters": "Filtres actifs",
     "search": "Recherche"
+  },
+  "projects_grid": {
+    "loading": "Chargement des projets...",
+    "no_projects_title": "Aucun projet trouvé",
+    "no_projects_found": "Aucun projet trouvé.",
+    "reset_filters": "Réinitialiser les filtres"
   }
 }

@@ -1,20 +1,24 @@
 <script>
+	import { _ } from 'svelte-i18n';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 
 	export let projects = [];
 	export let loading = false;
-	export let emptyMessage = 'Aucun projet trouvé.';
+	export let emptyMessage = '';
 	export let emptyAction = null;
-	export let emptyActionText = 'Réinitialiser les filtres';
+	export let emptyActionText = '';
 	export let columns = 'repeat(auto-fit, minmax(300px, 1fr))';
 	export let gap = 'var(--spacing-lg)';
+
+	$: finalEmptyMessage = emptyMessage || $_('projects_grid.no_projects_found');
+	$: finalEmptyActionText = emptyActionText || $_('projects_grid.reset_filters');
 </script>
 
 <div class="projects-grid-container">
 	{#if loading}
 		<div class="loading-state">
 			<div class="loading-spinner"></div>
-			<p>Chargement des projets...</p>
+			<p>{$_('projects_grid.loading')}</p>
 		</div>
 	{:else if projects.length > 0}
 		<div class="projects-grid" style="--grid-columns: {columns}; --grid-gap: {gap};">
@@ -27,11 +31,11 @@
 	{:else}
 		<div class="empty-state">
 			<div class="empty-icon">📁</div>
-			<h3>Aucun projet trouvé</h3>
-			<p>{emptyMessage}</p>
+			<h3>{$_('projects_grid.no_projects_title')}</h3>
+			<p>{finalEmptyMessage}</p>
 			{#if emptyAction}
 				<button on:click={emptyAction} class="empty-action">
-					{emptyActionText}
+					{finalEmptyActionText}
 				</button>
 			{/if}
 		</div>
