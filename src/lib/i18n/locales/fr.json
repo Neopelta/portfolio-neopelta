@@ -92,5 +92,16 @@
     "no_projects_title": "Aucun projet trouvé",
     "no_projects_found": "Aucun projet trouvé.",
     "reset_filters": "Réinitialiser les filtres"
+  },
+  "projects_pagination": {
+    "showing": "Affichage de {start}-{end} sur {total} projets",
+    "first_page": "Première page",
+    "previous_page": "Page précédente", 
+    "previous": "← Précédent",
+    "page": "Page {number}",
+    "next_page": "Page suivante",
+    "next": "Suivant →",
+    "last_page": "Dernière page",
+    "go_to_page": "Aller à la page"
   }
 }

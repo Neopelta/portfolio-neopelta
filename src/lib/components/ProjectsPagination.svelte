@@ -1,4 +1,5 @@
 <script>
+	import { _ } from 'svelte-i18n';
 	import { projectsMetadata, projectsActions } from '$lib/stores/projectsStore.js';
 
 	export let showInfo = true;
@@ -52,18 +53,20 @@
 		{#if showInfo}
 			<div class="pagination-info">
 				<span class="results-text">
-					Affichage de {(metadata.currentPage - 1) * metadata.itemsPerPage + 1}-{Math.min(
-						metadata.currentPage * metadata.itemsPerPage,
-						metadata.total
-					)}
-					sur {metadata.total} projets
+					{$_('projects_pagination.showing', {
+						values: {
+							start: (metadata.currentPage - 1) * metadata.itemsPerPage + 1,
+							end: Math.min(metadata.currentPage * metadata.itemsPerPage, metadata.total),
+							total: metadata.total
+						}
+					})}
 				</span>
 			</div>
 		{/if}
 
 		<div class="pagination-controls">
 			{#if metadata.currentPage > 1 && visiblePages[0] > 1}
-				<button on:click={() => goToPage(1)} class="pagination-btn page-btn" title="Première page">
+				<button on:click={() => goToPage(1)} class="pagination-btn page-btn" title={$_('projects_pagination.first_page')}>
 					1
 				</button>
 				{#if visiblePages[0] > 2}
@@ -75,9 +78,9 @@
 				on:click={() => projectsActions.prevPage()}
 				disabled={metadata.currentPage === 1}
 				class="pagination-btn nav-btn"
-				title="Page précédente"
+				title={$_('projects_pagination.previous_page')}
 			>
-				← Précédent
+				{$_('projects_pagination.previous')}
 			</button>
 
 			<div class="page-numbers">
@@ -86,7 +89,7 @@
 						on:click={() => goToPage(page)}
 						class="pagination-btn page-btn"
 						class:active={page === metadata.currentPage}
-						title="Page {page}"
+						title={$_('projects_pagination.page', { values: { number: page } })}
 					>
 						{page}
 					</button>
@@ -97,9 +100,9 @@
 				on:click={() => projectsActions.nextPage()}
 				disabled={metadata.currentPage === metadata.totalPages}
 				class="pagination-btn nav-btn"
-				title="Page suivante"
+				title={$_('projects_pagination.next_page')}
 			>
-				Suivant →
+				{$_('projects_pagination.next')}
 			</button>
 
 			{#if metadata.currentPage < metadata.totalPages && visiblePages[visiblePages.length - 1] < metadata.totalPages}
@@ -109,7 +112,7 @@
 				<button
 					on:click={() => goToPage(metadata.totalPages)}
 					class="pagination-btn page-btn"
-					title="Dernière page"
+					title={$_('projects_pagination.last_page')}
 				>
 					{metadata.totalPages}
 				</button>
@@ -118,7 +121,7 @@
 
 		{#if showJumper && metadata.totalPages > maxVisiblePages}
 			<div class="page-jumper">
-				<label for="page-input" class="jumper-label">Aller à la page :</label>
+				<label for="page-input" class="jumper-label">{$_('projects_pagination.go_to_page')} :</label>
 				<input
 					id="page-input"
 					type="number"
