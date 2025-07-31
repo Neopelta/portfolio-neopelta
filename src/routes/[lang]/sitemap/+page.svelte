@@ -27,7 +27,7 @@
 			]);
 
 			groupedProjects = categories.reduce((acc, category) => {
-				acc[category] = projects.filter(p => p.category === category);
+				acc[category] = projects.filter((p) => p.category === category);
 				return acc;
 			}, {});
 		} catch (error) {
@@ -79,7 +79,11 @@
 				<h2>{$_('sitemap.projects_by_category')}</h2>
 				{#each categories as category}
 					<div class="category-group">
-						<h3>{category} ({$_('sitemap.projects_count', { values: { count: groupedProjects[category].length } })})</h3>
+						<h3>
+							{category} ({$_('sitemap.projects_count', {
+								values: { count: groupedProjects[category].length }
+							})})
+						</h3>
 						<ul class="sitemap-list projects-list">
 							{#each groupedProjects[category] as project}
 								<li>
@@ -100,8 +104,18 @@
 				<ul class="sitemap-list">
 					<li><a href="/sitemap.xml">Sitemap XML</a></li>
 					<li><a href="mailto:rplutafontaine@protonmail.com">{$_('sitemap.contact_email')}</a></li>
-					<li><a href="https://linkedin.com/in/ronan-pluta-fontaine" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-					<li><a href="https://github.com/Neopelta" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+					<li>
+						<a
+							href="https://linkedin.com/in/ronan-pluta-fontaine"
+							target="_blank"
+							rel="noopener noreferrer">LinkedIn</a
+						>
+					</li>
+					<li>
+						<a href="https://github.com/Neopelta" target="_blank" rel="noopener noreferrer"
+							>GitHub</a
+						>
+					</li>
 				</ul>
 			</section>
 		</div>
@@ -153,8 +167,12 @@
 	}
 
 	@keyframes spin {
-		0% { transform: rotate(0deg); }
-		100% { transform: rotate(360deg); }
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
 	}
 
 	.sitemap-section {

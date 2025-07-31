@@ -8,7 +8,7 @@
 		<div class="hero-avatar">
 			<Avatar size="extra-large" />
 		</div>
-		<h1>{$_('hero.greeting')} <br> {$_('hero.name')}</h1>
+		<h1>{$_('hero.greeting')} <br /> {$_('hero.name')}</h1>
 		<p>
 			{$_('hero.description')}
 		</p>
@@ -30,7 +30,7 @@
 	@media (max-width: 768px) {
 		.hero-avatar :global(.avatar-extra-large) {
 			width: 128px !important;
-			height:128px !important;
+			height: 128px !important;
 		}
 	}
 

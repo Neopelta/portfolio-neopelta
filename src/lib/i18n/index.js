@@ -23,7 +23,7 @@ export async function setupI18n(lang = defaultLocale) {
 	if (!supportedLocales.includes(lang)) {
 		lang = defaultLocale;
 	}
-	
+
 	locale.set(lang);
 	await waitLocale();
 	return lang;

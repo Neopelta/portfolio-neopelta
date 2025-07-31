@@ -1,5 +1,5 @@
 export const projects = [
-	{	
+	{
 		id: 'gamfed-quiz',
 		title: 'Gamfed Quiz',
 		description:
@@ -20,7 +20,7 @@ export const projects = [
 		id: 'survival-quiz',
 		title: 'Survival Quiz',
 		description:
-			"Time survival quiz on Android with PDF certificate generation. Adaptive day/night interface, multilingual support and results history via Room Database. Developed in pairs as part of the mobile HCI course.",
+			'Time survival quiz on Android with PDF certificate generation. Adaptive day/night interface, multilingual support and results history via Room Database. Developed in pairs as part of the mobile HCI course.',
 		date: '2025',
 		category: 'Mobile',
 		featured: false,
@@ -76,7 +76,7 @@ export const projects = [
 		id: '3d-car-configurator',
 		title: '3D Car Configurator',
 		description:
-			"Unity application developed as part of the HCI course at the University of Poitiers. Pair project creating 3 reusable custom widgets: ColorMixer to blend and apply colors, 2D Carousel to navigate between wheels, and Rotation Joystick to control vehicle rotation. Modular architecture with Prefab conversion for reuse.",
+			'Unity application developed as part of the HCI course at the University of Poitiers. Pair project creating 3 reusable custom widgets: ColorMixer to blend and apply colors, 2D Carousel to navigate between wheels, and Rotation Joystick to control vehicle rotation. Modular architecture with Prefab conversion for reuse.',
 		date: '2025',
 		category: 'Game/3D',
 		featured: false,
@@ -93,7 +93,8 @@ export const projects = [
 	{
 		id: 'station-meteo',
 		title: 'BLE Connected Weather Station',
-		description: "IoT weather station based on STM32 with environmental sensors (temperature, humidity, pressure). Dual wired/Bluetooth Low Energy communication to real-time Qt graphical interface. University project integrating embedded programming, wireless protocols and HMI development.",
+		description:
+			'IoT weather station based on STM32 with environmental sensors (temperature, humidity, pressure). Dual wired/Bluetooth Low Energy communication to real-time Qt graphical interface. University project integrating embedded programming, wireless protocols and HMI development.',
 		date: '2025',
 		category: 'Embedded',
 		featured: false,
@@ -114,7 +115,7 @@ export const projects = [
 		id: 'kapture-game',
 		title: 'Kapture Game',
 		description:
-			"Turn-based strategy game developed in C++. Tactical combat with 3 unit types (Scout, Shock Troop, Cannon Fodder) on varied terrain. Objective: capture the enemy flag and bring it back to base. Includes fog of war, complex combat system and terrain management with different movement costs.",
+			'Turn-based strategy game developed in C++. Tactical combat with 3 unit types (Scout, Shock Troop, Cannon Fodder) on varied terrain. Objective: capture the enemy flag and bring it back to base. Includes fog of war, complex combat system and terrain management with different movement costs.',
 		date: '2024',
 		category: 'Game/3D',
 		featured: false,
@@ -131,7 +132,7 @@ export const projects = [
 		id: 'sudoku-solver',
 		title: 'Sudoku Solver',
 		description:
-			"Sudoku solver in C combining advanced logic and backtracking. The program first applies note reduction techniques (X-Wing, k-tuples) and block analysis, then uses backtracking as a fallback solution.",
+			'Sudoku solver in C combining advanced logic and backtracking. The program first applies note reduction techniques (X-Wing, k-tuples) and block analysis, then uses backtracking as a fallback solution.',
 		date: '2024',
 		category: 'Desktop',
 		featured: true,
@@ -163,7 +164,7 @@ export const projects = [
 		id: 'the-cave',
 		title: 'The Cave',
 		description:
-			"Text adventure game inspired by Colossal Cave Adventure developed in Java. The player embodies Dave, a hero trapped in a mysterious cave from which no one has ever returned alive. Tactical combat system, inventory management, dynamic merchants and random events.",
+			'Text adventure game inspired by Colossal Cave Adventure developed in Java. The player embodies Dave, a hero trapped in a mysterious cave from which no one has ever returned alive. Tactical combat system, inventory management, dynamic merchants and random events.',
 		date: '2023',
 		category: 'Game/3D',
 		featured: false,
@@ -177,7 +178,7 @@ export const projects = [
 		id: 'towerdefend',
 		title: 'TowerDefend',
 		description:
-			"Automatic tower defense simulation developed in C with SDL2. The player observes in real time a strategic battle between defensive towers and enemy units. Automatic unit generation, combat system with attack visualization via red lines, and dual save system (binary/sequential). Student project realized in pairs.",
+			'Automatic tower defense simulation developed in C with SDL2. The player observes in real time a strategic battle between defensive towers and enemy units. Automatic unit generation, combat system with attack visualization via red lines, and dual save system (binary/sequential). Student project realized in pairs.',
 		date: '2023',
 		category: 'Game/3D',
 		featured: false,

@@ -7,15 +7,43 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- **i18n**: Initialize internationalization support with French (`fr`) as default locale. 
-  - Introduced routing structure to support localized URLs (e.g., `/fr/...`, `/en/...`).
-  - Implemented automatic redirection from legacy URLs to locale-prefixed paths.
-  - Base structure prepared for future translation files.
-  - Added a language switcher button in the navigation menu to toggle between available locales.
+### Added
+- **i18n**: Complete internationalization system with French (`fr`) and English (`en`) support
+  - Integrated `svelte-i18n` library for translation management
+  - Created comprehensive translation files (`ui-fr.json`, `ui-en.json`) covering all interface elements
+  - Implemented multilingual project data structure with `projects-fr.js` and `projects-en.js`
+  - Added detailed project content translations with `projectDetails-fr.js` and `projectDetails-en.js`
+- **Routing**: Multilingual URL structure with automatic language detection and redirection
+  - Route structure `[lang]/...` supporting localized URLs (e.g., `/fr/projects`, `/en/projects`)
+  - Automatic redirections from legacy URLs to locale-prefixed paths
+  - Language switcher component in navigation menu
+- **Components**: Full translation support across all interface components
+  - Navigation, Hero, About, Projects, Skills, Contact, Footer components translated
+  - Project-related components (ProjectCard, ProjectDetail, ProjectsFilters, ProjectsGrid, ProjectsPagination) fully localized
+  - Error pages and sitemap page with complete translation support
+- **Architecture**: Asynchronous data loading system for multilingual content
+  - Converted `projectsStore` to async architecture with language support
+  - Updated all data functions with async variants and language parameters
+  - Enhanced sitemap generation script for multilingual URLs
+
+### Changed
+- **Data Loading**: Migrated from synchronous to asynchronous data loading architecture
+  - All project-related functions now support async loading with language parameters
+  - Enhanced error handling for missing translations with fallback to French
+- **URL Structure**: Restructured all routes to support language prefixes
+  - Updated internal linking system to maintain language consistency
+  - Modified `.htaccess` configuration for proper multilingual routing
 
 ### Fixed
-- **About:** Remove incorrect "1" reference from master degree description
-- **Projects:** Correct and improve text content for GamFed, SkillTracker, Polysyllogism, and Sudoku project descriptions
+- **Security**: Added safe property access in ProjectDetail component to prevent undefined errors
+- **Content**: Corrected project descriptions and removed erroneous content references
+- **Images**: Updated alt attributes for better accessibility compliance
+- **Data Loading**: Resolved async data loading issues in Projects and ProjectsFilters components
+- **Routing**: Fixed obsolete project links after i18n routing implementation
+
+### Removed
+- **Code Cleanup**: Eliminated unused language detection functions and client-side redirection routes
+- **Legacy Routes**: Removed obsolete routing structures replaced by multilingual system
 
 ## [1.1.0] - 2025-07-25
 

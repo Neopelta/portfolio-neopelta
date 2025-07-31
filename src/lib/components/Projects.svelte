@@ -7,7 +7,7 @@
 	let featuredProjects = [];
 	let totalProjectsCount = 0;
 	let loading = true;
-	
+
 	const langStore = getContext('lang');
 	$: currentLang = langStore ? $langStore : 'fr';
 	$: if (currentLang) {

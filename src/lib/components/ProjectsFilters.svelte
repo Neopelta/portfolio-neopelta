@@ -63,7 +63,8 @@
 		<div class="filters-row">
 			{#if showCategory}
 				<div class="filter-group">
-					<label for="category-filter" class="filter-label">{$_('projects_filters.category')}</label>
+					<label for="category-filter" class="filter-label">{$_('projects_filters.category')}</label
+					>
 					<select
 						id="category-filter"
 						value={currentFilters.category}

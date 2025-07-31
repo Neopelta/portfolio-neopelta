@@ -13,10 +13,10 @@ async function generateSitemap() {
 		urls.push(`<url><loc>${site}/${lang}</loc></url>`);
 		urls.push(`<url><loc>${site}/${lang}/projects</loc></url>`);
 		urls.push(`<url><loc>${site}/${lang}/sitemap</loc></url>`);
-		
+
 		try {
 			const projects = await getProjectsAsync(lang);
-			projects.forEach(project => {
+			projects.forEach((project) => {
 				urls.push(`<url><loc>${site}/${lang}/projects/${project.id}</loc></url>`);
 			});
 		} catch (error) {
@@ -39,7 +39,7 @@ async function generateSitemap() {
 
 	const totalUrls = urls.length;
 	let totalProjects = 0;
-	
+
 	for (const lang of supportedLocales) {
 		try {
 			const projects = await getProjectsAsync(lang);
@@ -50,8 +50,8 @@ async function generateSitemap() {
 			console.error(`Error when counting projects for ${lang}:`, error);
 		}
 	}
-	
-	const totalPages = 1 + (supportedLocales.length * (3 + totalProjects));
+
+	const totalPages = 1 + supportedLocales.length * (3 + totalProjects);
 
 	console.log(`✅ Sitemap generated: ${totalUrls} URLs`);
 	console.log(`   - ${supportedLocales.length} languages`);
@@ -59,7 +59,7 @@ async function generateSitemap() {
 	console.log(`   - ${totalPages} total pages`);
 }
 
-generateSitemap().catch(error => {
+generateSitemap().catch((error) => {
 	console.error('Error generating sitemap:', error);
 	process.exit(1);
 });

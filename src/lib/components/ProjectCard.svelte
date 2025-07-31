@@ -13,7 +13,7 @@
 
 	const langStore = getContext('lang');
 	$: currentLang = langStore ? $langStore : 'fr';
-	
+
 	$: projectLink = `/${currentLang}/projects/${id}`;
 
 	function truncateDescription(text, maxLength = 120) {
@@ -27,11 +27,7 @@
 <article class="project">
 	<div class="project-image">
 		{#if image}
-			<img 
-				src={image} 
-				alt={alt || title}
-				title={title} 
-				loading="lazy" />
+			<img src={image} alt={alt || title} {title} loading="lazy" />
 		{:else}
 			<Avatar size="large" />
 		{/if}

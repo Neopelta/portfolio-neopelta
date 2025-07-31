@@ -8,10 +8,10 @@
 	import LanguageSwitch from '$lib/components/LanguageSwitch.svelte';
 
 	$: isHomePage = $page.route.id === '/[lang]';
-	
+
 	const langStore = getContext('lang');
 	$: currentLang = langStore ? $langStore : 'fr';
-	
+
 	let mobileMenuOpen = false;
 
 	async function handleNavClick(event, anchor) {
@@ -124,14 +124,14 @@
 			on:click={closeMobileMenu}
 			on:keydown={(e) => {
 				if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') {
-				e.preventDefault();
-				closeMobileMenu();
+					e.preventDefault();
+					closeMobileMenu();
 				}
 			}}
 			role="button"
 			tabindex="0"
 			aria-label="Fermer le menu de navigation"
-			></div>
+		></div>
 	{/if}
 </nav>
 

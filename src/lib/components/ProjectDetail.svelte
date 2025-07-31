@@ -169,11 +169,7 @@
 											handleImageKeydown(e, image.src, image.alt, block.images, index)}
 										aria-label="{$_('project_detail.enlarge_image')}: {image.alt}"
 									>
-										<img 
-											src={image.src} 
-											alt={image.alt}
-											title={image.alt} 
-											loading="lazy" />
+										<img src={image.src} alt={image.alt} title={image.alt} loading="lazy" />
 										{#if image.caption}
 											<p class="image-caption">{image.caption}</p>
 										{/if}
@@ -225,11 +221,7 @@
 						on:keydown={(e) => handleImageKeydown(e, image.src, image.alt, images, index)}
 						aria-label="{$_('project_detail.enlarge_image')}: {image.alt}"
 					>
-						<img 
-							src={image.src} 
-							alt={image.alt} 
-							title={image.alt}
-							loading="lazy" />
+						<img src={image.src} alt={image.alt} title={image.alt} loading="lazy" />
 						{#if image.caption}
 							<p class="image-caption">{image.caption}</p>
 						{/if}
@@ -281,12 +273,13 @@
 						<div class="download-header">
 							<div class="download-icon">
 								{#if download.icon.startsWith('/') || download.icon.startsWith('http')}
-									<img 
-										src={download.icon} 
+									<img
+										src={download.icon}
 										alt="{$_('project_detail.icon')} {download.title}"
 										title="{$_('project_detail.icon')} {download.title}"
-										width="24" 
-										height="24" />
+										width="24"
+										height="24"
+									/>
 								{:else}
 									<span>{download.icon}</span>
 								{/if}
@@ -295,7 +288,8 @@
 						</div>
 						<p class="download-description">{download.description}</p>
 						<a href="/downloads/{download.filename}" class="download-link" download>
-							{$_('project_detail.download')} {download.filename}
+							{$_('project_detail.download')}
+							{download.filename}
 						</a>
 					</div>
 				{/each}
@@ -351,11 +345,12 @@
 		</div>
 	{/if}
 
-	<img 
-		class="modal-content" 
-		id="modalImg" 
-		alt="" 
-		title={$_('project_detail.enlarged_image_title')}/>
+	<img
+		class="modal-content"
+		id="modalImg"
+		alt=""
+		title={$_('project_detail.enlarged_image_title')}
+	/>
 </div>
 
 <style>

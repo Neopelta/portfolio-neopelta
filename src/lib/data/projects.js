@@ -115,7 +115,7 @@ export const getProjectsStatsAsync = getProjectsStats;
 
 export async function getProjectById(id, lang = 'fr') {
 	const projects = await getProjects(lang);
-	return projects.find(p => p.id === id);
+	return projects.find((p) => p.id === id);
 }
 
 export const getProjectByIdAsync = getProjectById;

@@ -66,7 +66,11 @@
 
 		<div class="pagination-controls">
 			{#if metadata.currentPage > 1 && visiblePages[0] > 1}
-				<button on:click={() => goToPage(1)} class="pagination-btn page-btn" title={$_('projects_pagination.first_page')}>
+				<button
+					on:click={() => goToPage(1)}
+					class="pagination-btn page-btn"
+					title={$_('projects_pagination.first_page')}
+				>
 					1
 				</button>
 				{#if visiblePages[0] > 2}
@@ -121,7 +125,8 @@
 
 		{#if showJumper && metadata.totalPages > maxVisiblePages}
 			<div class="page-jumper">
-				<label for="page-input" class="jumper-label">{$_('projects_pagination.go_to_page')} :</label>
+				<label for="page-input" class="jumper-label">{$_('projects_pagination.go_to_page')} :</label
+				>
 				<input
 					id="page-input"
 					type="number"

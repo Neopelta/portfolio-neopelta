@@ -25,13 +25,13 @@ export const projectDetails = {
 			},
 			{
 				type: 'images',
-				title: "Application Interface",
+				title: 'Application Interface',
 				underlined: true,
 				images: [
 					{
 						src: '/images/projects/gamfed/app-home.webp',
-						alt: "Application home screen with quiz options",
-						caption: "Home screen with personalized quiz options"
+						alt: 'Application home screen with quiz options',
+						caption: 'Home screen with personalized quiz options'
 					},
 					{
 						src: '/images/projects/gamfed/app-selectoption.webp',
@@ -60,7 +60,7 @@ export const projectDetails = {
 			},
 			{
 				type: 'images',
-				title: 'The 6 apparatus of men\'s artistic gymnastics',
+				title: "The 6 apparatus of men's artistic gymnastics",
 				underlined: true,
 				images: [
 					{
@@ -70,7 +70,7 @@ export const projectDetails = {
 					},
 					{
 						src: '/images/projects/gamfed/saut.webp',
-						alt: "Vault apparatus",
+						alt: 'Vault apparatus',
 						caption: 'Vault: propulsion and aerial figures'
 					},
 					{
@@ -80,8 +80,8 @@ export const projectDetails = {
 					},
 					{
 						src: '/images/projects/gamfed/arcons.webp',
-						alt: "Pommel Horse apparatus",
-						caption: "Pommel Horse: rotations and scissors"
+						alt: 'Pommel Horse apparatus',
+						caption: 'Pommel Horse: rotations and scissors'
 					},
 					{
 						src: '/images/projects/gamfed/fixe.webp',
@@ -118,7 +118,7 @@ export const projectDetails = {
 				images: [
 					{
 						src: '/images/projects/gamfed/app-stats1.webp',
-						alt: "Quiz history screen with scores",
+						alt: 'Quiz history screen with scores',
 						caption: 'Chronological history with quiz deletion'
 					},
 					{
@@ -174,7 +174,7 @@ export const projectDetails = {
 					{
 						src: '/images/projects/gamfed/figma-question2.webp',
 						alt: 'Alternative question interface',
-						caption: "Question display variant"
+						caption: 'Question display variant'
 					},
 					{
 						src: '/images/projects/gamfed/figma-question3.webp',
@@ -220,7 +220,7 @@ export const projectDetails = {
 			{
 				name: 'La Renaissance Gymnastique',
 				url: 'http://www.larenaissancegymnastique.fr',
-				description: 'Images of men\'s artistic gymnastics apparatus'
+				description: "Images of men's artistic gymnastics apparatus"
 			},
 			{
 				name: 'French Gymnastics Federation',
@@ -233,7 +233,7 @@ export const projectDetails = {
 				title: 'Figma Templates',
 				filename: 'GamFed - Ronan (Neopelta) PLUTA FONTAINE.fig',
 				description:
-					"Figma file containing all mockups, components and design system of the application.",
+					'Figma file containing all mockups, components and design system of the application.',
 				icon: '/images/logo/figma/figma-logo.svg'
 			}
 		]
@@ -263,13 +263,13 @@ export const projectDetails = {
 			},
 			{
 				type: 'images',
-				title: "Web application interfaces",
+				title: 'Web application interfaces',
 				underlined: true,
 				images: [
 					{
 						src: '/images/projects/skilltracker/skillTracker-project.webp',
-						alt: "SkillTracker homepage with feature presentation",
-						caption: "Homepage with description of web and Discord features"
+						alt: 'SkillTracker homepage with feature presentation',
+						caption: 'Homepage with description of web and Discord features'
 					},
 					{
 						src: '/images/projects/skilltracker/skillTracker-project(skills).webp',
@@ -722,7 +722,7 @@ export const projectDetails = {
 			},
 			{
 				type: 'text',
-				title: "Team Methodology and Organization",
+				title: 'Team Methodology and Organization',
 				underlined: true,
 				content: `
 					<p>The project was conducted according to an agile methodology adapted to academic context:</p>
@@ -794,7 +794,7 @@ export const projectDetails = {
 		downloads: [
 			{
 				title: 'Sudoku Resolution Method',
-                // TODO: Update of the file to translate it into English
+				// TODO: Update of the file to translate it into English
 				filename: 'FR_SUDOKU_methods.pdf',
 				description: 'PDF document detailing possible Sudoku resolution methods.',
 				icon: '/images/logo/pdf/pdf-logo.svg'
@@ -939,7 +939,8 @@ export const projectDetails = {
 					{
 						src: '/images/projects/station-meteo/montage_fils_2.webp',
 						alt: 'Overview of manual wiring performed',
-						caption: 'Manual routing on the "shield", itself on the "STM32L476RG Nucleo", for I2C signals and power supply'
+						caption:
+							'Manual routing on the "shield", itself on the "STM32L476RG Nucleo", for I2C signals and power supply'
 					}
 				]
 			},
@@ -1060,7 +1061,7 @@ export const projectDetails = {
 					{
 						src: '/images/projects/station-meteo/app_STBLE_sensor_classic.webp',
 						alt: 'ST BLE Sensor mobile app displaying our data',
-						caption: "Assembly recognition in ST BLE Sensor app: environmental data display"
+						caption: 'Assembly recognition in ST BLE Sensor app: environmental data display'
 					}
 				]
 			},
@@ -1310,7 +1311,8 @@ export const projectDetails = {
 			{
 				title: 'Pixel Art Avatar - Source Files',
 				filename: 'neopelta-avatar.zip',
-				description: 'Complete archive containing Aseprite source files (.ase) and all optimized exports (PNG, WebP, SVG).',
+				description:
+					'Complete archive containing Aseprite source files (.ase) and all optimized exports (PNG, WebP, SVG).',
 				icon: '/images/logo/zip/zip-logo.svg'
 			}
 		]

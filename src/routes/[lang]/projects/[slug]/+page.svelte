@@ -21,7 +21,12 @@
 	$: currentLang = data.lang;
 
 	afterNavigate(({ from, to }) => {
-		if (from && to && from.route.id === '/[lang]/projects/[slug]' && to.route.id === '/[lang]/projects/[slug]') {
+		if (
+			from &&
+			to &&
+			from.route.id === '/[lang]/projects/[slug]' &&
+			to.route.id === '/[lang]/projects/[slug]'
+		) {
 			window.scrollTo({ top: 0, behavior: 'smooth' });
 		}
 	});
@@ -51,11 +56,12 @@
 		<header class="project-header">
 			<div class="project-image-container">
 				{#if project.image}
-					<img 
-						src={project.image} 
-						alt={project.alt || project.title} 
+					<img
+						src={project.image}
+						alt={project.alt || project.title}
 						title={project.title}
-						class="project-image" />
+						class="project-image"
+					/>
 				{:else}
 					<div class="project-image-placeholder">
 						<Avatar size="large" />
@@ -114,8 +120,8 @@
 			<h2 class="section-title">{$_('projects.project_details')}</h2>
 
 			{#if projectDetails}
-				<ProjectDetail 
-					projectId={project.id} 
+				<ProjectDetail
+					projectId={project.id}
 					title={projectDetails.title || ''}
 					content={projectDetails.content || ''}
 					contentBlocks={projectDetails.contentBlocks || []}
@@ -140,7 +146,7 @@
 				</div>
 			{/if}
 		</section>
-		
+
 		<nav class="project-navigation">
 			<div class="nav-item">
 				{#if prevProject}

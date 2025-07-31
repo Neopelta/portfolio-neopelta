@@ -1,9 +1,9 @@
 <script>
 	import { getContext } from 'svelte';
 	import { _ } from 'svelte-i18n';
-	
+
 	$: currentYear = new Date().getFullYear();
-	
+
 	const langStore = getContext('lang');
 	$: currentLang = langStore ? $langStore : 'fr';
 </script>

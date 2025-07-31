@@ -1,9 +1,9 @@
 import { writable, derived } from 'svelte/store';
-import { 
-	getProjectsAsync, 
-	getUniqueYearsAsync, 
-	getUniqueTechnologiesAsync, 
-	getUniqueCategoriesAsync 
+import {
+	getProjectsAsync,
+	getUniqueYearsAsync,
+	getUniqueTechnologiesAsync,
+	getUniqueCategoriesAsync
 } from '$lib/data/projects.js';
 
 export const currentLanguage = writable('fr');
@@ -27,26 +27,23 @@ export const pagination = writable({
 	itemsPerPage: 8
 });
 
-export const filteredProjects = derived(
-	[allProjects, filters], 
-	([$allProjects, $filters]) => {
-		return $allProjects.filter((project) => {
-			const matchesYear = $filters.year === 'all' || project.date === $filters.year;
-			const matchesTech =
-				$filters.technology === 'all' ||
-				project.technologies.some((t) => t.name === $filters.technology);
-			const matchesCategory = $filters.category === 'all' || project.category === $filters.category;
-			const matchesSearch =
-				$filters.search === '' ||
-				project.title.toLowerCase().includes($filters.search.toLowerCase()) ||
-				project.description.toLowerCase().includes($filters.search.toLowerCase()) ||
-				project.tags.some((tag) => tag.toLowerCase().includes($filters.search.toLowerCase()));
-			const matchesFeatured = !$filters.featuredOnly || project.featured;
+export const filteredProjects = derived([allProjects, filters], ([$allProjects, $filters]) => {
+	return $allProjects.filter((project) => {
+		const matchesYear = $filters.year === 'all' || project.date === $filters.year;
+		const matchesTech =
+			$filters.technology === 'all' ||
+			project.technologies.some((t) => t.name === $filters.technology);
+		const matchesCategory = $filters.category === 'all' || project.category === $filters.category;
+		const matchesSearch =
+			$filters.search === '' ||
+			project.title.toLowerCase().includes($filters.search.toLowerCase()) ||
+			project.description.toLowerCase().includes($filters.search.toLowerCase()) ||
+			project.tags.some((tag) => tag.toLowerCase().includes($filters.search.toLowerCase()));
+		const matchesFeatured = !$filters.featuredOnly || project.featured;
 
-			return matchesYear && matchesTech && matchesCategory && matchesSearch && matchesFeatured;
-		});
-	}
-);
+		return matchesYear && matchesTech && matchesCategory && matchesSearch && matchesFeatured;
+	});
+});
 
 export const paginatedProjects = derived(
 	[filteredProjects, pagination],

@@ -70,7 +70,7 @@ export const projectDetails = {
 					},
 					{
 						src: '/images/projects/gamfed/saut.webp',
-						alt: "Agrès Saut",
+						alt: 'Agrès Saut',
 						caption: 'Saut : impulsion et figures aériennes'
 					},
 					{
@@ -831,7 +831,7 @@ export const projectDetails = {
 					{
 						src: '/images/projects/station-meteo/flux_donnees.webp',
 						alt: 'Diagramme du flux de données du système',
-						caption: 'Architecture complète : des capteurs vers l\'interface de visualisation'
+						caption: "Architecture complète : des capteurs vers l'interface de visualisation"
 					},
 					{
 						src: '/images/projects/station-meteo/schema_pressure.webp',
@@ -933,12 +933,14 @@ export const projectDetails = {
 					{
 						src: '/images/projects/station-meteo/montage_fils_1.webp',
 						alt: 'Détail des connexions filaires entre les shields',
-						caption: 'Connexions filaires sur la carte "X-NUCLEO-IKS01A3" pour isoler les conflits électriques'
+						caption:
+							'Connexions filaires sur la carte "X-NUCLEO-IKS01A3" pour isoler les conflits électriques'
 					},
 					{
 						src: '/images/projects/station-meteo/montage_fils_2.webp',
-						alt: 'Vue d\'ensemble du câblage manuel réalisé',
-						caption: 'Routage manuel sur le "shield", elle même sur le "STM32L476RG Nucleo", pour les signaux I2C et alimentation'
+						alt: "Vue d'ensemble du câblage manuel réalisé",
+						caption:
+							'Routage manuel sur le "shield", elle même sur le "STM32L476RG Nucleo", pour les signaux I2C et alimentation'
 					}
 				]
 			},
@@ -1059,7 +1061,8 @@ export const projectDetails = {
 					{
 						src: '/images/projects/station-meteo/app_STBLE_sensor_classic.webp',
 						alt: 'Application mobile ST BLE Sensor affichant nos données',
-						caption: "Reconnaissance du montage dans l'application ST BLE Sensor : affichage des données environnementales"
+						caption:
+							"Reconnaissance du montage dans l'application ST BLE Sensor : affichage des données environnementales"
 					}
 				]
 			},
@@ -1234,7 +1237,7 @@ export const projectDetails = {
 			},
 			{
 				type: 'text',
-				title: 'Identité visuelle : création de l\'avatar pixel art',
+				title: "Identité visuelle : création de l'avatar pixel art",
 				underlined: true,
 				content: `
 					<p>L'identité visuelle du site s'appuie sur un avatar pixel art créé entièrement avec Aseprite. Ce choix esthétique apporte une originalité contrôlée tout en maintenant un niveau de professionnalisme adapté.</p>
@@ -1255,7 +1258,7 @@ export const projectDetails = {
 					{
 						src: '/images/projects/portfolio/avatar_speak.webp',
 						alt: 'Avatar pixel art version parlante',
-						caption: 'Avatar pixel art - Version interactive pour dynamiser l\'interface'
+						caption: "Avatar pixel art - Version interactive pour dynamiser l'interface"
 					},
 					{
 						src: '/images/projects/portfolio/avatar-og.webp',
@@ -1282,12 +1285,12 @@ export const projectDetails = {
 			{
 				name: 'WCAG Guidelines',
 				url: 'https://www.w3.org/WAI/WCAG21/quickref/',
-				description: 'Standards d\'accessibilité web respectés'
+				description: "Standards d'accessibilité web respectés"
 			},
 			{
 				name: 'Website Carbon Calculator',
 				url: 'https://www.websitecarbon.com/website/neopelta-fr/',
-				description: 'Outil de mesure de l\'empreinte carbone'
+				description: "Outil de mesure de l'empreinte carbone"
 			},
 			{
 				name: 'SiteChecker SEO Extension',
@@ -1297,19 +1300,20 @@ export const projectDetails = {
 			{
 				name: 'Assistant RGAA',
 				url: 'https://design.numerique.gouv.fr/articles/2021-10-06-assistant-rgaa/',
-				description: 'Extension pour valider l\'accessibilité web selon le RGAA'
+				description: "Extension pour valider l'accessibilité web selon le RGAA"
 			},
 			{
 				name: 'Aseprite',
 				url: 'https://www.aseprite.org/',
-				description: 'Logiciel utilisé pour la création de l\'avatar pixel art'
+				description: "Logiciel utilisé pour la création de l'avatar pixel art"
 			}
 		],
 		downloads: [
 			{
 				title: 'Avatar Pixel Art - Fichiers sources',
 				filename: 'neopelta-avatar.zip',
-				description: 'Archive complète contenant les fichiers sources Aseprite (.ase) et tous les exports optimisés (PNG, WebP, SVG).',
+				description:
+					'Archive complète contenant les fichiers sources Aseprite (.ase) et tous les exports optimisés (PNG, WebP, SVG).',
 				icon: '/images/logo/zip/zip-logo.svg'
 			}
 		]

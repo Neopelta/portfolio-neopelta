@@ -20,7 +20,8 @@
 		<div class="info-note">
 			<div>
 				<p>
-					<strong>{$_('contact.looking_for')}</strong> {$_('contact.duration')}
+					<strong>{$_('contact.looking_for')}</strong>
+					{$_('contact.duration')}
 				</p>
 				<p>{$_('contact.location')}</p>
 			</div>
@@ -47,12 +48,13 @@
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				<img 
-					src="/images/logo/linkedin/LinkedIn-logo.svg" 
+				<img
+					src="/images/logo/linkedin/LinkedIn-logo.svg"
 					alt=""
 					title="LinkedIn"
-					width="20" 
-					height="20" />
+					width="20"
+					height="20"
+				/>
 				{$_('contact.linkedin')}
 			</a>
 			<a
@@ -61,12 +63,13 @@
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				<img 
-					src="/images/logo/github/github-logo.svg" 
+				<img
+					src="/images/logo/github/github-logo.svg"
 					alt=""
-					title="GitHub" 
-					width="20" 
-					height="20" />
+					title="GitHub"
+					width="20"
+					height="20"
+				/>
 				{$_('contact.github')}
 			</a>
 		</div>

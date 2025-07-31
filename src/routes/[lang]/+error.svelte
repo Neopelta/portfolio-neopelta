@@ -12,7 +12,7 @@
 	export let message;
 
 	$: currentLang = $page.params.lang || 'fr';
-	
+
 	const langStore = writable(currentLang);
 	$: langStore.set(currentLang);
 	setContext('lang', langStore);
@@ -22,7 +22,10 @@
 	<title>
 		{status === 404 ? $_('error.page_not_found') : $_('error.error_occurred')} - {$_('hero.name')}
 	</title>
-	<meta name="description" content={status === 404 ? $_('error.page_not_found_description') : $_('error.unexpected_error')} />
+	<meta
+		name="description"
+		content={status === 404 ? $_('error.page_not_found_description') : $_('error.unexpected_error')}
+	/>
 	<meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
@@ -37,7 +40,7 @@
 				</div>
 				<h1 class="error-status">{status}</h1>
 			</div>
-			
+
 			<h2 class="error-title">
 				{#if status === 404}
 					{$_('error.page_not_found')}
@@ -45,7 +48,7 @@
 					{$_('error.error_occurred')}
 				{/if}
 			</h2>
-			
+
 			<p class="error-message">
 				{#if status === 404}
 					{$_('error.page_not_found_description')}

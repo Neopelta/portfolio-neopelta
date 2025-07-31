@@ -5,21 +5,21 @@ import { error, redirect } from '@sveltejs/kit';
 
 export async function load({ params, url }) {
 	const { slug, lang } = params;
-	
+
 	if (!supportedLocales.includes(lang)) {
 		const correctPath = url.pathname.replace(`/${lang}`, `/${defaultLocale}`);
 		throw redirect(302, correctPath);
 	}
-	
+
 	const projects = await getProjectsAsync(lang);
-	
+
 	const project = projects.find((p) => p.id === slug);
 	if (!project) {
 		throw error(404, 'Project not found');
 	}
-	
+
 	await setupI18n(lang);
-	
+
 	const currentIndex = projects.findIndex((p) => p.id === slug);
 	const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
 	const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
@@ -46,7 +46,7 @@ export async function load({ params, url }) {
 	let projectDetails = null;
 	try {
 		projectDetails = await getProjectDetailsAsync(slug, lang);
-		
+
 		// S'assurer que toutes les propriétés sont des tableaux par défaut
 		if (projectDetails) {
 			projectDetails = {
@@ -77,7 +77,7 @@ export async function load({ params, url }) {
 
 export async function entries() {
 	const projectEntries = [];
-	
+
 	for (const lang of supportedLocales) {
 		try {
 			const projects = await getProjectsAsync(lang);
@@ -88,7 +88,7 @@ export async function entries() {
 			console.warn(`Failed to load projects for ${lang}:`, error);
 		}
 	}
-	
+
 	return projectEntries;
 }
 

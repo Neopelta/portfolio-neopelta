@@ -131,8 +131,8 @@
 	}
 
 	.page-header h2 {
-        font-weight: normal;
-    }
+		font-weight: normal;
+	}
 
 	@media (max-width: 600px) {
 		.page-header h1 {
