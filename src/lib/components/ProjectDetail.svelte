@@ -119,7 +119,7 @@
 
 	{#if contentBlocks?.length > 0}
 		<div class="modular-content">
-			{#each contentBlocks as block, index}
+			{#each contentBlocks as block, blockIndex}
 				{#if block.type === 'text'}
 					<div class="content-text">
 						{#if block.title}
@@ -137,7 +137,7 @@
 							{#if block.images?.length > 1}
 								<button
 									class="carousel-btn carousel-btn-left"
-									on:click={() => scrollCarousel(`carousel-${index}`, 'left')}
+									on:click={() => scrollCarousel(`carousel-${blockIndex}`, 'left')}
 									aria-label={$_('project_detail.prev_image')}
 								>
 									‹
@@ -145,28 +145,19 @@
 							{/if}
 							<div
 								class="images-carousel"
-								id="carousel-{index}"
+								id="carousel-{blockIndex}"
 								class:single-image={block.images?.length === 1}
 							>
-								{#each block.images as image, index}
+								{#each block.images as image, imageIndex}
 									<div
 										class="carousel-image-item"
 										role="button"
 										tabindex="0"
 										on:click={() => {
-											/* TODO: delete console.log*/
-											console.log(
-												'Clicked on image:',
-												image.src,
-												'at index:',
-												index,
-												'in array of length:',
-												block.images.length
-											);
-											openImageModal(image.src, image.alt, block.images, index);
+											openImageModal(image.src, image.alt, block.images, imageIndex);
 										}}
 										on:keydown={(e) =>
-											handleImageKeydown(e, image.src, image.alt, block.images, index)}
+											handleImageKeydown(e, image.src, image.alt, block.images, imageIndex)}
 										aria-label="{$_('project_detail.enlarge_image')}: {image.alt}"
 									>
 										<img src={image.src} alt={image.alt} title={image.alt} loading="lazy" />
@@ -179,7 +170,7 @@
 							{#if block.images?.length > 1}
 								<button
 									class="carousel-btn carousel-btn-right"
-									on:click={() => scrollCarousel(`carousel-${index}`, 'right')}
+									on:click={() => scrollCarousel(`carousel-${blockIndex}`, 'right')}
 									aria-label={$_('project_detail.next_image')}
 								>
 									›
@@ -212,13 +203,13 @@
 			<h3>{$_('project_detail.screenshots')}</h3>
 			<p class="click-hint">{$_('project_detail.click_hint')}</p>
 			<div class="images-grid">
-				{#each images as image, index}
+				{#each images as image, imageIndex}
 					<div
 						class="image-item"
 						role="button"
 						tabindex="0"
-						on:click={() => openImageModal(image.src, image.alt, images, index)}
-						on:keydown={(e) => handleImageKeydown(e, image.src, image.alt, images, index)}
+						on:click={() => openImageModal(image.src, image.alt, images, imageIndex)}
+						on:keydown={(e) => handleImageKeydown(e, image.src, image.alt, images, imageIndex)}
 						aria-label="{$_('project_detail.enlarge_image')}: {image.alt}"
 					>
 						<img src={image.src} alt={image.alt} title={image.alt} loading="lazy" />

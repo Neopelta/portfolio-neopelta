@@ -91,5 +91,5 @@ export async function getProjectsStatsAsync(lang = 'fr') {
 
 export async function getProjectByIdAsync(id, lang = 'fr') {
 	const projects = await getProjectsAsync(lang);
-	return projects.find(p => p.id === id);
+	return projects.find((p) => p.id === id);
 }

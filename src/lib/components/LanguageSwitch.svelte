@@ -27,9 +27,6 @@
 			newPath = `/${newLang}${currentPath === '/' ? '' : currentPath}`;
 		}
 
-		// Debugging output
-		//console.log('Switching from', currentPath, 'to', newPath);
-
 		try {
 			await goto(newPath);
 		} catch (error) {
