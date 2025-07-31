@@ -1,5 +1,5 @@
 export const projects = [
-	{
+	{	
 		id: 'gamfed-quiz',
 		title: 'Gamfed Quiz',
 		description:

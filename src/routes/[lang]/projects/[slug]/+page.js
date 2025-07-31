@@ -1,5 +1,5 @@
 import { getProjectsAsync } from '$lib/data/projects.js';
-import { getProjectDetails } from '$lib/data/projectDetails.js';
+import { getProjectDetailsAsync } from '$lib/data/projectDetails.js';
 import { supportedLocales, setupI18n, defaultLocale } from '$lib/i18n';
 import { error, redirect } from '@sveltejs/kit';
 
@@ -42,7 +42,8 @@ export async function load({ params, url }) {
 		similarProjects = shuffled.slice(0, 2);
 	}
 
-	const projectDetails = getProjectDetails(slug);
+	// Pass the language to getProjectDetailsAsync
+	const projectDetails = await getProjectDetailsAsync(slug, lang);
 
 	return {
 		project,

@@ -272,10 +272,10 @@
 		</div>
 	{/if}
 
-	{#if downloads.length > 0}
+	{#if downloads?.length > 0}
 		<div class="detail-section">
 			<h2 class="section-title">{$_('project_detail.downloads')}</h2>
-			<div class="downloads-grid" class:single-download={downloads.length === 1}>
+			<div class="downloads-grid" class:single-download={downloads?.length === 1}>
 				{#each downloads as download}
 					<div class="download-item">
 						<div class="download-header">

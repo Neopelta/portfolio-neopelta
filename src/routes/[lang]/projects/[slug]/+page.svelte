@@ -8,12 +8,11 @@
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import Avatar from '$lib/components/Avatar.svelte';
 	import ProjectDetail from '$lib/components/ProjectDetail.svelte';
-	import { getProjectDetails } from '$lib/data/projectDetails.js';
 	import '../../../../app.css';
 
 	export let data;
 
-	$: ({ project, prevProject, nextProject, similarProjects } = data);
+	$: ({ project, prevProject, nextProject, similarProjects, projectDetails } = data);
 	$: currentLang = data.lang;
 
 	afterNavigate(({ from, to }) => {
@@ -108,8 +107,8 @@
 	<section class="project-content">
 		<h2 class="section-title">{$_('projects.project_details')}</h2>
 
-		{#if getProjectDetails(project.id)}
-			<ProjectDetail projectId={project.id} {...getProjectDetails(project.id)} />
+		{#if projectDetails}
+			<ProjectDetail projectId={project.id} {...projectDetails} />
 		{:else}
 			<div class="content-placeholder">
 				<p>{$_('project_page.coming_soon')}</p>
