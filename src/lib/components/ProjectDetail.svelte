@@ -117,7 +117,7 @@
 		</div>
 	{/if}
 
-	{#if contentBlocks.length > 0}
+	{#if contentBlocks?.length > 0}
 		<div class="modular-content">
 			{#each contentBlocks as block, index}
 				{#if block.type === 'text'}
@@ -134,7 +134,7 @@
 						{/if}
 						<p class="click-hint">{$_('project_detail.click_hint')}</p>
 						<div class="images-carousel-container">
-							{#if block.images.length > 1}
+							{#if block.images?.length > 1}
 								<button
 									class="carousel-btn carousel-btn-left"
 									on:click={() => scrollCarousel(`carousel-${index}`, 'left')}
@@ -146,7 +146,7 @@
 							<div
 								class="images-carousel"
 								id="carousel-{index}"
-								class:single-image={block.images.length === 1}
+								class:single-image={block.images?.length === 1}
 							>
 								{#each block.images as image, index}
 									<div
@@ -180,7 +180,7 @@
 									</div>
 								{/each}
 							</div>
-							{#if block.images.length > 1}
+							{#if block.images?.length > 1}
 								<button
 									class="carousel-btn carousel-btn-right"
 									on:click={() => scrollCarousel(`carousel-${index}`, 'right')}
@@ -211,7 +211,7 @@
 		</div>
 	{/if}
 
-	{#if images.length > 0}
+	{#if images?.length > 0}
 		<div class="detail-images">
 			<h3>{$_('project_detail.screenshots')}</h3>
 			<p class="click-hint">{$_('project_detail.click_hint')}</p>
@@ -239,7 +239,7 @@
 		</div>
 	{/if}
 
-	{#if codeSnippets.length > 0}
+	{#if codeSnippets?.length > 0}
 		<div class="detail-section">
 			<h3>{$_('project_detail.code_snippets')}</h3>
 			{#each codeSnippets as snippet}
@@ -256,7 +256,7 @@
 		</div>
 	{/if}
 
-	{#if sources.length > 0}
+	{#if sources?.length > 0}
 		<div class="detail-section">
 			<h2 class="section-title">{$_('project_detail.sources')}</h2>
 			<div class="sources-list">

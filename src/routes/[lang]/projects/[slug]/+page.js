@@ -42,8 +42,28 @@ export async function load({ params, url }) {
 		similarProjects = shuffled.slice(0, 2);
 	}
 
-	// Pass the language to getProjectDetailsAsync
-	const projectDetails = await getProjectDetailsAsync(slug, lang);
+	// Charger les détails du projet avec gestion d'erreur
+	let projectDetails = null;
+	try {
+		projectDetails = await getProjectDetailsAsync(slug, lang);
+		
+		// S'assurer que toutes les propriétés sont des tableaux par défaut
+		if (projectDetails) {
+			projectDetails = {
+				title: projectDetails.title || '',
+				content: projectDetails.content || '',
+				contentBlocks: projectDetails.contentBlocks || [],
+				images: projectDetails.images || [],
+				codeSnippets: projectDetails.codeSnippets || [],
+				sources: projectDetails.sources || [],
+				downloads: projectDetails.downloads || []
+			};
+		}
+	} catch (detailsError) {
+		console.warn(`Failed to load project details for ${slug}:`, detailsError);
+		// Continuer sans les détails plutôt que de planter
+		projectDetails = null;
+	}
 
 	return {
 		project,
@@ -59,9 +79,13 @@ export async function entries() {
 	const projectEntries = [];
 	
 	for (const lang of supportedLocales) {
-		const projects = await getProjectsAsync(lang);
-		for (const project of projects) {
-			projectEntries.push({ lang, slug: project.id });
+		try {
+			const projects = await getProjectsAsync(lang);
+			for (const project of projects) {
+				projectEntries.push({ lang, slug: project.id });
+			}
+		} catch (error) {
+			console.warn(`Failed to load projects for ${lang}:`, error);
 		}
 	}
 	
