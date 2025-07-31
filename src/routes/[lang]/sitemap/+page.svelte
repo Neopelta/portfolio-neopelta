@@ -62,7 +62,7 @@
 	{#if loading}
 		<div class="loading-state">
 			<div class="loading-spinner"></div>
-			<p>Chargement du plan du site...</p>
+			<p>{$_('sitemap.loading')}</p>
 		</div>
 	{:else}
 		<div class="sitemap-content">

@@ -134,7 +134,8 @@
 		"projects_count": "{count} projet | {count} projets",
 		"useful_links": "Liens utiles",
 		"contact_email": "Contact email",
-		"back_home": "← Retour à l'accueil"
+		"back_home": "← Retour à l'accueil",
+		"loading": "Chargement du plan du site..."
 	},
 	"project_page": {
 		"home": "Accueil",
