@@ -31,7 +31,7 @@
 				return acc;
 			}, {});
 		} catch (error) {
-			console.error('Erreur lors du chargement du sitemap:', error);
+			console.error('Error loading sitemap:', error);
 			projects = [];
 			categories = [];
 			groupedProjects = {};

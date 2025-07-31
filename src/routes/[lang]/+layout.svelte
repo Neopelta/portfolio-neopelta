@@ -11,7 +11,7 @@
 	setContext('lang', langStore);
 
 	afterNavigate(({ to }) => {
-		console.log('Navigué vers :', to.url.pathname);
+		console.log('Navigated to:', to.url.pathname);
 	});
 </script>
 

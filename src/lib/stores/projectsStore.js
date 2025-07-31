@@ -79,7 +79,7 @@ export const projectsActions = {
 			filterOptions.set({ years, technologies, categories });
 			currentLanguage.set(lang);
 		} catch (error) {
-			console.error('Erreur lors du chargement des projets:', error);
+			console.error('Error loading projects:', error);
 			allProjects.set([]);
 			filterOptions.set({ years: [], technologies: [], categories: [] });
 		}

@@ -20,7 +20,7 @@ async function generateSitemap() {
 				urls.push(`<url><loc>${site}/${lang}/projects/${project.id}</loc></url>`);
 			});
 		} catch (error) {
-			console.error(`Erreur lors du chargement des projets pour ${lang}:`, error);
+			console.error(`Error loading projects for ${lang}:`, error);
 		}
 	}
 

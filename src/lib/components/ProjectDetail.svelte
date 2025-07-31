@@ -63,7 +63,7 @@
 			isImageLoading = false;
 		};
 		newImg.onerror = () => {
-			console.error("Erreur de chargement de l'image:", currentImage.src);
+			console.error("Image loading error:", currentImage.src);
 			modalImg.style.opacity = '1';
 			isImageLoading = false;
 		};

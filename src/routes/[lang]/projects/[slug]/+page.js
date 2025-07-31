@@ -61,7 +61,6 @@ export async function load({ params, url }) {
 		}
 	} catch (detailsError) {
 		console.warn(`Failed to load project details for ${slug}:`, detailsError);
-		// Continuer sans les détails plutôt que de planter
 		projectDetails = null;
 	}
 
