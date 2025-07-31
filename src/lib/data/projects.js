@@ -1,4 +1,4 @@
-export async function getProjects(lang = 'fr') {
+export async function getProjectsAsync(lang = 'fr') {
 	try {
 		const module = await import(`../i18n/locales/projects-${lang}.js`);
 		return module.projects;
@@ -9,38 +9,28 @@ export async function getProjects(lang = 'fr') {
 	}
 }
 
-export const getProjectsAsync = getProjects;
-
-export async function getFeaturedProjects(lang = 'fr') {
-	const projects = await getProjects(lang);
+export async function getFeaturedProjectsAsync(lang = 'fr') {
+	const projects = await getProjectsAsync(lang);
 	return projects.filter((project) => project.featured);
 }
 
-export const getFeaturedProjectsAsync = getFeaturedProjects;
-
-export async function getProjectsByCategory(category, lang = 'fr') {
-	const projects = await getProjects(lang);
+export async function getProjectsByCategoryAsync(category, lang = 'fr') {
+	const projects = await getProjectsAsync(lang);
 	return projects.filter((project) => project.category === category);
 }
 
-export const getProjectsByCategoryAsync = getProjectsByCategory;
-
-export async function getProjectsByYear(year, lang = 'fr') {
-	const projects = await getProjects(lang);
+export async function getProjectsByYearAsync(year, lang = 'fr') {
+	const projects = await getProjectsAsync(lang);
 	return projects.filter((project) => project.date === year);
 }
 
-export const getProjectsByYearAsync = getProjectsByYear;
-
-export async function getProjectsByTechnology(tech, lang = 'fr') {
-	const projects = await getProjects(lang);
+export async function getProjectsByTechnologyAsync(tech, lang = 'fr') {
+	const projects = await getProjectsAsync(lang);
 	return projects.filter((project) => project.technologies.some((t) => t.name === tech));
 }
 
-export const getProjectsByTechnologyAsync = getProjectsByTechnology;
-
-export async function searchProjects(searchTerm, lang = 'fr') {
-	const projects = await getProjects(lang);
+export async function searchProjectsAsync(searchTerm, lang = 'fr') {
+	const projects = await getProjectsAsync(lang);
 	const term = searchTerm.toLowerCase();
 	return projects.filter(
 		(project) =>
@@ -50,48 +40,36 @@ export async function searchProjects(searchTerm, lang = 'fr') {
 	);
 }
 
-export const searchProjectsAsync = searchProjects;
-
-export async function getUniqueYears(lang = 'fr') {
-	const projects = await getProjects(lang);
+export async function getUniqueYearsAsync(lang = 'fr') {
+	const projects = await getProjectsAsync(lang);
 	return [...new Set(projects.map((p) => p.date))].sort().reverse();
 }
 
-export const getUniqueYearsAsync = getUniqueYears;
-
-export async function getUniqueTechnologies(lang = 'fr') {
-	const projects = await getProjects(lang);
+export async function getUniqueTechnologiesAsync(lang = 'fr') {
+	const projects = await getProjectsAsync(lang);
 	return [...new Set(projects.flatMap((p) => p.technologies.map((t) => t.name)))].sort();
 }
 
-export const getUniqueTechnologiesAsync = getUniqueTechnologies;
-
-export async function getUniqueCategories(lang = 'fr') {
-	const projects = await getProjects(lang);
+export async function getUniqueCategoriesAsync(lang = 'fr') {
+	const projects = await getProjectsAsync(lang);
 	return [...new Set(projects.map((p) => p.category))].sort();
 }
 
-export const getUniqueCategoriesAsync = getUniqueCategories;
-
-export async function getProjectsCount(lang = 'fr') {
-	const projects = await getProjects(lang);
+export async function getProjectsCountAsync(lang = 'fr') {
+	const projects = await getProjectsAsync(lang);
 	return projects.length;
 }
 
-export const getProjectsCountAsync = getProjectsCount;
-
-export async function getFeaturedProjectsCount(lang = 'fr') {
-	const projects = await getProjects(lang);
+export async function getFeaturedProjectsCountAsync(lang = 'fr') {
+	const projects = await getProjectsAsync(lang);
 	return projects.filter((p) => p.featured).length;
 }
 
-export const getFeaturedProjectsCountAsync = getFeaturedProjectsCount;
-
-export async function getProjectsStats(lang = 'fr') {
-	const projects = await getProjects(lang);
-	const categories = await getUniqueCategories(lang);
-	const years = await getUniqueYears(lang);
-	const technologies = await getUniqueTechnologies(lang);
+export async function getProjectsStatsAsync(lang = 'fr') {
+	const projects = await getProjectsAsync(lang);
+	const categories = await getUniqueCategoriesAsync(lang);
+	const years = await getUniqueYearsAsync(lang);
+	const technologies = await getUniqueTechnologiesAsync(lang);
 
 	return {
 		total: projects.length,
@@ -111,11 +89,7 @@ export async function getProjectsStats(lang = 'fr') {
 	};
 }
 
-export const getProjectsStatsAsync = getProjectsStats;
-
-export async function getProjectById(id, lang = 'fr') {
-	const projects = await getProjects(lang);
-	return projects.find((p) => p.id === id);
+export async function getProjectByIdAsync(id, lang = 'fr') {
+	const projects = await getProjectsAsync(lang);
+	return projects.find(p => p.id === id);
 }
-
-export const getProjectByIdAsync = getProjectById;
