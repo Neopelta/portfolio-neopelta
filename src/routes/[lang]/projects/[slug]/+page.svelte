@@ -12,7 +12,6 @@
 
 	export let data;
 
-	// Utiliser des variables réactives séparées pour forcer la mise à jour
 	$: project = data.project;
 	$: prevProject = data.prevProject;
 	$: nextProject = data.nextProject;
