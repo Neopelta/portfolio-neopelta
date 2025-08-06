@@ -5,10 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [2.0.0] - 2025-08-06
 
 ### Added
 
+- **SEO**: Add comprehensive SEO metadata (hreflang, JSON-LD, Open Graph)
 - **i18n**: Complete internationalization system with French (`fr`) and English (`en`) support
   - Integrated `svelte-i18n` library for translation management
   - Created comprehensive translation files (`ui-fr.json`, `ui-en.json`) covering all interface elements

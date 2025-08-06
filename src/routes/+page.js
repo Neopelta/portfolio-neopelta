@@ -2,4 +2,4 @@ export async function load() {
   return {};
 }
 
-export const prerender = false;
+export const prerender = true;
