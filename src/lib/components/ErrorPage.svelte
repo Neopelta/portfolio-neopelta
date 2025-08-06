@@ -19,7 +19,15 @@
 			suggestionsTitle: 'Vous cherchez peut-être :',
 			home: 'Accueil',
 			allProjects: 'Tous les projets',
-			sitemap: 'Plan du site'
+			sitemap: 'Plan du site',
+            serverError: 'Erreur serveur',
+            serviceUnavailable: 'Service indisponible', 
+            accessForbidden: 'Accès interdit',
+            badRequest: 'Requête invalide',
+            serverErrorDesc: 'Une erreur interne du serveur s\'est produite. Veuillez réessayer plus tard.',
+            serviceUnavailableDesc: 'Le service est temporairement indisponible. Veuillez réessayer dans quelques minutes.',
+            accessForbiddenDesc: 'Vous n\'avez pas l\'autorisation d\'accéder à cette ressource.',
+            badRequestDesc: 'La requête est mal formée ou contient des données invalides.',
 		},
 		en: {
 			pageNotFound: 'Page not found',
@@ -31,7 +39,15 @@
 			suggestionsTitle: 'You might be looking for:',
 			home: 'Home',
 			allProjects: 'All projects',
-			sitemap: 'Sitemap'
+			sitemap: 'Sitemap',
+            serverError: 'Server error',
+            serviceUnavailable: 'Service unavailable',
+            accessForbidden: 'Access forbidden',
+            badRequest: 'Bad request',
+            serverErrorDesc: 'An internal server error occurred. Please try again later.',
+            serviceUnavailableDesc: 'The service is temporarily unavailable. Please try again in a few minutes.',
+            accessForbiddenDesc: 'You do not have permission to access this resource.',
+            badRequestDesc: 'The request is malformed or contains invalid data.',
 		}
 	};
 
@@ -48,20 +64,36 @@
 		</div>
 
 		<h2 class="error-title">
-			{#if status === 404}
-				{messages.pageNotFound}
-			{:else}
-				{messages.errorOccurred}
-			{/if}
-		</h2>
+            {#if status === 404}
+                {messages.pageNotFound}
+            {:else if status === 500}
+                {messages.serverError}
+            {:else if status === 503}
+                {messages.serviceUnavailable}
+            {:else if status === 403}
+                {messages.accessForbidden}
+            {:else if status === 400}
+                {messages.badRequest}
+            {:else}
+                {messages.errorOccurred}
+            {/if}
+        </h2>
 
 		<p class="error-message">
-			{#if status === 404}
-				{messages.pageNotFoundDesc}
-			{:else}
-				{message || messages.unexpectedError}
-			{/if}
-		</p>
+            {#if status === 404}
+                {messages.pageNotFoundDesc}
+            {:else if status === 500}
+                {messages.serverErrorDesc}
+            {:else if status === 503}
+                {messages.serviceUnavailableDesc}
+            {:else if status === 403}
+                {messages.accessForbiddenDesc}
+            {:else if status === 400}
+                {messages.badRequestDesc}
+            {:else}
+                {message || messages.unexpectedError}
+            {/if}
+        </p>
 
 		<div class="error-actions">
 			<a href="/{lang}" class="btn-home">
