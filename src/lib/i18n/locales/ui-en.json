@@ -1,0 +1,153 @@
+{
+	"nav": {
+		"projects": "Projects",
+		"skills": "Skills",
+		"contact": "Contact"
+	},
+	"hero": {
+		"greeting": "Hello, I'm",
+		"name": "Ronan PLUTA FONTAINE",
+		"description": "Computer Science Master's Student | Software Developer seeking apprenticeship (September 2025) for 2 weeks in company and 2 weeks in education."
+	},
+	"about": {
+		"currently": "Currently pursuing a Master's in Computer Science at the University of Poitiers (specializing in Software Development & Big Data), I am seeking a 12-month apprenticeship starting September 2025. Passionate about agility, automation, and software quality, I apply my skills in Java, React, and REST API development.",
+		"experience": "My experience at Axelor allowed me to develop skills in process automation and API integration.",
+		"location": "Based in Poitiers, I am mobile in Paris and Montpellier. My technical profile combines backend skills (Java, APIs, Databases) and frontend (React, TypeScript) with a methodical approach to software projects."
+	},
+	"projects": {
+		"title": "Featured Projects",
+		"view_all": "View all projects ({count}) →",
+		"discover_all": "Discover all my projects",
+		"all_projects": "All my projects",
+		"all_projects_subtitle": "Discover all my software development achievements",
+		"similar_projects": "Similar projects",
+		"project_details": "Project details",
+		"about_project": "About this project:",
+		"prev_project": "← Previous project",
+		"next_project": "Next project →",
+		"all_projects_nav": "All projects",
+		"no_projects": "No projects found.",
+		"reset_filters": "Reset filters",
+		"projects_found": "{count} project found | {count} projects found",
+		"back_home": "← Back home",
+		"view_project": "View project →"
+	},
+	"skills": {
+		"title": "Skills",
+		"mastered_tech": "Mastered Technologies",
+		"mastered_tech_list": "Java • React • TypeScript • REST APIs • Git • SQL • Python",
+		"methodologies": "Methodologies & Tools",
+		"methodologies_list": "Make • Agile/Scrum • Clean Code • Unit Testing • Technical Documentation",
+		"domains": "Application Domains",
+		"domains_list": "Software Development • Big Data • Data Visualization • Automation"
+	},
+	"contact": {
+		"title": "Let's start a project together",
+		"description": "I'm looking for an apprenticeship that will allow me to contribute to innovative projects while continuing my learning.",
+		"looking_for": "Seeking apprenticeship",
+		"duration": "of 12 months starting September 2025 in Software Development & Big Data.",
+		"location": "Based in Poitiers • Mobile in Paris and Montpellier",
+		"email": "Email",
+		"linkedin": "LinkedIn",
+		"github": "GitHub"
+	},
+	"footer": {
+		"copyright": "© {year} Ronan PLUTA FONTAINE",
+		"available": "Available for apprenticeship",
+		"sitemap": "Sitemap"
+	},
+	"meta": {
+		"title": "Software Developer & Computer Science Master's Student",
+		"description": "Computer Science Master's Student in Poitiers, specialized in Software Development & Big Data, seeking apprenticeship September 2025.",
+		"og_description": "Software Developer - Java, React, REST APIs, ... - Seeking apprenticeship"
+	},
+	"project_detail": {
+		"click_hint": "💡 Click on an image to enlarge it",
+		"screenshots": "Screenshots",
+		"code_snippets": "Code snippets",
+		"sources": "Sources",
+		"downloads": "Downloads",
+		"download": "Download",
+		"icon": "Icon",
+		"enlarge_image": "Enlarge image",
+		"enlarged_image": "Enlarged image",
+		"enlarged_image_title": "Enlarged image - Press Esc to close",
+		"close_image": "Close enlarged image",
+		"prev_image": "Previous image",
+		"next_image": "Next image"
+	},
+	"projects_filters": {
+		"search_placeholder": "Search for a project...",
+		"clear_search": "Clear search",
+		"category": "Category",
+		"technology": "Technology",
+		"year": "Year",
+		"all": "All",
+		"reset": "Reset",
+		"active_filters": "Active filters",
+		"search": "Search"
+	},
+	"projects_grid": {
+		"loading": "Loading projects...",
+		"no_projects_title": "No projects found",
+		"no_projects_found": "No projects found.",
+		"reset_filters": "Reset filters"
+	},
+	"projects_pagination": {
+		"showing": "Showing {start}-{end} of {total} projects",
+		"first_page": "First page",
+		"previous_page": "Previous page",
+		"previous": "← Previous",
+		"page": "Page {number}",
+		"next_page": "Next page",
+		"next": "Next →",
+		"last_page": "Last page",
+		"go_to_page": "Go to page"
+	},
+	"error": {
+		"page_not_found": "Page not found",
+		"error_occurred": "An error occurred",
+		"server_error": "Server error",
+		"service_unavailable": "Service unavailable",
+		"access_forbidden": "Access forbidden",
+		"bad_request": "Invalid request",
+		"page_not_found_description": "The page you are looking for does not exist or has been moved.",
+		"server_error_description": "An internal server error occurred. Please try again later.",
+		"service_unavailable_description": "The service is temporarily unavailable. Please try again in a few minutes.",
+		"access_forbidden_description": "You do not have permission to access this resource.",
+		"bad_request_description": "The request is malformed or contains invalid data.",
+		"unexpected_error": "An unexpected error occurred.",
+		"back_home": "← Back home",
+		"view_projects": "View projects",
+		"suggestions_title": "You might be looking for:",
+		"change_language": "Change language",
+		"redirecting": "Redirecting...",
+		"redirect_message": "You will be redirected to the correct page."
+	},
+	"sitemap": {
+		"title": "Sitemap",
+		"description": "Find all pages and projects available on this site.",
+		"main_pages": "Main pages",
+		"home": "Home",
+		"all_projects": "All projects",
+		"projects_by_category": "Projects by category",
+		"projects_count": "{count} project | {count} projects",
+		"useful_links": "Useful links",
+		"contact_email": "Contact email",
+		"back_home": "← Back home",
+		"loading": "Loading sitemap..."
+	},
+	"project_page": {
+		"home": "Home",
+		"coming_soon": "This section will be completed soon with detailed content about this project.",
+		"coming_soon_features": "You will soon be able to see:",
+		"coming_soon_screenshots": "Screenshots",
+		"coming_soon_features_explanation": "Features explanation",
+		"coming_soon_challenges": "Technical challenges encountered",
+		"coming_soon_learnings": "Learnings and feedback",
+		"coming_soon_code": "Important code snippets",
+		"coming_soon_sources": "Sources",
+		"coming_soon_downloads": "Documents to download",
+		"view_on_github": "View on GitHub"
+	}
+}

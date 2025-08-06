@@ -1,4 +1,6 @@
 <script>
+	import { _ } from 'svelte-i18n';
+
 	export let title = '';
 	export let content = '';
 	export let contentBlocks = [];
@@ -61,7 +63,7 @@
 			isImageLoading = false;
 		};
 		newImg.onerror = () => {
-			console.error("Erreur de chargement de l'image:", currentImage.src);
+			console.error("Image loading error:", currentImage.src);
 			modalImg.style.opacity = '1';
 			isImageLoading = false;
 		};
@@ -115,9 +117,9 @@
 		</div>
 	{/if}
 
-	{#if contentBlocks.length > 0}
+	{#if contentBlocks?.length > 0}
 		<div class="modular-content">
-			{#each contentBlocks as block, index}
+			{#each contentBlocks as block, blockIndex}
 				{#if block.type === 'text'}
 					<div class="content-text">
 						{#if block.title}
@@ -130,59 +132,46 @@
 						{#if block.title}
 							<h3 class="block-title" class:underlined={block.underlined}>{block.title}</h3>
 						{/if}
-						<p class="click-hint">💡 Cliquez sur une image pour l'agrandir</p>
+						<p class="click-hint">{$_('project_detail.click_hint')}</p>
 						<div class="images-carousel-container">
-							{#if block.images.length > 1}
+							{#if block.images?.length > 1}
 								<button
 									class="carousel-btn carousel-btn-left"
-									on:click={() => scrollCarousel(`carousel-${index}`, 'left')}
-									aria-label="Image précédente"
+									on:click={() => scrollCarousel(`carousel-${blockIndex}`, 'left')}
+									aria-label={$_('project_detail.prev_image')}
 								>
 									‹
 								</button>
 							{/if}
 							<div
 								class="images-carousel"
-								id="carousel-{index}"
-								class:single-image={block.images.length === 1}
+								id="carousel-{blockIndex}"
+								class:single-image={block.images?.length === 1}
 							>
-								{#each block.images as image, index}
+								{#each block.images as image, imageIndex}
 									<div
 										class="carousel-image-item"
 										role="button"
 										tabindex="0"
 										on:click={() => {
-											/* TODO: delete console.log*/
-											console.log(
-												'Clicked on image:',
-												image.src,
-												'at index:',
-												index,
-												'in array of length:',
-												block.images.length
-											);
-											openImageModal(image.src, image.alt, block.images, index);
+											openImageModal(image.src, image.alt, block.images, imageIndex);
 										}}
 										on:keydown={(e) =>
-											handleImageKeydown(e, image.src, image.alt, block.images, index)}
-										aria-label="Agrandir l'image : {image.alt}"
+											handleImageKeydown(e, image.src, image.alt, block.images, imageIndex)}
+										aria-label="{$_('project_detail.enlarge_image')}: {image.alt}"
 									>
-										<img 
-											src={image.src} 
-											alt={image.alt}
-											title={image.alt} 
-											loading="lazy" />
+										<img src={image.src} alt={image.alt} title={image.alt} loading="lazy" />
 										{#if image.caption}
 											<p class="image-caption">{image.caption}</p>
 										{/if}
 									</div>
 								{/each}
 							</div>
-							{#if block.images.length > 1}
+							{#if block.images?.length > 1}
 								<button
 									class="carousel-btn carousel-btn-right"
-									on:click={() => scrollCarousel(`carousel-${index}`, 'right')}
-									aria-label="Image suivante"
+									on:click={() => scrollCarousel(`carousel-${blockIndex}`, 'right')}
+									aria-label={$_('project_detail.next_image')}
 								>
 									›
 								</button>
@@ -209,25 +198,21 @@
 		</div>
 	{/if}
 
-	{#if images.length > 0}
+	{#if images?.length > 0}
 		<div class="detail-images">
-			<h3>Captures d'écran</h3>
-			<p class="click-hint">💡 Cliquez sur une image pour l'agrandir</p>
+			<h3>{$_('project_detail.screenshots')}</h3>
+			<p class="click-hint">{$_('project_detail.click_hint')}</p>
 			<div class="images-grid">
-				{#each images as image, index}
+				{#each images as image, imageIndex}
 					<div
 						class="image-item"
 						role="button"
 						tabindex="0"
-						on:click={() => openImageModal(image.src, image.alt, images, index)}
-						on:keydown={(e) => handleImageKeydown(e, image.src, image.alt, images, index)}
-						aria-label="Agrandir l'image : {image.alt}"
+						on:click={() => openImageModal(image.src, image.alt, images, imageIndex)}
+						on:keydown={(e) => handleImageKeydown(e, image.src, image.alt, images, imageIndex)}
+						aria-label="{$_('project_detail.enlarge_image')}: {image.alt}"
 					>
-						<img 
-							src={image.src} 
-							alt={image.alt} 
-							title={image.alt}
-							loading="lazy" />
+						<img src={image.src} alt={image.alt} title={image.alt} loading="lazy" />
 						{#if image.caption}
 							<p class="image-caption">{image.caption}</p>
 						{/if}
@@ -237,9 +222,9 @@
 		</div>
 	{/if}
 
-	{#if codeSnippets.length > 0}
+	{#if codeSnippets?.length > 0}
 		<div class="detail-section">
-			<h3>Extraits de code</h3>
+			<h3>{$_('project_detail.code_snippets')}</h3>
 			{#each codeSnippets as snippet}
 				<div class="code-snippet">
 					<div class="snippet-header">
@@ -254,9 +239,9 @@
 		</div>
 	{/if}
 
-	{#if sources.length > 0}
+	{#if sources?.length > 0}
 		<div class="detail-section">
-			<h2 class="section-title">Sources</h2>
+			<h2 class="section-title">{$_('project_detail.sources')}</h2>
 			<div class="sources-list">
 				{#each sources as source}
 					<p class="source-item">
@@ -270,21 +255,22 @@
 		</div>
 	{/if}
 
-	{#if downloads.length > 0}
+	{#if downloads?.length > 0}
 		<div class="detail-section">
-			<h2 class="section-title">Documents à télécharger</h2>
-			<div class="downloads-grid" class:single-download={downloads.length === 1}>
+			<h2 class="section-title">{$_('project_detail.downloads')}</h2>
+			<div class="downloads-grid" class:single-download={downloads?.length === 1}>
 				{#each downloads as download}
 					<div class="download-item">
 						<div class="download-header">
 							<div class="download-icon">
 								{#if download.icon.startsWith('/') || download.icon.startsWith('http')}
-									<img 
-										src={download.icon} 
-										alt="Icône {download.title}"
-										title="Icône {download.title}"
-										width="24" 
-										height="24" />
+									<img
+										src={download.icon}
+										alt="{$_('project_detail.icon')} {download.title}"
+										title="{$_('project_detail.icon')} {download.title}"
+										width="24"
+										height="24"
+									/>
 								{:else}
 									<span>{download.icon}</span>
 								{/if}
@@ -293,7 +279,8 @@
 						</div>
 						<p class="download-description">{download.description}</p>
 						<a href="/downloads/{download.filename}" class="download-link" download>
-							Télécharger {download.filename}
+							{$_('project_detail.download')}
+							{download.filename}
 						</a>
 					</div>
 				{/each}
@@ -307,7 +294,7 @@
 	class="modal"
 	role="dialog"
 	aria-modal="true"
-	aria-label="Image agrandie"
+	aria-label={$_('project_detail.enlarged_image')}
 	tabindex="-1"
 	on:click={closeImageModal}
 	on:keydown={handleModalKeydown}
@@ -316,7 +303,7 @@
 		class="modal-close"
 		role="button"
 		tabindex="0"
-		aria-label="Fermer l'image agrandie"
+		aria-label={$_('project_detail.close_image')}
 		on:click={closeImageModal}
 		on:keydown={handleCloseKeydown}>&times;</span
 	>
@@ -328,7 +315,7 @@
 				e.stopPropagation();
 				navigateToImage('prev');
 			}}
-			aria-label="Image précédente"
+			aria-label={$_('project_detail.prev_image')}
 		>
 			‹
 		</button>
@@ -339,7 +326,7 @@
 				e.stopPropagation();
 				navigateToImage('next');
 			}}
-			aria-label="Image suivante"
+			aria-label={$_('project_detail.next_image')}
 		>
 			›
 		</button>
@@ -349,11 +336,12 @@
 		</div>
 	{/if}
 
-	<img 
-		class="modal-content" 
-		id="modalImg" 
-		alt="" 
-		title="Image agrandie - Appuyez sur Échap pour fermer"/>
+	<img
+		class="modal-content"
+		id="modalImg"
+		alt=""
+		title={$_('project_detail.enlarged_image_title')}
+	/>
 </div>
 
 <style>

@@ -1,4 +1,5 @@
 <script>
+	import { _ } from 'svelte-i18n';
 	import Avatar from '$lib/components/Avatar.svelte';
 </script>
 
@@ -7,10 +8,9 @@
 		<div class="hero-avatar">
 			<Avatar size="extra-large" />
 		</div>
-		<h1>Bonjour, je suis <br> Ronan PLUTA FONTAINE</h1>
+		<h1>{$_('hero.greeting')} <br /> {$_('hero.name')}</h1>
 		<p>
-			Étudiant en Master Informatique | Développeur logiciel en recherche d'alternance (septembre
-			2025) pour 2 semaines en entreprise et 2 semaines en enseignement.
+			{$_('hero.description')}
 		</p>
 	</div>
 </section>
@@ -30,7 +30,7 @@
 	@media (max-width: 768px) {
 		.hero-avatar :global(.avatar-extra-large) {
 			width: 128px !important;
-			height:128px !important;
+			height: 128px !important;
 		}
 	}
 

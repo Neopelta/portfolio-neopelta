@@ -1,34 +1,63 @@
-# Explicit configuration that works on all hosts
+# Portfolio v2.0.0 - Multilingual Configuration (SvelteKit Static)
+# Supported languages: French (fr), English (en)
+# Default language: French (fr)
+
 Options -Indexes
 DirectorySlash Off
 
 RewriteEngine On
 
-# Force HTTPS
+# ===== SECURITY & PROTOCOL =====
+
+# Force HTTPS redirect
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Redirect www to non-www
+# Remove www subdomain
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
-# Remove trailing slash from non-root URLs
+# ===== LANGUAGE ROUTING =====
+
+# Root redirect to default language (French)
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^$ /fr [R=302,L]
+
+# ===== LEGACY v1.x COMPATIBILITY =====
+
+# Redirect old non-localized URLs to French (v1.x → v2.0.0 migration)
+RewriteCond %{REQUEST_URI} ^/projects/?$
+RewriteRule ^projects/?$ /fr/projects [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/projects/([^/]+)/?$
+RewriteRule ^projects/([^/]+)/?$ /fr/projects/$1 [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^/sitemap/?$
+RewriteRule ^sitemap/?$ /fr/sitemap [R=301,L]
+
+# ===== URL CLEANUP =====
+
+# Remove trailing slashes (except root)
 RewriteCond %{REQUEST_URI} !^/$
 RewriteRule ^(.*)/$ /$1 [R=301,L]
 
-# Redirect index files to root/directory
+# Redirect index files to clean URLs
 RewriteCond %{THE_REQUEST} /index\.html[\s?] [NC]
 RewriteRule ^index\.html$ / [R=301,L]
 RewriteCond %{THE_REQUEST} /([^/]+)/index\.html[\s?] [NC]
 RewriteRule ^([^/]+)/index\.html$ /$1/ [R=301,L]
 
-# Explicit rules for every important page (static SvelteKit)
-RewriteRule ^projects$ projects.html [L]
+# ===== SVELTEKIT STATIC ROUTING =====
 
-# Rules for individual projects
-RewriteRule ^projects/([a-zA-Z0-9-]+)$ projects/$1.html [L]
+# Main pages for each language (homepage, projects index, sitemap)
+RewriteRule ^(fr|en)$ $1.html [L]
+RewriteRule ^(fr|en)/projects$ $1/projects.html [L]
+RewriteRule ^(fr|en)/sitemap$ $1/sitemap.html [L]
 
-# General fallback for other pages
+# Individual project pages (/lang/projects/project-slug)
+RewriteRule ^(fr|en)/projects/([a-zA-Z0-9-]+)$ $1/projects/$2.html [L]
+
+# Fallback: try to serve .html files for any other localized routes
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f

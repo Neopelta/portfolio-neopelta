@@ -1,29 +1,58 @@
 <script>
+	import { onMount, getContext } from 'svelte';
+	import { _ } from 'svelte-i18n';
 	import ProjectsGrid from '$lib/components/ProjectsGrid.svelte';
-	import { projects } from '$lib/data/projects.js';
-	import { filterOptions } from '$lib/stores/projectsStore.js';
+	import { getFeaturedProjectsAsync, getProjectsCountAsync } from '$lib/data/projects.js';
 
-	$: featuredProjects = projects.filter((project) => project.featured);
-	$: totalProjectsCount = projects.length;
+	let featuredProjects = [];
+	let totalProjectsCount = 0;
+	let loading = true;
+
+	const langStore = getContext('lang');
+	$: currentLang = langStore ? $langStore : 'fr';
+	$: if (currentLang) {
+		loadProjects(currentLang);
+	}
+
+	async function loadProjects(lang) {
+		try {
+			loading = true;
+			[featuredProjects, totalProjectsCount] = await Promise.all([
+				getFeaturedProjectsAsync(lang),
+				getProjectsCountAsync(lang)
+			]);
+		} catch (error) {
+			console.error('Error loading projects:', error);
+			featuredProjects = [];
+			totalProjectsCount = 0;
+		} finally {
+			loading = false;
+		}
+	}
+
+	onMount(() => {
+		loadProjects(currentLang);
+	});
 </script>
 
 <section id="projects" class="section">
 	<div class="projects">
 		<div class="projects-header">
-			<h2 class="section-title">Projets en vedette</h2>
-			<a href="/projects" class="view-all-link">
-				Voir tous les projets ({totalProjectsCount}) →
+			<h2 class="section-title">{$_('projects.title')}</h2>
+			<a href="/{currentLang}/projects" class="view-all-link">
+				{$_('projects.view_all', { values: { count: totalProjectsCount } })}
 			</a>
 		</div>
 
 		<ProjectsGrid
 			class="projects-grid"
 			projects={featuredProjects}
-			emptyMessage="Aucun projet vedette pour le moment."
+			{loading}
+			emptyMessage={$_('projects.no_projects')}
 		/>
 
 		<div class="projects-footer">
-			<a href="/projects" class="view-all-button"> Découvrir tous mes projets </a>
+			<a href="/{currentLang}/projects" class="view-all-button">{$_('projects.discover_all')}</a>
 		</div>
 	</div>
 </section>

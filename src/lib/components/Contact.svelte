@@ -1,4 +1,5 @@
 <script>
+	import { _ } from 'svelte-i18n';
 	import Avatar from '$lib/components/Avatar.svelte';
 </script>
 
@@ -6,10 +7,9 @@
 	<div class="contact-wrapper">
 		<div class="contact-hero">
 			<div class="hero-content">
-				<h2>Démarrons un projet ensemble</h2>
+				<h2>{$_('contact.title')}</h2>
 				<p>
-					Je recherche une alternance qui me permettra de contribuer à des projets innovants tout en
-					continuant mon apprentissage.
+					{$_('contact.description')}
 				</p>
 			</div>
 			<div class="hero-avatar">
@@ -20,10 +20,10 @@
 		<div class="info-note">
 			<div>
 				<p>
-					<strong>Recherche alternance</strong> de 12 mois à partir de septembre 2025 en Développement
-					Logiciel & Big Data.
+					<strong>{$_('contact.looking_for')}</strong>
+					{$_('contact.duration')}
 				</p>
-				<p>Basé à Poitiers • Mobile sur Paris et Montpellier</p>
+				<p>{$_('contact.location')}</p>
 			</div>
 		</div>
 
@@ -40,7 +40,7 @@
 					<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
 					<polyline points="22,6 12,13 2,6" />
 				</svg>
-				Email
+				{$_('contact.email')}
 			</a>
 			<a
 				href="https://linkedin.com/in/ronan-pluta-fontaine"
@@ -48,13 +48,14 @@
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				<img 
-					src="/images/logo/linkedin/LinkedIn-logo.svg" 
+				<img
+					src="/images/logo/linkedin/LinkedIn-logo.svg"
 					alt=""
 					title="LinkedIn"
-					width="20" 
-					height="20" />
-				LinkedIn
+					width="20"
+					height="20"
+				/>
+				{$_('contact.linkedin')}
 			</a>
 			<a
 				href="https://github.com/Neopelta"
@@ -62,13 +63,14 @@
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				<img 
-					src="/images/logo/github/github-logo.svg" 
+				<img
+					src="/images/logo/github/github-logo.svg"
 					alt=""
-					title="GitHub" 
-					width="20" 
-					height="20" />
-				GitHub
+					title="GitHub"
+					width="20"
+					height="20"
+				/>
+				{$_('contact.github')}
 			</a>
 		</div>
 	</div>
