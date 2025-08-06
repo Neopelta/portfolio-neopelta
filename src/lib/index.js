@@ -7,3 +7,4 @@ export { default as Projects } from './components/Projects.svelte';
 export { default as Skills } from './components/Skills.svelte';
 export { default as Contact } from './components/Contact.svelte';
 export { default as Footer } from './components/Footer.svelte';
+export { default as ErrorPage } from './components/ErrorPage.svelte';
