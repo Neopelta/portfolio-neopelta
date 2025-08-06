@@ -4,6 +4,8 @@
 	import Navigation from '$lib/components/Navigation.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import { getProjectsAsync, getUniqueCategoriesAsync } from '$lib/data/projects.js';
+	import { base } from '$app/paths';
+	import { dev } from '$app/environment';
 	import '../../../app.css';
 
 	const langStore = getContext('lang');
@@ -102,7 +104,11 @@
 			<section class="sitemap-section">
 				<h2>{$_('sitemap.useful_links')}</h2>
 				<ul class="sitemap-list">
-					<li><a href="/sitemap.xml">Sitemap XML</a></li>
+					{#if dev}
+						<li><a href="http://localhost:5173/sitemap.xml" target="_blank" rel="noopener">Sitemap XML</a></li>
+					{:else}
+						<li><a href="{base}/sitemap.xml" target="_blank" rel="noopener">Sitemap XML</a></li>
+					{/if}
 					<li><a href="mailto:rplutafontaine@protonmail.com">{$_('sitemap.contact_email')}</a></li>
 					<li>
 						<a
