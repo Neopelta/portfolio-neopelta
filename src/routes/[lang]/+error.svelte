@@ -39,7 +39,16 @@
 		name="description"
 		content={status === 404 ? $_('error.page_not_found_description') : $_('error.unexpected_error')}
 	/>
+	
+	<!-- Prevent error pages from being indexed -->
 	<meta name="robots" content="noindex, nofollow" />
+	
+	<!-- No canonical for error pages (avoid duplicate content) -->
+
+	<!-- Open Graph minimal to avoid unsightly sharing -->
+	<meta property="og:title" content="{status === 404 ? $_('error.page_not_found') : $_('error.error_occurred')} - {$_('hero.name')}" />
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="https://www.neopelta.fr/ronan-og.png" />
 </svelte:head>
 
 <Navigation />

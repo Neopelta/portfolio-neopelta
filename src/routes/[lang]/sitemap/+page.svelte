@@ -50,7 +50,20 @@
 <svelte:head>
 	<title>{$_('sitemap.title')} - {$_('hero.name')}</title>
 	<meta name="description" content={$_('sitemap.description')} />
+	
+	<meta name="robots" content="noindex, follow" />
+	
+	<!-- Canonical and hreflang for utility pages -->
 	<link rel="canonical" href="https://www.neopelta.fr/{currentLang}/sitemap" />
+	<link rel="alternate" hreflang="fr" href="https://www.neopelta.fr/fr/sitemap" />
+	<link rel="alternate" hreflang="en" href="https://www.neopelta.fr/en/sitemap" />
+	<link rel="alternate" hreflang="x-default" href="https://www.neopelta.fr/fr/sitemap" />
+	
+	<!-- Basic Open Graph (no sharing expected) -->
+	<meta property="og:title" content="{$_('sitemap.title')} - {$_('hero.name')}" />
+	<meta property="og:description" content={$_('sitemap.description')} />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.neopelta.fr/{currentLang}/sitemap" />
 </svelte:head>
 
 <Navigation />

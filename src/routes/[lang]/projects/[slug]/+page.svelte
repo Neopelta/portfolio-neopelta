@@ -34,10 +34,69 @@
 <svelte:head>
 	<title>{project?.title || 'Project'} - {$_('hero.name')}</title>
 	<meta name="description" content={project?.description || ''} />
+	
+	<!-- Canonical et hreflang -->
 	<link rel="canonical" href="https://www.neopelta.fr/{currentLang}/projects/{project?.id}" />
+	<link rel="alternate" hreflang="fr" href="https://www.neopelta.fr/fr/projects/{project?.id}" />
+	<link rel="alternate" hreflang="en" href="https://www.neopelta.fr/en/projects/{project?.id}" />
+	<link rel="alternate" hreflang="x-default" href="https://www.neopelta.fr/fr/projects/{project?.id}" />
+	
+	<!-- Open Graph optimized for projects -->
 	<meta property="og:title" content="{project?.title || 'Project'} - {$_('hero.name')}" />
 	<meta property="og:description" content={project?.description || ''} />
-	<meta property="og:image" content={project?.image || ''} />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="https://www.neopelta.fr/{currentLang}/projects/{project?.id}" />
+	<meta property="og:image" content={project?.image ? `https://www.neopelta.fr${project.image}` : 'https://www.neopelta.fr/ronan-og.png'} />
+	<meta property="og:locale" content={currentLang === 'fr' ? 'fr_FR' : 'en_US'} />
+	<meta property="article:author" content="Ronan PLUTA FONTAINE" />
+	{#if project?.date}
+		<meta property="article:published_time" content="{project.date}-01-01" />
+	{/if}
+	
+	<!-- Twitter Card with project image if available -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="{project?.title || 'Project'} - {$_('hero.name')}" />
+	<meta name="twitter:description" content={project?.description || ''} />
+	<meta name="twitter:image" content={project?.image ? `https://www.neopelta.fr${project.image}` : 'https://www.neopelta.fr/ronan-og.png'} />
+	
+	<!-- Technical metadata for technologies -->
+	{#if project?.technologies}
+		{#each project.technologies.slice(0, 5) as tech}
+			<meta name="keywords" content={tech.name} />
+		{/each}
+	{/if}
+	
+	<!-- JSON-LD Schema.org for development project -->
+	{#if project}
+		{@html `<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "SoftwareSourceCode",
+			"name": "${project.title.replace(/"/g, '\\"')}",
+			"description": "${project.description.replace(/"/g, '\\"')}",
+			"author": {
+				"@type": "Person",
+				"name": "Ronan PLUTA FONTAINE",
+				"url": "https://www.neopelta.fr"
+			},
+			"dateCreated": "${project.date}-01-01",
+			"dateModified": "${project.date}-12-31",
+			"programmingLanguage": [${project.technologies?.map(t => `"${t.name}"`).join(', ') || ''}],
+			"url": "https://www.neopelta.fr/${currentLang}/projects/${project.id}",
+			${project.image ? `"image": "https://www.neopelta.fr${project.image}",` : ''}
+			${project.git ? `"codeRepository": "${project.git}",` : ''}
+			"keywords": [${project.tags?.map(tag => `"${tag}"`).join(', ') || ''}],
+			"applicationCategory": "${project.category}",
+			"operatingSystem": "Cross-platform",
+			"license": "https://opensource.org/licenses/MIT",
+			"isPartOf": {
+				"@type": "WebSite",
+				"name": "Portfolio Ronan PLUTA FONTAINE",
+				"url": "https://www.neopelta.fr"
+			}
+		}
+		</script>`}
+	{/if}
 </svelte:head>
 
 <Navigation />

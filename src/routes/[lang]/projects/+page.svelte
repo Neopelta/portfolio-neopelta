@@ -60,7 +60,47 @@
 <svelte:head>
 	<title>{$_('projects.all_projects')} - {$_('hero.name')}</title>
 	<meta name="description" content={$_('projects.all_projects_subtitle')} />
+	
+	<!-- Canonical and hreflang -->
 	<link rel="canonical" href="https://www.neopelta.fr/{currentLang}/projects" />
+	<link rel="alternate" hreflang="fr" href="https://www.neopelta.fr/fr/projects" />
+	<link rel="alternate" hreflang="en" href="https://www.neopelta.fr/en/projects" />
+	<link rel="alternate" hreflang="x-default" href="https://www.neopelta.fr/fr/projects" />
+	
+	<!-- Open Graph -->
+	<meta property="og:title" content="{$_('projects.all_projects')} - {$_('hero.name')}" />
+	<meta property="og:description" content={$_('projects.all_projects_subtitle')} />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.neopelta.fr/{currentLang}/projects" />
+	<meta property="og:image" content="https://www.neopelta.fr/ronan-og.png" />
+	<meta property="og:locale" content={currentLang === 'fr' ? 'fr_FR' : 'en_US'} />
+	
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="{$_('projects.all_projects')} - {$_('hero.name')}" />
+	<meta name="twitter:description" content={$_('projects.all_projects_subtitle')} />
+	<meta name="twitter:image" content="https://www.neopelta.fr/ronan-og.png" />
+	
+	<!-- JSON-LD Schema.org for project collection -->
+	{@html `<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "CollectionPage",
+		"name": "Projets de développement logiciel",
+		"description": "Portfolio de projets en développement logiciel, web et applications mobiles",
+		"author": {
+			"@type": "Person",
+			"name": "Ronan PLUTA FONTAINE"
+		},
+		"url": "https://www.neopelta.fr/${currentLang}/projects",
+		"inLanguage": "${currentLang === 'fr' ? 'fr-FR' : 'en-US'}",
+		"isPartOf": {
+			"@type": "WebSite",
+			"name": "Portfolio Ronan PLUTA FONTAINE",
+			"url": "https://www.neopelta.fr"
+		}
+	}
+	</script>`}
 </svelte:head>
 
 <Navigation />
